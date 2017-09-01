@@ -1,5 +1,10 @@
-<h1>This is my homepage</h1>
-
-<%= link_to 'Home', root_path %>
-<%= link_to 'Pets', pets_path %>
-<%= link_to 'Reservations', reservations_path %>
+<div class="center jumbotron">
+  <div class="image-box">
+    <img src="assets/penny-2.jpg" id="image" class="img-circle">
+    <img src="assets/tidus-2.jpg" id="image" class="img-circle">
+    <img src="assets/digger-2.jpg" id="image" class="img-circle">
+  </div>
+  <div class="cta-box">
+    <%= link_to "Make a Reservation", "#", class: "btn btn-primary btn-lg btn-xlg" %>
+  </div>
+</div>
