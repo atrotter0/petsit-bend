@@ -148,3 +148,9 @@ footer ul li {
   margin-left: 15px;
   font-size: 0.8em;
 }
+
+@media screen and (max-width: 500px) {
+  footer ul {
+    display: none;
+  }
+}
