@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170901044653) do
+ActiveRecord::Schema.define(version: 20170901052009) do
+
+  create_table "pets", force: :cascade do |t|
+    t.string   "name"
+    t.string   "pet_type"
+    t.integer  "age"
+    t.string   "color"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "reservations", force: :cascade do |t|
     t.integer  "number_of_pets"

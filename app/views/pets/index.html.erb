@@ -1,0 +1,21 @@
+<h1>Displaying all Pets:</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Age</th>
+    <th>Color</th>
+  </tr>
+
+  <% @pets.each do |pet| %>
+  <tr>
+    <td><%= pet.name %></td>
+    <td><%= pet.pet_type %></td>
+    <td><%= pet.age %></td>
+    <td><%= pet.color %></td>
+  </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Home', root_path %>
