@@ -1,0 +1,23 @@
+<h1>Listing all Reservations:</h1>
+
+<table>
+  <tr>
+    <th>Number</th>
+    <th>Pets</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+    <th>Medications?</th>
+    <th>Special Instructions</th>
+  </tr>
+
+  <% @reservations.each do |reservation| %>
+  <tr>
+    <td><%= reservation.number_of_pets %></td>
+    <td></td>
+    <td><%= reservation.start_date %></td>
+    <td><%= reservation.end_date %></td>
+    <td><%= reservation.medications %></td>
+    <td><%= reservation.special_instructions %></td>
+  </tr>
+  <% end %>
+</table>
