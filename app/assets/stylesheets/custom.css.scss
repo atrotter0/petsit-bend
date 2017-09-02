@@ -113,6 +113,18 @@ body {
   box-shadow: 5px 5px 15px #3c8293;
 }
 
+.messages-container {
+  text-align: center;
+  width: 100%;
+  position: absolute;
+}
+
+.messages-box {
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+}
+
 .content {
   color: #fff;
   background-color: #262626;
