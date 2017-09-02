@@ -12,7 +12,7 @@
     <div class="data-content">
       <% @pets.each do |pet| %>
         <ul>
-          <li><%= pet.user.username %></li>
+          <li><%= pet.user.first_name + ' ' + pet.user.last_name %></li>
           <li><%= pet.name %></li>
           <li>View | Edit | Delete</li>
         </ul>

@@ -1,4 +1,21 @@
-<h1>Showing selected User info</h1>
-
-<p>Username: <%= @user.username %></p>
-<p>Email: <%= @user.email %></p>
+<div class="content">
+  <h1 align="center">My Account</h1>
+  <div class="data-container">
+    <div class="show-data-header">Account Details</div>
+    <div class="show-data-content">
+      Username: <%= @user.username %></br>
+      Email: <%= @user.email %></br>
+    </div>
+    <div class="show-data-header">Personal Details</div>
+    <div class="show-data-content">
+      First Name: <%= @user.first_name %></br>
+      Last Name: <%= @user.last_name %></br>
+      Phone: <%= @user.phone %>
+    </div>
+    <div class="show-data-header">Address</div>
+    <div class="show-data-content">
+      <%= @user.address %>
+    </div>
+    <div class="show-edit-box">[ <%= link_to 'Edit', edit_user_path(@user) %> ]</div>
+  </div>
+</div>

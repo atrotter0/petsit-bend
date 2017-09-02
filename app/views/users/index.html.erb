@@ -3,7 +3,7 @@
   <div class="data-container">
     <div class="data-header">
       <ul>
-        <li>Username</li>
+        <li>Name</li>
         <li>Email</li>
         <li>Options</li>
       </ul>
@@ -12,9 +12,9 @@
     <div class="data-content">
       <% @users.each do |user| %>
         <ul>
-          <li><%= user.username %></li>
+          <li><%= user.first_name + ' ' + user.last_name %></li>
           <li><%= user.email %></li>
-          <li>View | Edit | Delete</li>
+          <li><%= link_to 'View', user_path(user) %> | <%= link_to 'Edit', edit_user_path(user) %> | Delete</li>
         </ul>
       <% end %>
     </div>

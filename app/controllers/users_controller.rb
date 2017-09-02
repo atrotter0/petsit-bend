@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = "Welcome to the Alpha Blog, #{@user.username}!"
+      flash[:success] = "Account successfully created! Welcome to the Petsit Bend, #{@user.first_name}!"
       redirect_to user_path(@user)
     else
       render 'new'
@@ -20,6 +20,15 @@ class UsersController < ApplicationController
   end
 
   def edit
+  end
+
+  def update
+    if @user.update(user_params)
+      flash[:success] = "Your account was successfully updated!"
+      redirect_to user_path(@user)
+    else
+      render 'edit'
+    end
   end
 
   def show
@@ -31,7 +40,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :email)
+    params.require(:user).permit(:username, :email, :first_name, :last_name, :phone, :address)
   end
 
   def set_user

@@ -12,8 +12,8 @@
     <div class="data-content">
       <% @reservations.each do |reservation| %>
         <ul>
-          <li><%= reservation.user.username %></li>
-          <li><%= reservation.start_date.strftime('%a - %b %d, %Y') %></li>
+          <li><%= reservation.user.first_name + ' ' + reservation.user.last_name %></li>
+          <li><%= reservation.start_date.strftime('%a %b %d, %Y') %></li>
           <li>View | Edit | Delete</li>
         </ul>
       <% end %>
