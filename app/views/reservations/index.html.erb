@@ -1,23 +1,22 @@
-<h1>Listing all Reservations:</h1>
+<div class="content">
+  <h1 align="center">Reservations</h1>
+  <div class="data-container">
+    <div class="data-header">
+      <ul>
+        <li>Owner</li>
+        <li>Start Date</li>
+        <li>Options</li>
+      </ul>
+    </div>
 
-<table>
-  <tr>
-    <th>Number</th>
-    <th>Pets</th>
-    <th>Start Date</th>
-    <th>End Date</th>
-    <th>Medications?</th>
-    <th>Special Instructions</th>
-  </tr>
-
-  <% @reservations.each do |reservation| %>
-  <tr>
-    <td><%= reservation.number_of_pets %></td>
-    <td>Pet names here</td>
-    <td><%= reservation.start_date %></td>
-    <td><%= reservation.end_date %></td>
-    <td><%= reservation.medications %></td>
-    <td><%= reservation.special_instructions %></td>
-  </tr>
-  <% end %>
-</table>
+    <div class="data-content">
+      <% @reservations.each do |reservation| %>
+        <ul>
+          <li><%= reservation.user.username %></li>
+          <li><%= reservation.start_date.strftime('%a - %b %d, %Y') %></li>
+          <li>View | Edit | Delete</li>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</div>
