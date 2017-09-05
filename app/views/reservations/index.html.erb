@@ -14,7 +14,11 @@
         <ul>
           <li><%= reservation.user.first_name + ' ' + reservation.user.last_name %></li>
           <li><%= reservation.start_date.strftime('%a %b %d, %Y') %></li>
-          <li>View | Edit | Delete</li>
+          <li>
+            <%= link_to 'View', reservation_path(reservation), class: "btn btn-med btn-primary" %>
+            <%= link_to 'Edit', edit_reservation_path(reservation), class: "btn btn-med btn-primary" %>
+            <%= link_to 'Delete', edit_reservation_path(reservation), class: "btn btn-med btn-primary"  %>
+          </li>
         </ul>
       <% end %>
     </div>

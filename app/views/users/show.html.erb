@@ -16,6 +16,6 @@
     <div class="show-data-content">
       <%= @user.address %>
     </div>
-    <div class="show-edit-box">[ <%= link_to 'Edit', edit_user_path(@user) %> ]</div>
+    <div class="show-edit-box"><%= link_to 'Edit', edit_user_path(@user), class: "btn btn-med btn-primary" %></div>
   </div>
 </div>

@@ -14,7 +14,11 @@
         <ul>
           <li><%= pet.user.first_name + ' ' + pet.user.last_name %></li>
           <li><%= pet.name %></li>
-          <li>View | Edit | Delete</li>
+          <li>
+            <%= link_to 'View', pet_path(pet), class: "btn btn-med btn-primary" %>
+            <%= link_to 'Edit', edit_pet_path(pet), class: "btn btn-med btn-primary" %>
+            <%= link_to 'Delete', edit_pet_path(pet), class: "btn btn-med btn-primary"  %>
+          </li>
         </ul>
       <% end %>
     </div>

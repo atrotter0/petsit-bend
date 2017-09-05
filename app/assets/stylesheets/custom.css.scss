@@ -199,13 +199,12 @@ body {
 }
 
 .data-content li a {
-  color: #000;
-  transition: color 1s, border 0.5s;
+  color: #fff;
+  transition: color 1s;
 }
 
 .data-content li a:hover {
-  color: #000;
-  border-bottom: 5px solid #000;
+  color: #fff;
 }
 
 .show-data-header {
@@ -244,40 +243,31 @@ body {
 }
 
 .btn.btn-primary.btn-med {
-  background-color: #3c8293;
-  border-color: #3c8293;
+  background-color: #000;
+  border-color: #fff;
+  border-radius: 2px 2px 2px 2px;
   margin-bottom: 30px;
   transition: background-color 1s;
 }
 
 .btn.btn-primary.btn-med:hover {
-  background-color: #000;
-  border-color: #fff;
-  border-radius: 2px 2px 2px 2px;
-}
-
-.div-button {
-  vertical-align: center;
-  width: 126.63px;
-  height: 34px;
-  padding: 6px 12px;
-  text-align: center;
-  border-radius: 4px;
   background-color: #3c8293;
-  border: 1px solid #3c8293;
-  margin-bottom: 30px;
-  transition: background-color 1s;
-}
-
-.div-button a {
-  color: #fff;
-}
-
-.div-button:hover {
-  cursor: pointer;
-  background-color: #000;
   border-color: #fff;
-  border-radius: 2px 2px 2px 2px;
+  margin-bottom: 30px;
+}
+
+.control-label {
+  background-color: #000;
+}
+
+input[type="text"], input[type="email"] {
+  border-radius: 2px;
+  transition: width 0.2s, box-shadow 0.2s;
+  transition: border-radius 0.2s
+}
+
+input:focus {
+  border-radius: 4px;
 }
 
 footer {

@@ -1,0 +1,48 @@
+<%= render 'shared/errors', obj: @pet %>
+
+  <div class="form-container">
+    <div class="row">
+      <div class="col-xs-12">
+        <%= form_for(@pet, :html => { class: 'form-horizontal', role: 'form' }) do |f| %>
+          <div class="form-group">
+            <div class="control-label col-sm-2">
+              <%= f.label :name %>
+            </div>
+            <div class="col-sm-8">
+              <%= f.text_field :name, class: 'form-control', placeholder: "Pet's Name" %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="control-label col-sm-2">
+              <%= f.label :pet_type, 'Type' %>
+            </div>
+            <div class="col-sm-8">
+              <%= f.select(:pet_type, ['Dog', 'Cat', 'Horse', 'Other'], { :include_blank => "Pet's Type" }, { :class => 'form-control'}) %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="control-label col-sm-2">
+              <%= f.label :age %>
+            </div>
+            <div class="col-sm-8">
+              <%= f.select(:pet_type, pet_ages, { :include_blank => "Pet's Age"}, { :class => 'form-control'}) %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="control-label col-sm-2">
+              <%= f.label :color %>
+            </div>
+            <div class="col-sm-8">
+              <%= f.text_field :color, class: 'form-control', placeholder: "Pet's Color" %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <%= f.submit(@pet.new_record? ? "Add pet" : "Update pet", class: 'btn btn-primary btn-med') %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
