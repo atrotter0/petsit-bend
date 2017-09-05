@@ -1,4 +1,5 @@
 class ReservationsController < ApplicationController
+  include FormHelper
   before_action :set_reservation, only: [:edit, :update, :show, :destroy]
 
   def index

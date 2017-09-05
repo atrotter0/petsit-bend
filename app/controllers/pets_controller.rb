@@ -1,5 +1,5 @@
 class PetsController < ApplicationController
-  include PetsHelper
+  include FormHelper
   before_action :set_pet, only: [:edit, :update, :show, :destroy]
 
   def index

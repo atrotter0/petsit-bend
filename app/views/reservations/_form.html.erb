@@ -1,0 +1,40 @@
+<%= render 'shared/errors', obj: @reservation %>
+
+  <div class="form-container">
+    <div class="row">
+      <div class="col-xs-12">
+        <%= form_for(@reservation, :html => { class: 'form-horizontal', role: 'form' }) do |f| %>
+          <div class="form-group">
+            <div class="control-label col-sm-2">
+              <%= f.label :number_of_pets, 'Pet Count' %>
+            </div>
+            <div class="col-sm-8">
+              <%= f.select(:number_of_pets, number_select_generator(1, 10), { :include_blank => "Select Pet Count"}, { :class => 'form-control'}) %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="control-label col-sm-2">
+              <%= f.label :start_date, 'Start Date' %>
+            </div>
+            <div class="col-sm-8">
+              <%= date_select(:start_date, {}, :html=>{:class => 'control-form'}) %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="control-label col-sm-2">
+              <%= f.label :end_date, 'End Date' %>
+            </div>
+            <div class="col-sm-8">
+              <%= date_select(:start_date, {}, :html=>{:class => 'control-form'}) %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <%= f.submit(@reservation.new_record? ? "Create reservation" : "Update reservation", class: 'btn btn-primary btn-med') %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
