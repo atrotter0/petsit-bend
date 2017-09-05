@@ -5,8 +5,19 @@ class ReservationsController < ApplicationController
     @reservations = Reservation.all
   end
 
-  def create
+  def new
     @reservation = Reservation.new
+  end
+
+  def create
+    @reservation = Reservation.new(reservation_params)
+    @reservation.user_id = 1 #remove me later
+    if @reservation.save
+      flash[:success] = "Reservation successfully created!"
+      redirect_to reservation_path(@reservation)
+    else
+      render 'new'
+    end
   end
 
   def edit
@@ -15,7 +26,19 @@ class ReservationsController < ApplicationController
   def show
   end
 
+  def update
+    if @reservation.update(reservation_params)
+      flash[:success] = "Reservation #{@reervation.id} was successfully updated!"
+      redirect_to reservation_path(@reservation)
+    else
+      render 'edit'
+    end
+  end
+
   def destroy
+    @reservation.destroy
+    flash[:danger] = "Reservation was successfully cancelled!"
+    redirect_to reservations_path
   end
 
   private

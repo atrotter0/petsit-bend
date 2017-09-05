@@ -37,6 +37,9 @@ class PetsController < ApplicationController
   end
 
   def destroy
+    @pet.destroy
+    flash[:danger] = "Pet was successfully deleted!"
+    redirect_to pets_path
   end
 
   private

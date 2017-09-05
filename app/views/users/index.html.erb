@@ -17,7 +17,10 @@
           <li>
             <%= link_to 'View', user_path(user), class: "btn btn-med btn-primary" %>
             <%= link_to 'Edit', edit_user_path(user), class: "btn btn-med btn-primary" %>
-            <%= link_to 'Delete', edit_user_path(user), class: "btn btn-med btn-primary"  %>
+            <%= link_to 'Delete', edit_user_path(user),
+                                  method: :delete,
+                                  data: { confirm: "Are you sure you want to delete this user?" },
+                                  class: "btn btn-med btn-primary" %>
           </li>
         </ul>
       <% end %>

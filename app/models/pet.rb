@@ -5,5 +5,5 @@ class Pet < ActiveRecord::Base
   validates :name, presence: true, length: { maximum: 30 }
   validates :pet_type, presence: true
   validates :age, presence: true
-  validates :color, presence: true
+  validates :color, presence: true, length: { maximum: 50 }
 end
