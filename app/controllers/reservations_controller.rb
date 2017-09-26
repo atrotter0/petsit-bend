@@ -29,7 +29,7 @@ class ReservationsController < ApplicationController
 
   def update
     if @reservation.update(reservation_params)
-      flash[:success] = "Reservation #{@reervation.id} was successfully updated!"
+      flash[:success] = "Reservation #{@reservation.id} was successfully updated!"
       redirect_to reservation_path(@reservation)
     else
       render 'edit'
