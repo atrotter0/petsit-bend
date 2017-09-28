@@ -282,6 +282,20 @@ body {
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 
+input[type=radio] {
+  margin-left: 5px;
+  margin-right: 10px;
+}
+
+#radio-box {
+  margin-top: 8px;
+}
+
+#instructions-count {
+  margin-top: 5px;
+  font-size: 0.8em;
+}
+
 footer {
   margin-top: 0px;
   width: 100%;
