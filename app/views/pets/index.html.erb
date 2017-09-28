@@ -1,12 +1,18 @@
 <div class="content">
   <h1 align="center">Pets</h1>
+  <div class="data-content">
+    <a href="<%= new_pet_path %>" class="btn btn-lg btn-primary">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        Add Pet
+    </a>
+  </div>
   <div class="data-container">
     <% if @pets.present? %>
       <div class="data-header">
         <ul>
-          <li>Owner</li>
-          <li>Pet</li>
-          <li>Options</li>
+          <li><div class="data-icon"><img src="assets/users.jpg" id="icon" class="img-circle"></li>
+          <li><div class="data-icon"><img src="assets/pets.jpg" id="icon" class="img-circle"></div></li>
+          <li><div class="data-icon"><img src="assets/options.jpg" id="icon" class="img-circle"></div></li>
         </ul>
       </div>
       <div class="data-content">
@@ -23,10 +29,6 @@
             </li>
           </ul>
         <% end %>
-      </div>
-    <% else %>
-      <div class="data-content">
-        You have no pets at this time.
       </div>
     <% end %>
   </div>

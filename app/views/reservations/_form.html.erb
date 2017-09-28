@@ -42,8 +42,8 @@
           </div>
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-              <%= f.submit(@reservation.new_record? ? "Create reservation" : "Update reservation", class: 'btn btn-primary btn-med') %>
-              <%= link_to 'Back to reservations', reservations_path, class: "btn btn-med btn-primary" %>
+              <%= f.submit(@reservation.new_record? ? "Create Reservation" : "Update Reservation", class: 'btn btn-primary btn-med') %>
+              <%= link_to 'Back', reservations_path, class: "btn btn-med btn-primary" %>
             </div>
           </div>
         <% end %>

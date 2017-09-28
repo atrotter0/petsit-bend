@@ -1,15 +1,20 @@
 <div class="content">
   <h1 align="center">Reservations</h1>
+  <div class="data-content">
+    <a href="<%= new_reservation_path %>" class="btn btn-lg btn-primary">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        Add Reservation
+    </a>
+  </div>
   <div class="data-container">
     <% if @reservations.present? %>
       <div class="data-header">
         <ul>
-          <li>Owner</li>
-          <li>Start Date</li>
-          <li>Options</li>
+          <li><div class="data-icon"><img src="assets/users.jpg" id="icon" class="img-circle"></li>
+          <li><div class="data-icon"><img src="assets/reservations.jpg" id="icon" class="img-circle"></div></li>
+          <li><div class="data-icon"><img src="assets/options.jpg" id="icon" class="img-circle"></div></li>
         </ul>
       </div>
-
       <div class="data-content">
         <% @reservations.each do |reservation| %>
           <ul>
@@ -24,10 +29,6 @@
             </li>
           </ul>
         <% end %>
-      </div>
-    <% else %>
-      <div class="data-content">
-        You have no reservations at this time.
       </div>
     <% end %>
   </div>

@@ -9,7 +9,7 @@
               <%= f.label :name %>
             </div>
             <div class="col-sm-8">
-              <%= f.text_field :name, class: 'form-control', placeholder: "Pet's Name" %>
+              <%= f.text_field :name, class: 'form-control', placeholder: "Name" %>
             </div>
           </div>
           <div class="form-group">
@@ -17,7 +17,7 @@
               <%= f.label :pet_type, 'Type' %>
             </div>
             <div class="col-sm-8">
-              <%= f.select(:pet_type, ['Dog', 'Cat', 'Horse', 'Other'], { :include_blank => "Pet's Type" }, { :class => 'form-control'}) %>
+              <%= f.select(:pet_type, ['Dog', 'Cat', 'Horse', 'Other'], { :include_blank => "Type" }, { :class => 'form-control'}) %>
             </div>
           </div>
           <div class="form-group">
@@ -25,7 +25,7 @@
               <%= f.label :age %>
             </div>
             <div class="col-sm-8">
-              <%= f.select(:age, number_select_generator(1, 30), { :include_blank => "Pet's Age"}, { :class => 'form-control'}) %>
+              <%= f.select(:age, number_select_generator(1, 30), { :include_blank => "Age"}, { :class => 'form-control'}) %>
             </div>
           </div>
           <div class="form-group">
@@ -33,13 +33,13 @@
               <%= f.label :color %>
             </div>
             <div class="col-sm-8">
-              <%= f.text_field :color, class: 'form-control', placeholder: "Pet's Color" %>
+              <%= f.text_field :color, class: 'form-control', placeholder: "Color" %>
             </div>
           </div>
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
               <%= f.submit(@pet.new_record? ? "Add pet" : "Update pet", class: 'btn btn-primary btn-med') %>
-              <%= link_to 'Back to pets', pets_path, class: "btn btn-med btn-primary" %>
+              <%= link_to 'Back', pets_path, class: "btn btn-med btn-primary" %>
             </div>
           </div>
         <% end %>
