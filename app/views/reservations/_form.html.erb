@@ -9,7 +9,7 @@
               <%= f.label :start_date, 'Date From' %>
             </div>
             <div class="col-sm-8">
-              <%= text_field_tag('start_date', params[:start_date], placeholder: 'From', class: 'datepicker') %>
+              <%= f.text_field :start_date, class: 'datepicker', placeholder: "From" %>
             </div>
           </div>
           <div class="form-group">
@@ -17,7 +17,26 @@
               <%= f.label :end_date, 'Date To' %>
             </div>
             <div class="col-sm-8">
-              <%= text_field_tag('end_date', params[:end_date], placeholder: 'To', class: 'datepicker') %>
+              <%= f.text_field :end_date, class: 'datepicker', placeholder: "To" %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="control-label col-sm-2">
+              <%= f.label :medications, 'Medications' %>
+            </div>
+            <div class="col-sm-8">
+              <%= f.label :medications, 'Yes' %>
+              <%= f.radio_button :medications, 'true' %>
+              <%= f.label :medications, 'No' %>
+              <%= f.radio_button :medications, 'false'%>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="control-label col-sm-2">
+              <%= f.label :special_instructions, 'Special Instructions' %>
+            </div>
+            <div class="col-sm-8">
+              <%= f.text_area :special_instructions, class: 'form-control', placeholder: "Special Instructions" %>
             </div>
           </div>
           <div class="form-group">
