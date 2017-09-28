@@ -1,12 +1,13 @@
 <div class="content">
-  <h1 align="center"><%= @pet.name %></h1>
+  <!-- <div class="data-image-box"><img src="../assets/pets.jpg" id="icon-image" class="img-circle"></div> -->
+  <h1 align="center"><img src="../assets/pets.jpg" id="icon-image" class="img-circle"><%= @pet.name %></h1>
   <div class="data-container">
     <div class="show-data-header">Pet Details</div>
     <div class="show-data-content">
-      Name: <%= @pet.name %></br>
-      Type: <%= @pet.pet_type %></br>
-      Age: <%= @pet.age %></br>
-      Color: <%= @pet.color %></br>
+      <strong>Name:</strong> <%= @pet.name %></br>
+      <strong>Type:</strong> <%= @pet.pet_type %></br>
+      <strong>Age:</strong> <%= @pet.age %></br>
+      <strong>Color:</strong> <%= @pet.color %></br>
     </div>
     <div class="show-edit-box">
       <%= link_to 'Edit', edit_pet_path(@pet), class: "btn btn-med btn-primary" %>

@@ -1,16 +1,17 @@
 <div class="content">
-  <h1 align="center">My Account</h1>
+  <!-- <div class="data-image-box"><img src="../assets/users.jpg" id="icon-image" class="img-circle"></div> -->
+  <h1 align="center"><img src="../assets/users.jpg" id="icon-image" class="img-circle">My Profile</h1>
   <div class="data-container">
     <div class="show-data-header">Account Details</div>
     <div class="show-data-content">
-      Username: <%= @user.username %></br>
-      Email: <%= @user.email %></br>
+      <strong>Username:</strong> <%= @user.username %></br>
+      <strong>Email:</strong> <%= @user.email %></br>
     </div>
     <div class="show-data-header">Personal Details</div>
     <div class="show-data-content">
-      First Name: <%= @user.first_name %></br>
-      Last Name: <%= @user.last_name %></br>
-      Phone: <%= @user.phone %>
+      <strong>First Name:</strong> <%= @user.first_name %></br>
+      <strong>Last Name:</strong> <%= @user.last_name %></br>
+      <strong>Phone:</strong> <%= @user.phone %>
     </div>
     <div class="show-data-header">Address</div>
     <div class="show-data-content">

@@ -1,20 +1,20 @@
 <div class="content">
-  <h1 align="center">My Reservation</h1>
+  <h1 align="center"><img src="../assets/reservations.jpg" id="icon-image" class="img-circle">My Reservation</h1>
   <div class="data-container">
     <div class="show-data-header">Pets</div>
     <div class="show-data-content">
     </div>
     <div class="show-data-header">Reservation Dates</div>
     <div class="show-data-content">
-      From: <%= @reservation.start_date %></br>
-      To: <%= @reservation.end_date %></br>
+      <strong>Starts:</strong> <%= @reservation.start_date %></br>
+      <strong>Ends:</strong> <%= @reservation.end_date %></br>
     </div>
     <div class="show-data-header">Details</div>
     <div class="show-data-content">
-      Medications:
+      <strong>Medications:</strong>
       <% meds = @reservation.medications ? 'Yes' : 'No' %>
       <%= meds %></br>
-     Special Instructions: <%= @reservation.special_instructions %>
+     <strong>Special Instructions:</strong> <%= @reservation.special_instructions %>
     </div>
     <div class="show-edit-box">
       <%= link_to 'Edit', edit_reservation_path(@reservation), class: "btn btn-med btn-primary" %>
