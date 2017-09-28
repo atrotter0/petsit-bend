@@ -8,6 +8,9 @@
       Age: <%= @pet.age %></br>
       Color: <%= @pet.color %></br>
     </div>
-    <div class="show-edit-box"><%= link_to 'Edit', edit_pet_path(@pet), class: "btn btn-med btn-primary" %></div>
+    <div class="show-edit-box">
+      <%= link_to 'Edit', edit_pet_path(@pet), class: "btn btn-med btn-primary" %>
+      <%= link_to 'Back to pets', pets_path, class: "btn btn-med btn-primary" %>
+    </div>
   </div>
 </div>

@@ -39,6 +39,7 @@
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
               <%= f.submit(@pet.new_record? ? "Add pet" : "Update pet", class: 'btn btn-primary btn-med') %>
+              <%= link_to 'Back to pets', pets_path, class: "btn btn-med btn-primary" %>
             </div>
           </div>
         <% end %>

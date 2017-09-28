@@ -17,10 +17,9 @@
           <li>
             <%= link_to 'View', reservation_path(reservation), class: "btn btn-med btn-primary" %>
             <%= link_to 'Edit', edit_reservation_path(reservation), class: "btn btn-med btn-primary" %>
-            <%= link_to 'Cancel', reservation_path(reservation),
-                                  method: :delete,
-                                  data: { confirm: "Are you sure you want to cancel this reservation?" },
-                                  class: "btn btn-med btn-primary" %>
+            <%= link_to 'Cancel', reservation_path(reservation), method: :delete,
+              data: { confirm: "Are you sure you want to cancel this reservation?" },
+                class: "btn btn-med btn-primary" %>
           </li>
         </ul>
       <% end %>
