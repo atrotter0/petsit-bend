@@ -1,4 +1,21 @@
-<h1>Showing selected reservation</h1>
-
-<p></p>
-<p></p>
+<div class="content">
+  <h1 align="center">My Reservation</h1>
+  <div class="data-container">
+    <div class="show-data-header">Pets</div>
+    <div class="show-data-content">
+    </div>
+    <div class="show-data-header">Reservation Dates</div>
+    <div class="show-data-content">
+      From: <%= @reservation.start_date %></br>
+      To: <%= @reservation.end_date %></br>
+    </div>
+    <div class="show-data-header">Details</div>
+    <div class="show-data-content">
+      Medications:
+      <% meds = @reservation.medications ? 'Yes' : 'No' %>
+      <%= meds %></br>
+     Special Instructions: <%= @reservation.special_instructions %>
+    </div>
+    <div class="show-edit-box"><%= link_to 'Edit', edit_reservation_path(@reservation), 'data-no-turbolink' => true, class: "btn btn-med btn-primary" %></div>
+  </div>
+</div>
