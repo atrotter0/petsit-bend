@@ -5,6 +5,7 @@ class ReservationsController < ApplicationController
 
   def index
     @reservations = Reservation.all
+    @sorted_reservations = sort_by_date(@reservations, User.first.id).flatten!
   end
 
   def new

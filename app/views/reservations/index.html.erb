@@ -16,8 +16,7 @@
         </ul>
       </div>
       <div class="data-content">
-        <% reservations = sort_by_date(@reservations, User.first.id).flatten! %> <!-- replace this user with current_user -->
-        <% reservations.each do |reservation| %>
+        <% @sorted_reservations.each do |reservation| %>
           <ul>
             <li><%= reservation.pet_list %></li>
             <li><%= reservation.start_date %></li>
