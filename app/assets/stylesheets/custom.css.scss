@@ -286,6 +286,17 @@ body {
   letter-spacing: 5px;
 }
 
+#ms-pet-list {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+div.ms-selectable, div.ms-selection {
+  border-radius: 5px;
+  padding: 5px;
+}
+
 .datepicker {
   display: block;
   width: 100%;
@@ -311,12 +322,24 @@ input[type=radio] {
 }
 
 #radio-box {
-  margin-top: 8px;
+  margin-top: 20px;
+}
+
+#meds-label {
+  margin-top: 14px;
 }
 
 #instructions-count {
   margin-top: 5px;
   font-size: 0.8em;
+}
+
+#instructions-label {
+  margin-top: 10px;
+}
+
+textarea {
+  margin-top: 10px;
 }
 
 footer {

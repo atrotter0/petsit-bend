@@ -34,7 +34,7 @@
           </div>
           <div class="form-group">
             <div class="control-label col-sm-2">
-              <%= f.label :medications, 'Medications' %>
+              <%= f.label :medications, 'Medications', id: 'meds-label' %>
             </div>
             <div class="col-sm-8" id="radio-box">
               <%= f.label :medications, 'Yes' %>
@@ -45,7 +45,7 @@
           </div>
           <div class="form-group">
             <div class="control-label col-sm-2">
-              <%= f.label :special_instructions, 'Special Instructions' %>
+              <%= f.label :special_instructions, 'Special Instructions', id: 'instructions-label' %>
             </div>
             <div class="col-sm-8">
               <%= f.text_area :special_instructions, class: 'form-control', placeholder: "Special Instructions", :maxlength => 250, :size => 40 %>

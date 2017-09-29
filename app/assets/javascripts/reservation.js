@@ -4,5 +4,8 @@ $(document).ready(function() {
     $("#instructions-count").html(length + " / 250 characters");
   });
 
-  $('#pet-list').multiSelect();
+  $('#pet-list').multiSelect({
+    selectionHeader: 'Selected',
+    selectableHeader: 'Available'
+  });
 });
