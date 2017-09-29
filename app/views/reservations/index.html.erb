@@ -10,15 +10,16 @@
     <% if @reservations.present? %>
       <div class="data-header">
         <ul>
-          <li><div class="data-icon"><img src="assets/users.jpg" id="icon" class="img-circle"></li>
+          <li><div class="data-icon"><img src="assets/pets.jpg" id="icon" class="img-circle"></li>
           <li><div class="data-icon"><img src="assets/reservations.jpg" id="icon" class="img-circle"></div></li>
           <li><div class="data-icon"><img src="assets/options.jpg" id="icon" class="img-circle"></div></li>
         </ul>
       </div>
       <div class="data-content">
-        <% @reservations.each do |reservation| %>
+        <% reservations = sort_by_date(@reservations, User.first.id).flatten! %> <!-- replace this user with current_user -->
+        <% reservations.each do |reservation| %>
           <ul>
-            <li><%= reservation.user.first_name + ' ' + reservation.user.last_name %></li>
+            <li><%= reservation.pet_list %></li>
             <li><%= reservation.start_date %></li>
             <li>
               <%= link_to 'View', reservation_path(reservation), class: "btn btn-med btn-primary" %>
