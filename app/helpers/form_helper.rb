@@ -3,8 +3,4 @@ module FormHelper
     value = start_value.upto(end_value)
     value.map{ |i| i }
   end
-
-  def pet_names
-    Pet.all.pluck(:name)
-  end
 end
