@@ -12,6 +12,7 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = Reservation.new(reservation_params)
+    create_pet_list
     @reservation.user_id = 1 #remove me later
     if @reservation.save
       flash[:success] = "Reservation successfully created!"
@@ -28,6 +29,7 @@ class ReservationsController < ApplicationController
   end
 
   def update
+    create_pet_list
     if @reservation.update(reservation_params)
       flash[:success] = "Reservation was successfully updated!"
       redirect_to reservation_path(@reservation)
@@ -45,10 +47,20 @@ class ReservationsController < ApplicationController
   private
 
   def reservation_params
-    params.require(:reservation).permit(:pets, :start_date, :end_date, :medications, :special_instructions)
+    params.require(:reservation).permit(:pet_list, :start_date, :end_date, :medications, :special_instructions)
   end
 
   def set_reservation
     @reservation = Reservation.find(params[:id])
+  end
+
+  def create_pet_list
+    if params[:pet_list].count > 1
+      list = params[:pet_list].map{ |pet| "#{pet}" }.join(", ")
+    else
+      list = params[:pet_list].first
+    end
+
+    @reservation.pet_list = list
   end
 end

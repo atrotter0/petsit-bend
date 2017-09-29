@@ -3,4 +3,6 @@ $(document).ready(function() {
     var length = $(this).val().length;
     $("#instructions-count").html(length + " / 250 characters");
   });
+
+  $('#pet-list').multiSelect();
 });
