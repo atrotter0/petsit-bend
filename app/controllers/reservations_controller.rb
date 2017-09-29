@@ -4,7 +4,7 @@ class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:edit, :update, :show, :destroy]
 
   def index
-    @reservations = Reservation.all.paginate(:page => params[:page], per_page: 5)
+    @reservations = Reservation.all.paginate(:page => params[:page], per_page: 20)
     @sorted_reservations = sort_by_date(@reservations, User.first.id).flatten! #change this user
   end
 
