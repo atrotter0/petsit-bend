@@ -11,4 +11,16 @@ module ReservationHelper
   def get_dates(reservations)
     reservations.map{ |reservation| reservation.start_date }
   end
+
+  def petsit_started?(start_date)
+    convert_to_date(start_date) <= Date.today
+  end
+
+  def petsit_finished?(end_date)
+    convert_to_date(end_date) <= Date.today
+  end
+
+  def convert_to_date(date_string)
+    Date.strptime(date_string, '%m/%d/%Y').to_date
+  end
 end

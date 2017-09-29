@@ -10,7 +10,7 @@
     <% if @reservations.present? %>
       <div class="data-header">
         <ul>
-          <li><div class="data-icon"><img src="assets/pets.jpg" id="icon" class="img-circle"></li>
+          <li><div class="data-icon"><img src="assets/pets.jpg" id="icon" class="img-circle"></div></li>
           <li><div class="data-icon"><img src="assets/reservations.jpg" id="icon" class="img-circle"></div></li>
           <li><div class="data-icon"><img src="assets/options.jpg" id="icon" class="img-circle"></div></li>
         </ul>
@@ -18,7 +18,20 @@
       <div class="data-content">
         <% @sorted_reservations.each do |reservation| %>
           <ul>
-            <li><%= reservation.pet_list %></li>
+            <li>
+              <div class="data-date-check-box">
+                <% if petsit_started?(reservation.start_date) && !petsit_finished?(reservation.end_date) %>
+                  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                  <span class="tooltiptext">In-Progress</span>
+                <% elsif petsit_finished?(reservation.end_date) %>
+                  <span class="glyphicon glyphicon-ok" aria-hidden="true" style="color: green;"></span>
+                  <span class="tooltiptext">Complete</span>
+                <% end %>
+              </div>
+              <div class="data-pet-list-box">
+                <%= reservation.pet_list %>
+              </div>
+            </li>
             <li><%= reservation.start_date %></li>
             <li>
               <%= link_to 'View', reservation_path(reservation), class: "btn btn-med btn-primary" %>

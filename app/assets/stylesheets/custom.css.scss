@@ -122,8 +122,9 @@ body {
   color: #fff;
   background-color: #262626;
   width: 100%;
-  height: auto;
-  min-height: 500px;
+  height: 500px;
+  overflow: scroll;
+  mmin-height: 500px;
   padding: 20px;
 }
 
@@ -202,6 +203,7 @@ body {
 }
 
 .data-content li {
+  text-align: center;
   margin-left: 5px;
   margin-right: 5px;
   margin-bottom: 10px;
@@ -222,6 +224,39 @@ body {
 
 .data-content li a:hover {
   color: #fff;
+}
+
+.data-date-check-box, .data-pet-name-box {
+  float: left;
+  width: 12%;
+  color: black;
+  height: 45px;
+  line-height: 45px;
+}
+
+.data-pet-list-box {
+  width: 88%;
+}
+
+.data-date-check-box .tooltiptext {
+  float:left;
+  border: 1px solid #fff;
+  visibility: hidden;
+  width: 10%;
+  background-color: black;
+  color: #fff;
+  font-size: 1em;
+  text-align: center;
+  border-radius: 3px;
+  padding: 0px;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.data-date-check-box:hover .tooltiptext {
+  visibility: visible;
 }
 
 .show-data-header {
