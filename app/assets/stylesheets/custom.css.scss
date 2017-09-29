@@ -182,11 +182,11 @@ body {
   height: 50px;
 }
 
-.data-header ul, .data-content ul {
+.data-header .ul-list, .data-content .ul-list {
   list-style-type: none;
 }
 
-.data-header ul li {
+.data-header .ul-list .li-list {
   margin-left: 5px;
   margin-right: 5px;
   height: 70px;
@@ -201,7 +201,11 @@ body {
   text-align: center;
 }
 
-.data-content li {
+.paginate-box {
+  margin-top: 10px;
+}
+
+.data-content .li-list {
   text-align: center;
   margin-left: 5px;
   margin-right: 5px;
@@ -215,13 +219,13 @@ body {
   color: #000;
 }
 
-.data-content li a {
+.data-content .li-list a {
   margin-top: 5px;
   color: #fff;
   transition: color 1s;
 }
 
-.data-content li a:hover {
+.data-content .li-list a:hover {
   color: #fff;
 }
 

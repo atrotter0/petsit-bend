@@ -3,10 +3,10 @@
   <div class="data-container">
     <div class="data-content">
       <% @users.each do |user| %>
-        <ul>
-          <li><%= user.first_name + ' ' + user.last_name %></li>
-          <li><%= user.email %></li>
-          <li>
+        <ul class="ul-list">
+          <li class="li-list"><%= user.first_name + ' ' + user.last_name %></li>
+          <li class="li-list"><%= user.email %></li>
+          <li class="li-list">
             <%= link_to 'View', user_path(user), class: "btn btn-med btn-primary" %>
             <%= link_to 'Edit', edit_user_path(user), class: "btn btn-med btn-primary" %>
             <%= link_to 'Delete', user_path(user), method: :delete,
@@ -15,6 +15,9 @@
           </li>
         </ul>
       <% end %>
+      <div class="paginate-box">
+        <%= will_paginate %>
+      </div>
     </div>
   </div>
 </div>

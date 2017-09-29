@@ -4,7 +4,7 @@ class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:edit, :update, :show, :destroy]
 
   def index
-    @reservations = Reservation.all
+    @reservations = Reservation.all.paginate(:page => params[:page], per_page: 5)
     @sorted_reservations = sort_by_date(@reservations, User.first.id).flatten! #change this user
   end
 
@@ -15,7 +15,7 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
     create_pet_list if params[:pet_list].present?
-    @reservation.user_id = 1 #remove me later
+    @reservation.user_id = 1 #change this user
     if @reservation.save
       flash[:success] = "Reservation successfully created!"
       redirect_to reservation_path(@reservation)

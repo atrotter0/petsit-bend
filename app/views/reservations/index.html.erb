@@ -9,16 +9,16 @@
   <div class="data-container">
     <% if @reservations.present? %>
       <div class="data-header">
-        <ul>
-          <li><div class="data-icon"><img src="assets/pets.jpg" id="icon" class="img-circle"></div></li>
-          <li><div class="data-icon"><img src="assets/reservations.jpg" id="icon" class="img-circle"></div></li>
-          <li><div class="data-icon"><img src="assets/options.jpg" id="icon" class="img-circle"></div></li>
+        <ul class="ul-list">
+          <li class="li-list"><div class="data-icon"><img src="assets/pets.jpg" id="icon" class="img-circle"></div></li>
+          <li class="li-list"><div class="data-icon"><img src="assets/reservations.jpg" id="icon" class="img-circle"></div></li>
+          <li class="li-list"><div class="data-icon"><img src="assets/options.jpg" id="icon" class="img-circle"></div></li>
         </ul>
       </div>
       <div class="data-content">
         <% @sorted_reservations.each do |reservation| %>
-          <ul>
-            <li>
+          <ul class="ul-list">
+            <li class="li-list">
               <div class="data-date-check-box">
                 <% if petsit_started?(reservation.start_date) && !petsit_finished?(reservation.end_date) %>
                   <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
@@ -32,8 +32,8 @@
                 <%= reservation.pet_list %>
               </div>
             </li>
-            <li><%= reservation.start_date %></li>
-            <li>
+            <li class="li-list"><%= reservation.start_date %></li>
+            <li class="li-list">
               <%= link_to 'View', reservation_path(reservation), class: "btn btn-med btn-primary" %>
               <%= link_to 'Edit', edit_reservation_path(reservation), class: "btn btn-med btn-primary" %>
               <%= link_to 'Cancel', reservation_path(reservation), method: :delete,
@@ -43,6 +43,9 @@
           </ul>
         <% end %>
       </div>
+    <div class="paginate-box center">
+        <%= will_paginate %>
+    </div>
     <% end %>
   </div>
 </div>
