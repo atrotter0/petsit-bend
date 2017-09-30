@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   before_action :require_admin, only: [:destroy]
 
   def index
-    @users = User.all.paginate(paginate_settings(20))
+    @users = User.all.order("last_login DESC").paginate(paginate_settings(20))
   end
 
   def new
