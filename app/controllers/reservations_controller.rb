@@ -1,15 +1,16 @@
 class ReservationsController < ApplicationController
   include FormHelper
   include ReservationHelper
+  include PaginateHelper
   before_action :set_reservation, only: [:edit, :update, :show, :destroy]
   before_action :require_user
   before_action :require_same_user
 
   def index
     if current_user.admin?
-      @reservations = Reservation.all.order("start_date ASC").paginate(:page => params[:page], per_page: 20)
+      @reservations = Reservation.all.order("start_date ASC").paginate(paginate_settings(20))
     else
-      @reservations = current_user.reservations.paginate(:page => params[:page], per_page: 20)
+      @reservations = current_user.reservations.paginate(paginate_settings(20))
       @sorted_reservations = sort_by_date(@reservations, current_user.id).flatten!
     end
   end

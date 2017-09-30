@@ -237,8 +237,19 @@ body {
   line-height: 45px;
 }
 
-.data-pet-list-box {
+.info-icon {
+  width: 30px;
+  height: auto;
+}
+
+.data-pet-list-box, .data-user-name-box {
   width: 88%;
+}
+
+.data-admin-pet-box {
+  float: left;
+  width: 60%;
+  text-align: center;
 }
 
 .data-date-check-box .tooltiptext {

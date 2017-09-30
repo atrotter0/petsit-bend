@@ -17,6 +17,7 @@
       <%= meds %></br>
      <strong>Special Instructions:</strong> <%= @reservation.special_instructions %>
     </div>
+    <%= render 'admin/reservations_show.html.erb' if current_user.admin? %>
     <div class="show-edit-box">
       <%= link_to 'Edit', edit_reservation_path(@reservation), class: "btn btn-med btn-primary" %>
       <%= link_to 'Back', reservations_path, class: "btn btn-med btn-primary" %>

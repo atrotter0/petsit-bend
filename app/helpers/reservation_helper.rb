@@ -42,7 +42,7 @@ module ReservationHelper
   def format_dates
     @format_list = []
     @converted_list.each do |date|
-      @format_list << year_day_month(date)
+      @format_list << year_month_day(date)
     end
     @format_list.sort!
   end
@@ -56,11 +56,15 @@ module ReservationHelper
     end
   end
 
-  def year_day_month(date)
+  def year_month_day(date)
     date = date.strftime('%Y/%m/%d')
   end
 
   def month_day_year(date)
     date = date.strftime('%m/%d/%Y')
+  end
+
+  def reservaton_user_name(reservation)
+    "#{reservation.user.first_name} #{reservation.user.last_name}"
   end
 end

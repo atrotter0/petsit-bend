@@ -8,6 +8,7 @@
       <strong>Age:</strong> <%= @pet.age %></br>
       <strong>Color:</strong> <%= @pet.color %></br>
     </div>
+    <%= render 'admin/pets_show' if current_user.admin? %>
     <div class="show-edit-box">
       <%= link_to 'Edit', edit_pet_path(@pet), class: "btn btn-med btn-primary" %>
       <%= link_to 'Back', pets_path, class: "btn btn-med btn-primary" %>

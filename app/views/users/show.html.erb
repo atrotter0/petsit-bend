@@ -16,6 +16,9 @@
     <div class="show-data-content">
       <%= @user.address %>
     </div>
-    <div class="show-edit-box"><%= link_to 'Edit', edit_user_path(@user), class: "btn btn-med btn-primary" %></div>
+    <div class="show-edit-box">
+      <%= link_to 'Edit', edit_user_path(@user), class: "btn btn-med btn-primary" %>
+      <%= link_to 'Back', users_path, class: "btn btn-med btn-primary" if current_user.admin? %>
+    </div>
   </div>
 </div>

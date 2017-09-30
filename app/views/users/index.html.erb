@@ -11,7 +11,17 @@
     <div class="data-content">
       <% @users.each do |user| %>
         <ul class="ul-list">
-          <li class="li-list"><%= user.first_name + ' ' + user.last_name %></li>
+          <li class="li-list">
+            <div class="data-date-check-box">
+              <% if user.pets.present? %>
+                <span><img src="assets/pets.jpg" class="info-icon"></span>
+                <span class="tooltiptext"><%= pet_names_for_user(user) %></span>
+              <% end %>
+            </div>
+            <div class="data-user-name-box">
+              <%= user.first_name + ' ' + user.last_name %>
+            </div>
+          </li>
           <li class="li-list"><%= user.email %></li>
           <li class="li-list">
             <%= link_to 'View', user_path(user), class: "btn btn-med btn-primary" %>

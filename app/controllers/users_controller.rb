@@ -1,11 +1,13 @@
 class UsersController < ApplicationController
+  include PaginateHelper
+  include PetHelper
   before_action :set_user, only: [:edit, :update, :show, :destroy]
   before_action :require_user, only: [:index, :edit, :update, :show, :destroy]
   before_action :require_same_user, only: [:index, :edit, :update, :show, :destroy]
   before_action :require_admin, only: [:destroy]
 
   def index
-    @users = User.all.paginate(:page => params[:page], per_page: 10)
+    @users = User.all.paginate(paginate_settings(20))
   end
 
   def new

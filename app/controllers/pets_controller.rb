@@ -1,11 +1,12 @@
 class PetsController < ApplicationController
   include FormHelper
+  include PetHelper
   before_action :set_pet, only: [:edit, :update, :show, :destroy]
   before_action :require_user
   before_action :require_same_user
 
   def index
-    @pets = Pet.all
+    @pets = Pet.all.order("name ASC")
   end
 
   def new
@@ -14,7 +15,7 @@ class PetsController < ApplicationController
 
   def create
     @pet = Pet.new(pet_params)
-    @pet.user_id = current_user.id
+    @pet.user_id = set_pet_user_id
     if @pet.save
       flash[:success] = "Pet successfully created!"
       redirect_to pet_path(@pet)
@@ -60,5 +61,10 @@ class PetsController < ApplicationController
       flash[:danger] = "You can only edit or delete your own reservations."
       redirect_to root_path
     end
+  end
+
+  def set_pet_user_id
+    #return params[:user_id] if current_user.admin?
+    current_user.id
   end
 end
