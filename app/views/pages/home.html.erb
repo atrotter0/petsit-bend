@@ -5,6 +5,10 @@
     <img src="assets/digger-2.jpg" id="image" class="img-circle">
   </div>
   <div class="cta-box">
-    <%= link_to "Make a Reservation", "#", class: "btn btn-primary btn-lg btn-xlg" %>
+    <% if logged_in? %>
+      <%= link_to "Make a Reservation", new_reservation_path, class: "btn btn-primary btn-lg btn-xlg" %>
+    <% else %>
+      <%= link_to "Make a Reservation", signup_path, class: "btn btn-primary btn-lg btn-xlg" %>
+    <% end %>
   </div>
 </div>
