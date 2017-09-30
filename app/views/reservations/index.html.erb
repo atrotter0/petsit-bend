@@ -7,7 +7,7 @@
     </a>
   </div>
   <div class="data-container">
-    <% if @reservations.present? %>
+    <% if @current_user.reservations.present? %>
       <div class="data-header">
         <ul class="ul-list">
           <li class="li-list"><div class="data-icon"><img src="assets/pets.jpg" id="icon" class="img-circle"></div></li>

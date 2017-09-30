@@ -10,7 +10,7 @@
             </div>
             <div class="col-sm-8">
               <select multiple="multiple" id="pet-list" name="pet_list[]">
-                <% User.first.pets.each do |pet| %> <!-- change this to specific user -->
+                <% @current_user.pets.each do |pet| %>
                   <option><%= pet.name %></option>
                 <% end %>
               </select>

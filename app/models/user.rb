@@ -12,4 +12,6 @@ class User < ActiveRecord::Base
   validates :last_name, presence: true, length: { maximum: 25 }
   validates :phone, presence: true, length: { maximum: 14 }
   validates :address, presence: true, length: { maximum: 50 }
+
+  has_secure_password
 end

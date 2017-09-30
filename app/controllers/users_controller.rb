@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :show, :destroy]
+  before_action :require_user, only: [:index, :edit, :update, :show, :destroy]
+  before_action :require_same_user, only: [:index, :edit, :update, :show, :destroy]
 
   def index
     @users = User.all.paginate(:page => params[:page], per_page: 10)
@@ -12,6 +14,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      session[:user_id] = @user.id
       flash[:success] = "Account successfully created! Welcome to the Petsit Bend, #{@user.first_name}!"
       redirect_to user_path(@user)
     else
@@ -43,10 +46,17 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :email, :first_name, :last_name, :phone, :address)
+    params.require(:user).permit(:username, :password, :email, :first_name, :last_name, :phone, :address)
   end
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def require_same_user
+    if current_user != @user
+      flash[:danger] = "You can only edit your own account."
+      redirect_to root_path
+    end
   end
 end

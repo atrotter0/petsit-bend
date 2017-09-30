@@ -2,10 +2,12 @@ class ReservationsController < ApplicationController
   include FormHelper
   include ReservationHelper
   before_action :set_reservation, only: [:edit, :update, :show, :destroy]
+  before_action :require_user
+  before_action :require_same_user
 
   def index
-    @reservations = Reservation.all.paginate(:page => params[:page], per_page: 20)
-    @sorted_reservations = sort_by_date(@reservations, User.first.id).flatten! #change this user
+    @reservations = Reservation.all.paginate(:page => params[:page], per_page: 20) #if @current_user
+    @sorted_reservations = sort_by_date(@reservations, @current_user.id).flatten!
   end
 
   def new
@@ -15,7 +17,7 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
     create_pet_list if params[:pet_list].present?
-    @reservation.user_id = 1 #change this user
+    @reservation.user_id = @current_user.id
     if @reservation.save
       flash[:success] = "Reservation successfully created!"
       redirect_to reservation_path(@reservation)
@@ -64,5 +66,13 @@ class ReservationsController < ApplicationController
     end
 
     @reservation.pet_list = list
+  end
+
+  def require_same_user
+    return if @reservation.nil?
+    if current_user != @reservation.user
+      flash[:danger] = "You can only edit or delete your own reservations."
+      redirect_to root_path
+    end
   end
 end
