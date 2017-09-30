@@ -242,8 +242,13 @@ body {
   height: auto;
 }
 
-.data-pet-list-box, .data-user-name-box {
+.data-pet-list-box {
   width: 88%;
+}
+
+.data-user-name-box {
+  float: left;
+  width: 50%;
 }
 
 .data-admin-pet-box {

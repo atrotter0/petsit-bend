@@ -13,9 +13,19 @@
         <ul class="ul-list">
           <li class="li-list">
             <div class="data-date-check-box">
+              <span><img src="assets/pets.jpg" class="info-icon"></span>
               <% if user.pets.present? %>
-                <span><img src="assets/pets.jpg" class="info-icon"></span>
                 <span class="tooltiptext"><%= pet_names_for_user(user) %></span>
+              <% else %>
+                <span class="tooltiptext">None</span>
+              <% end %>
+            </div>
+            <div class="data-date-check-box">
+              <span><img src="assets/timestamp.jpg" class="info-icon"></span>
+               <% if user.last_login.present? %>
+                <span class="tooltiptext"><%= user.last_login %></span>
+              <% else %>
+                <span class="tooltiptext">None</span>
               <% end %>
             </div>
             <div class="data-user-name-box">
