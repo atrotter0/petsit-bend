@@ -6,8 +6,12 @@ class ReservationsController < ApplicationController
   before_action :require_same_user
 
   def index
-    @reservations = @current_user.reservations.paginate(:page => params[:page], per_page: 20)
-    @sorted_reservations = sort_by_date(@reservations, current_user.id).flatten!
+    if current_user.admin?
+      @reservations = Reservation.all.order("start_date ASC").paginate(:page => params[:page], per_page: 20)
+    else
+      @reservations = current_user.reservations.paginate(:page => params[:page], per_page: 20)
+      @sorted_reservations = sort_by_date(@reservations, current_user.id).flatten!
+    end
   end
 
   def new
@@ -70,7 +74,7 @@ class ReservationsController < ApplicationController
 
   def require_same_user
     return if @reservation.nil?
-    if current_user != @reservation.user
+    if current_user != @reservation.user && !current_user.admin?
       flash[:danger] = "You can only edit or delete your own reservations."
       redirect_to root_path
     end

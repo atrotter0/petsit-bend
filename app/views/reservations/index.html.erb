@@ -7,7 +7,7 @@
     </a>
   </div>
   <div class="data-container">
-    <% if @current_user.reservations.present? %>
+    <% if current_user.reservations.present? || current_user.admin? %>
       <div class="data-header">
         <ul class="ul-list">
           <li class="li-list"><div class="data-icon"><img src="assets/pets.jpg" id="icon" class="img-circle"></div></li>
@@ -16,31 +16,60 @@
         </ul>
       </div>
       <div class="data-content">
-        <% @sorted_reservations.each do |reservation| %>
-          <ul class="ul-list">
-            <li class="li-list">
-              <div class="data-date-check-box">
-                <% if petsit_started?(reservation.start_date) && !petsit_finished?(reservation.end_date) %>
-                  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                  <span class="tooltiptext">In-Progress</span>
-                <% elsif petsit_finished?(reservation.end_date) %>
-                  <span class="glyphicon glyphicon-ok" aria-hidden="true" style="color: green;"></span>
-                  <span class="tooltiptext">Complete</span>
-                <% end %>
-              </div>
-              <div class="data-pet-list-box">
-                <%= reservation.pet_list %>
-              </div>
-            </li>
-            <li class="li-list"><%= reservation.start_date %></li>
-            <li class="li-list">
-              <%= link_to 'View', reservation_path(reservation), class: "btn btn-med btn-primary" %>
-              <%= link_to 'Edit', edit_reservation_path(reservation), class: "btn btn-med btn-primary" %>
-              <%= link_to 'Cancel', reservation_path(reservation), method: :delete,
-                data: { confirm: "Are you sure you want to cancel this reservation?" },
-                  class: "btn btn-med btn-primary" %>
-            </li>
-          </ul>
+        <% if current_user.admin? %>
+          <% @reservations.each do |reservation| %>
+            <ul class="ul-list">
+              <li class="li-list">
+                <div class="data-date-check-box">
+                  <% if petsit_started?(reservation.start_date) && !petsit_finished?(reservation.end_date) %>
+                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                    <span class="tooltiptext">In-Progress</span>
+                  <% elsif petsit_finished?(reservation.end_date) %>
+                    <span class="glyphicon glyphicon-ok" aria-hidden="true" style="color: green;"></span>
+                    <span class="tooltiptext">Complete</span>
+                  <% end %>
+                </div>
+                <div class="data-pet-list-box">
+                  <%= "#{reservation.user.first_name} => #{reservation.pet_list}" %>
+                </div>
+              </li>
+              <li class="li-list"><%= "#{reservation.start_date} - #{reservation.end_date}" %></li>
+              <li class="li-list">
+                <%= link_to 'View', reservation_path(reservation), class: "btn btn-med btn-primary" %>
+                <%= link_to 'Edit', edit_reservation_path(reservation), class: "btn btn-med btn-primary" %>
+                <%= link_to 'Cancel', reservation_path(reservation), method: :delete,
+                  data: { confirm: "Are you sure you want to cancel this reservation?" },
+                    class: "btn btn-med btn-primary" %>
+              </li>
+            </ul>
+          <% end %>
+        <% else %>
+          <% @sorted_reservations.each do |reservation| %>
+            <ul class="ul-list">
+              <li class="li-list">
+                <div class="data-date-check-box">
+                  <% if petsit_started?(reservation.start_date) && !petsit_finished?(reservation.end_date) %>
+                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                    <span class="tooltiptext">In-Progress</span>
+                  <% elsif petsit_finished?(reservation.end_date) %>
+                    <span class="glyphicon glyphicon-ok" aria-hidden="true" style="color: green;"></span>
+                    <span class="tooltiptext">Complete</span>
+                  <% end %>
+                </div>
+                <div class="data-pet-list-box">
+                  <%= reservation.pet_list %>
+                </div>
+              </li>
+              <li class="li-list"><%= reservation.start_date %></li>
+              <li class="li-list">
+                <%= link_to 'View', reservation_path(reservation), class: "btn btn-med btn-primary" %>
+                <%= link_to 'Edit', edit_reservation_path(reservation), class: "btn btn-med btn-primary" %>
+                <%= link_to 'Cancel', reservation_path(reservation), method: :delete,
+                  data: { confirm: "Are you sure you want to cancel this reservation?" },
+                    class: "btn btn-med btn-primary" %>
+              </li>
+            </ul>
+          <% end %>
         <% end %>
       </div>
     <div class="paginate-box center">

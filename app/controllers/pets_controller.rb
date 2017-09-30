@@ -14,7 +14,7 @@ class PetsController < ApplicationController
 
   def create
     @pet = Pet.new(pet_params)
-    @pet.user_id = @current_user.id
+    @pet.user_id = current_user.id
     if @pet.save
       flash[:success] = "Pet successfully created!"
       redirect_to pet_path(@pet)
@@ -56,7 +56,7 @@ class PetsController < ApplicationController
 
   def require_same_user
     return if @pet.nil?
-    if current_user != @pet.user
+    if current_user != @pet.user && !current_user.admin?
       flash[:danger] = "You can only edit or delete your own reservations."
       redirect_to root_path
     end
