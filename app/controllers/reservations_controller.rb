@@ -6,8 +6,8 @@ class ReservationsController < ApplicationController
   before_action :require_same_user
 
   def index
-    @reservations = Reservation.all.paginate(:page => params[:page], per_page: 20)
-    @sorted_reservations = sort_by_date(@reservations, @current_user.id).flatten!
+    @reservations = @current_user.reservations.paginate(:page => params[:page], per_page: 20)
+    @sorted_reservations = sort_by_date(@reservations, current_user.id).flatten!
   end
 
   def new
