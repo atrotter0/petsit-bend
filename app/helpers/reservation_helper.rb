@@ -1,16 +1,26 @@
 module ReservationHelper
-  def sort_by_date(reservations, user_id)
+  def setup_sort_paginate(user_id, paginate_limit)
+    sort_by_date(user_id).flatten!.paginate(paginate_settings(paginate_limit))
+  end
+
+  def sort_by_date(user_id)
     sorted_list = []
-    @date_list = get_string_dates(reservations)
+    @date_list = get_string_dates
     convert_sort_reformat_dates
     @final_date_list.each do |date|
-      sorted_list << Reservation.where(start_date: date).where(user_id: user_id)
+      if user_id == 'admin'
+        sorted_list << Reservation.where(start_date: date)
+      else
+        sorted_list << Reservation.where(start_date: date).where(user_id: user_id)
+      end
     end
     sorted_list
   end
 
-  def get_string_dates(reservations)
-    reservations.map{ |reservation| reservation.start_date }
+  def get_string_dates
+    list = @reservations.map{ |reservation| reservation.start_date }
+    list.uniq! if list.count > 1
+    list
   end
 
   def petsit_started?(start_date)

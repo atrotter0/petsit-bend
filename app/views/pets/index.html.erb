@@ -19,7 +19,7 @@
         <% if current_user.admin? %>
           <%= render 'admin/pets_index.html.erb' %>
         <% else %>
-          <% current_user.pets.each do |pet| %>
+          <% @pets.each do |pet| %>
             <ul class="ul-list">
               <li class="li-list"><%= pet.user.first_name + ' ' + pet.user.last_name %></li>
               <li class="li-list"><%= pet.name %></li>

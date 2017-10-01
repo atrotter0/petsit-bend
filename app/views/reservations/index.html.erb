@@ -19,7 +19,7 @@
         <% if current_user.admin? %>
           <%= render 'admin/reservations_index.html.erb' %>
         <% else %>
-          <% @sorted_reservations.each do |reservation| %>
+          <% @reservations.each do |reservation| %>
             <ul class="ul-list">
               <li class="li-list">
                 <div class="data-date-check-box">

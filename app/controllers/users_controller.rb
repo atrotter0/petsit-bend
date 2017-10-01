@@ -16,6 +16,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.last_login = Time.now
     if @user.save
       session[:user_id] = @user.id
       flash[:success] = "Account successfully created! Welcome to the Petsit Bend, #{@user.first_name}!"

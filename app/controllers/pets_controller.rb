@@ -6,7 +6,7 @@ class PetsController < ApplicationController
   before_action :require_same_user
 
   def index
-    @pets = Pet.all.order("name ASC")
+    current_user.admin? ? @pets = Pet.all.order("name ASC") : @pets = Pet.where(user_id: current_user.id).order("name ASC")
   end
 
   def new

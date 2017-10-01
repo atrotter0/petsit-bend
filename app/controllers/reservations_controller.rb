@@ -1,3 +1,5 @@
+require 'will_paginate/array'
+
 class ReservationsController < ApplicationController
   include FormHelper
   include ReservationHelper
@@ -6,12 +8,16 @@ class ReservationsController < ApplicationController
   before_action :require_user
   before_action :require_same_user
 
+  RESERVATIONS_PER_PAGE_USER = 8
+  RESERVATIONS_PER_PAGE_ADMIN = 10
+
   def index
     if current_user.admin?
-      @reservations = Reservation.all.order("start_date ASC").paginate(paginate_settings(20))
+      @reservations = Reservation.all
+      @reservations = setup_sort_paginate('admin', RESERVATIONS_PER_PAGE_ADMIN) if @reservations.present?
     else
-      @reservations = current_user.reservations.paginate(paginate_settings(20))
-      @sorted_reservations = sort_by_date(@reservations, current_user.id).flatten!
+      @reservations = Reservation.where(user_id: current_user.id)
+      @reservations = setup_sort_paginate(current_user.id, RESERVATIONS_PER_PAGE_USER) if @reservations.present?
     end
   end
 
