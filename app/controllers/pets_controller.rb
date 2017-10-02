@@ -1,12 +1,20 @@
+require 'will_paginate/array'
+
 class PetsController < ApplicationController
   include FormHelper
   include PetHelper
+  include PaginateHelper
   before_action :set_pet, only: [:edit, :update, :show, :destroy]
   before_action :require_user
   before_action :require_same_user
 
   def index
-    current_user.admin? ? @pets = Pet.all.order("name ASC") : @pets = Pet.where(user_id: current_user.id).order("name ASC")
+    if current_user.admin?
+      @pets = Pet.all
+      @pets = sort_pets_by_user
+    else
+      @pets = Pet.where(user_id: current_user.id).order("name ASC")
+    end
   end
 
   def new

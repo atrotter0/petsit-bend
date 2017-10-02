@@ -28,7 +28,7 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
     create_pet_list if params[:pet_list].present?
-    @reservation.user_id = @current_user.id
+    @reservation.user_id = current_user.id
     if @reservation.save
       flash[:success] = "Reservation successfully created!"
       redirect_to reservation_path(@reservation)
