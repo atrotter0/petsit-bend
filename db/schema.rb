@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170930231310) do
+ActiveRecord::Schema.define(version: 20171003204905) do
 
   create_table "pets", force: :cascade do |t|
     t.string   "name"
@@ -31,6 +31,14 @@ ActiveRecord::Schema.define(version: 20170930231310) do
     t.text     "special_instructions"
     t.integer  "user_id"
     t.string   "pet_list"
+  end
+
+  create_table "testimonials", force: :cascade do |t|
+    t.text     "body"
+    t.boolean  "approved",   default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "users", force: :cascade do |t|

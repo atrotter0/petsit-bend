@@ -1,0 +1,21 @@
+<div class="content">
+  <h1 align="center">Testimonial</h1>
+  <div class="data-container">
+    <div class="show-data-header">User Details</div>
+    <div class="show-data-content">
+      <strong>Username:</strong> <%= @testimonial.user.username %></br>
+      <strong>Email:</strong> <%= @testimonial.user.email %></br>
+      <strong>First Name:</strong> <%= @testimonial.user.first_name %></br>
+      <strong>Last Name:</strong> <%= @testimonial.user.last_name %></br>
+    </div>
+    <div class="show-data-header">Testimonial</div>
+    <div class="show-data-content">
+      <strong>Body:</strong> <%= @testimonial.body %></br>
+      <strong>Approved?</strong> <%= @testimonial.approved? %></br>
+    </div>
+    <div class="show-edit-box">
+      <%= link_to 'Edit', edit_testimonial_path(@testimonial), class: "btn btn-med btn-primary" %>
+      <%= link_to 'Back', testimonials_path, class: "btn btn-med btn-primary" %>
+    </div>
+  </div>
+</div>

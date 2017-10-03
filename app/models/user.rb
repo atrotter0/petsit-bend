@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :pets, dependent: :destroy
   has_many :reservations, dependent: :destroy
+  has_one :testimonial, dependent: :destroy
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 

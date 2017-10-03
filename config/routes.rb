@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :reservations
   resources :pets
   resources :users
+  resources :testimonials
 
   get 'signup', to: 'users#new'
   resources :users, except: [:new]
