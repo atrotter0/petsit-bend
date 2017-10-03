@@ -379,7 +379,7 @@ input[type=radio] {
   margin-top: 20px;
 }
 
-#checkbox-label {
+#radio-label {
   margin-top: 14px;
 }
 
@@ -394,6 +394,32 @@ input[type=radio] {
 
 textarea {
   margin-top: 10px;
+}
+
+.testimonial {
+  text-align: left;
+  margin: 0 auto;
+  width: 50%;
+}
+
+.testimonial-name-box {
+  padding: 10px;
+  font-style: italic;
+  background-color: #000;
+  color: #fff;
+}
+
+.testimonial-body-box {
+  margin-bottom: 10px;
+  text-indent: 10px;
+  background-color: #fff;
+  color: #000;
+  padding: 10px;
+}
+
+hr {
+  width: 25%;
+  margin-bottom: 50px;
 }
 
 footer {

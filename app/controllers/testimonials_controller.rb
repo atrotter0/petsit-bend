@@ -1,7 +1,7 @@
 class TestimonialsController < ApplicationController
+  include PetHelper
   before_action :set_testimonial, only: [:edit, :update, :show, :destroy]
-  #before_action :require_user
-  #before_action :require_same_user
+  before_action :require_admin, only: [:edit, :update, :show, :destroy]
 
   def index
     @testimonials = Testimonial.all
@@ -51,5 +51,12 @@ class TestimonialsController < ApplicationController
 
   def set_testimonial
     @testimonial = Testimonial.find(params[:id])
+  end
+
+  def require_admin
+    if logged_in? and !current_user.admin?
+      flash[:danger] = "Only admin users can perform that action."
+      redirect_to root_path
+    end
   end
 end

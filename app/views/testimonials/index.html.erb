@@ -7,15 +7,23 @@
     </a>
   </div>
   <div class="data-container">
-    <div class="data-content">
+    <div class="data-content testimonial">
       <% @testimonials.each do |testimonial| %>
-        Name - Pet<br/>
-        Testimonial<br/>
-        <%= link_to 'View', testimonial_path(testimonial), class: "btn btn-med btn-primary" %>
-        <%= link_to 'Edit', edit_testimonial_path(testimonial), class: "btn btn-med btn-primary" %>
-        <%= link_to 'Delete', testimonial_path(testimonial), method: :delete,
-          data: { confirm: "Are you sure you want to delete this testimonial?" },
-            class: "btn btn-med btn-primary" %>
+        <div class="testimonial-name-box">
+          <%= "#{testimonial.user.first_name} & #{pet_names_for_user(testimonial.user)}" %>
+        </div>
+        <div class="testimonial-body-box">
+          "<%= testimonial.body %>"
+        </div>
+        <% if current_user.admin? %>
+          <div class="testimonial-options">
+            <%= link_to 'View', testimonial_path(testimonial), class: "btn btn-med btn-primary" %>
+            <%= link_to 'Edit', edit_testimonial_path(testimonial), class: "btn btn-med btn-primary" %>
+            <%= link_to 'Delete', testimonial_path(testimonial), method: :delete,
+              data: { confirm: "Are you sure you want to delete this testimonial?" },
+                class: "btn btn-med btn-primary" %>
+          </div>
+        <% end %>
         <hr>
       <% end %>
     </div>
