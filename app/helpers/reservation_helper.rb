@@ -4,20 +4,12 @@ module ReservationHelper
   end
 
   def sort_by_date(user_id)
-    sorted_list = []
-    @date_list = get_string_dates
+    @date_list = get_dates_from_reservations
     convert_sort_reformat_dates
-    @final_date_list.each do |date|
-      if user_id == 'admin'
-        sorted_list << Reservation.where(start_date: date)
-      else
-        sorted_list << Reservation.where(start_date: date).where(user_id: user_id)
-      end
-    end
-    sorted_list
+    sorted_list = return_sorted_date_list(user_id)
   end
 
-  def get_string_dates
+  def get_dates_from_reservations
     list = @reservations.map{ |reservation| reservation.start_date }
     list.uniq! if list.count > 1
     list
@@ -28,7 +20,7 @@ module ReservationHelper
   end
 
   def petsit_finished?(end_date)
-    convert_to_date(end_date) <= Date.today
+    convert_to_date(end_date) <= Date.today.end_of_day
   end
 
   def convert_to_date(date_string)
@@ -72,6 +64,18 @@ module ReservationHelper
 
   def month_day_year(date)
     date = date.strftime('%m/%d/%Y')
+  end
+
+  def return_sorted_date_list(user_id)
+    sorted_list = []
+    @final_date_list.each do |date|
+      if user_id == 'admin'
+        sorted_list << Reservation.where(start_date: date)
+      else
+        sorted_list << Reservation.where(start_date: date).where(user_id: user_id)
+      end
+    end
+    sorted_list
   end
 
   def reservaton_user_name(reservation)
