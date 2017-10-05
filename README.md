@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Setup:
 
-Things you may want to cover:
+* Clone the repo
 
-* Ruby version
+* bundle install
 
-* System dependencies
+* rails s
 
-* Configuration
+Contribute:
 
-* Database creation
+* git checkout -b <branch name>
 
-* Database initialization
+* Write some code
 
-* How to run the test suite
+* git push origin <branch name>
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Create a pull request
