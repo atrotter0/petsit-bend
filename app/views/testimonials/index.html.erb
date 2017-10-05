@@ -7,35 +7,46 @@
         Add Testimonial
       </a>
     </div>
-    <% if @testimonials.empty? %>
-      <div class="data-content">
-        No Testimonials at this time. Check back soon!
-      </div>
-    <% end %>
+  <% end %>
+  <% if @testimonials.empty? || no_approved_testimonials? %>
+    <div class="data-content">
+      No Testimonials at this time. Check back soon!
+    </div>
+  <% end %>
+  <% if logged_in? && current_user.testimonial.present? && current_user.testimonial.approved == false %>
+    <div class="data-content">
+      Your testimonial us currently being reviewed.
+    </div>
   <% end %>
   <div class="data-container">
     <div class="data-content testimonial">
-      <% @testimonials.each do |testimonial| %>
-        <div class="testimonial-image-box">
-          <img src="assets/paw-print.jpg" id="testimonial-image" class="img-circle">
-        </div>
-        <div class="testimonial-content-box">
-          <div class="testimonial-name-box">
-            <%= "#{testimonial.user.last_name} Family & Pets" %>
-          </div>
-          <div class="testimonial-body-box">
-            "<%= testimonial.body %>"
-          </div>
-          <% if logged_in? && current_user.admin? %>
-            <div class="testimonial-options">
-              <%= link_to 'View', testimonial_path(testimonial), class: "btn btn-med btn-primary" %>
-              <%= link_to 'Edit', edit_testimonial_path(testimonial), class: "btn btn-med btn-primary" %>
-              <%= link_to 'Delete', testimonial_path(testimonial), method: :delete,
-                data: { confirm: "Are you sure you want to delete this testimonial?" },
-                  class: "btn btn-med btn-primary" %>
+      <% if logged_in? && current_user.admin? %>
+        <%= render 'admin/testimonials_index.html.erb' %>
+      <% else %>
+        <% @testimonials.each do |testimonial| %>
+          <% if testimonial.approved? || (logged_in? && current_user.admin?) %>
+            <div class="testimonial-image-box">
+              <img src="assets/paw-print.jpg" id="testimonial-image" class="img-circle">
+            </div>
+            <div class="testimonial-content-box">
+              <div class="testimonial-name-box">
+                <%= "#{testimonial.user.last_name} Family & Pets" %>
+              </div>
+              <div class="testimonial-body-box">
+                "<%= testimonial.body %>"
+              </div>
+              <% if logged_in? && current_user.admin? %>
+                <div class="testimonial-options">
+                  <%= link_to 'View', testimonial_path(testimonial), class: "btn btn-med btn-primary" %>
+                  <%= link_to 'Edit', edit_testimonial_path(testimonial), class: "btn btn-med btn-primary" %>
+                  <%= link_to 'Delete', testimonial_path(testimonial), method: :delete,
+                    data: { confirm: "Are you sure you want to delete this testimonial?" },
+                      class: "btn btn-med btn-primary" %>
+                </div>
+              <% end %>
             </div>
           <% end %>
-        </div>
+        <% end %>
       <% end %>
     </div>
   </div>

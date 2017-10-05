@@ -1,5 +1,6 @@
 class TestimonialsController < ApplicationController
   include PetHelper
+  include TestimonialsHelper
   before_action :set_testimonial, only: [:edit, :update, :show, :destroy]
   before_action :require_admin, only: [:edit, :update, :show, :destroy]
 
