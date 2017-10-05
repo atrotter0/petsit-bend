@@ -1,10 +1,18 @@
 # README
 
+Requirements:
+
+* Ruby version 2.4.1
+
+* Postgres
+
 Setup:
 
 * Clone the repo
 
 * bundle install
+
+* rake db:migrate
 
 * rails s
 
