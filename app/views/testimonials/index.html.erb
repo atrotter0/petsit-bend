@@ -7,6 +7,11 @@
         Add Testimonial
       </a>
     </div>
+    <% if @testimonials.empty? %>
+      <div class="data-content">
+        No Testimonials at this time. Check back soon!
+      </div>
+    <% end %>
   <% end %>
   <div class="data-container">
     <div class="data-content testimonial">

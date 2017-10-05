@@ -48,7 +48,7 @@
         <% end %>
       </div>
     <div class="paginate-box center">
-        <%= will_paginate %>
+        <%= will_paginate if @reservations.present? %>
     </div>
     <% end %>
   </div>
