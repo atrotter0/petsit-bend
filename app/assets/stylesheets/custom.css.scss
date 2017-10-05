@@ -383,7 +383,7 @@ input[type=radio] {
   margin-top: 14px;
 }
 
-#instructions-count {
+#instructions-count, #testimonials-count {
   margin-top: 5px;
   font-size: 0.8em;
 }
@@ -399,7 +399,27 @@ textarea {
 .testimonial {
   text-align: left;
   margin: 0 auto;
-  width: 50%;
+  width: 60%;
+}
+
+.testimonial-image-box {
+  float: left;
+  margin-top: 25px;
+  margin-right: 10px;
+  text-align: center;
+  width: 10%;
+  height: 30px;
+}
+
+#testimonial-image {
+  width: 50px;
+}
+
+.testimonial-content-box {
+  float: left;
+  width: 80%;
+  margin-top: 10px;
+  margin-bottom: 30px;
 }
 
 .testimonial-name-box {
@@ -407,6 +427,7 @@ textarea {
   font-style: italic;
   background-color: #000;
   color: #fff;
+  border-radius: 10px 10px 0px 0px;
 }
 
 .testimonial-body-box {
@@ -415,11 +436,7 @@ textarea {
   background-color: #fff;
   color: #000;
   padding: 10px;
-}
-
-hr {
-  width: 25%;
-  margin-bottom: 50px;
+  border-radius: 0px 0px 6px 6px;
 }
 
 footer {

@@ -9,7 +9,8 @@
               <%= f.label :body, 'Testimonial' %>
             </div>
             <div class="col-sm-8">
-              <%= f.text_area :body, class: 'form-control', placeholder: "Type your testimonial here" %>
+              <%= f.text_area :body, class: 'form-control', placeholder: "Tell others about your experience!" %>
+              <div id="testimonials-count">0 / 800 characters</div>
             </div>
           </div>
           <% if current_user.admin? %>
