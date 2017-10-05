@@ -8,14 +8,14 @@
       </a>
     </div>
   <% end %>
-  <% if @testimonials.empty? || no_approved_testimonials? %>
-    <div class="data-content">
-      No Testimonials at this time. Check back soon!
-    </div>
-  <% end %>
   <% if logged_in? && current_user.testimonial.present? && current_user.testimonial.approved == false %>
     <div class="data-content">
-      Your testimonial us currently being reviewed.
+      <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+      Your testimonial is currently being reviewed.
+    </div>
+  <% elsif @testimonials.empty? || no_approved_testimonials? %>
+    <div class="data-content">
+      No Testimonials at this time. Check back soon!
     </div>
   <% end %>
   <div class="data-container">
