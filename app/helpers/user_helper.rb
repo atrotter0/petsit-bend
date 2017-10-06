@@ -36,15 +36,15 @@ module UserHelper
     pet_list
   end
 
+  def get_user_id
+    return current_user.id unless params[:user_list].present?
+
+    user_id = get_selected_user_id(params[:user_list])
+  end
+
   def get_selected_user_id(user_list)
     # we need to get and set the user_id if admin creates the reservation
     # admin user_list comes across as: user_list = ["Abe Test, user id: 2"]
     user_list.first.split(':').last.strip!
-  end
-
-  def get_user_id
-    return current_user.id unless params[:user_list].present?
-
-    @reservation.user_id = get_selected_user_id(params[:user_list])
   end
 end

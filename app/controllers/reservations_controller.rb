@@ -29,7 +29,7 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
     create_pet_list if params[:pet_list].present?
-    get_user_id
+    @reservation.user_id = get_user_id
     if @reservation.save
       flash[:success] = "Reservation successfully created!"
       redirect_to reservation_path(@reservation)
@@ -46,7 +46,7 @@ class ReservationsController < ApplicationController
 
   def update
     create_pet_list if params[:pet_list].present?
-    get_user_id
+    @reservation.user_id = get_user_id
     if @reservation.update(reservation_params)
       flash[:success] = "Reservation was successfully updated!"
       redirect_to reservation_path(@reservation)
@@ -74,7 +74,7 @@ class ReservationsController < ApplicationController
   def require_same_user
     return if @reservation.nil?
     if current_user != @reservation.user && !current_user.admin?
-      flash[:danger] = "You can only edit or delete your own reservations."
+      flash[:danger] = "You can only update or cancel your own reservations."
       redirect_to root_path
     end
   end
