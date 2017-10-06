@@ -4,18 +4,45 @@
     <div class="row">
       <div class="col-xs-12">
         <%= form_for(@reservation, :html => { class: 'form-horizontal', role: 'form' }) do |f| %>
-          <div class="form-group">
-            <div class="control-label col-sm-2">
-              <%= f.label :pet_list, 'Pets' %>
+          <% if current_user.admin? %>
+            <div class="form-group">
+              <div class="control-label col-sm-2">
+                <%= f.label :user_list, 'Users' %>
+              </div>
+              <div class="col-sm-8">
+                <select multiple="multiple" id="user-list" name="user_list[]">
+                  <% User.all.each do |user| %>
+                    <option><%= user_name_and_id(user) %></option>
+                  <% end %>
+                </select>
+              </div>
             </div>
-            <div class="col-sm-8">
-              <select multiple="multiple" id="pet-list" name="pet_list[]">
-                <% @current_user.pets.each do |pet| %>
-                  <option><%= pet.name %></option>
-                <% end %>
-              </select>
+            <div class="form-group">
+              <div class="control-label col-sm-2">
+                <%= f.label :pet_list, 'Pets' %>
+              </div>
+              <div class="col-sm-8">
+                <select multiple="multiple" id="pet-list" name="pet_list[]">
+                  <% all_pets_for_users.each do |pet| %>
+                    <option><%= pet %></option>
+                  <% end %>
+                </select>
+              </div>
             </div>
-          </div>
+          <% else %>
+            <div class="form-group">
+              <div class="control-label col-sm-2">
+                <%= f.label :pet_list, 'Pets' %>
+              </div>
+              <div class="col-sm-8">
+                <select multiple="multiple" id="pet-list" name="pet_list[]">
+                  <% @current_user.pets.each do |pet| %>
+                    <option><%= pet.name %></option>
+                  <% end %>
+                </select>
+              </div>
+            </div>
+          <% end %>
           <div class="form-group">
             <div class="control-label col-sm-2">
               <%= f.label :start_date, 'Date From' %>

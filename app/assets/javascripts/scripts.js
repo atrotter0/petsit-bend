@@ -35,7 +35,7 @@ function formatPhone(target) {
   } else if (length < 6) {
     input = '(' + input.substring(0,3) + ') ' + input.substring(3,6);
   } else {
-    input = '('+input.substring(0,3) + ') ' + input.substring(3,6) + '-' + input.substring(6,10);
+    input = '('+ input.substring(0,3) + ') ' + input.substring(3,6) + '-' + input.substring(6,10);
   }
   return input;
 }
@@ -45,7 +45,7 @@ $(document).ready(function() {
   characterCounter("#testimonial_body", 800, "#testimonials-count");
   phoneNumberFormatter();
 
-  $('#pet-list').multiSelect({
+  $('#pet-list, #user-list').multiSelect({
     selectionHeader: 'Selected',
     selectableHeader: 'Available'
   });

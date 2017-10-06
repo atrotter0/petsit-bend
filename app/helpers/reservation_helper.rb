@@ -81,4 +81,18 @@ module ReservationHelper
   def reservaton_user_name(reservation)
     "#{reservation.user.first_name} #{reservation.user.last_name}"
   end
+
+  def all_pets_for_users
+    pet_list = []
+    User.all.each do |user|
+      user.pets.each do |pet|
+        pet_list << "#{pet.name}, user id: #{user.id}"
+      end
+    end
+    pet_list
+  end
+
+  def user_name_and_id(user)
+    return "#{user.first_name} #{user.last_name}, user id: #{user.id}"
+  end
 end
