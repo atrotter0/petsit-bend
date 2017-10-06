@@ -2,6 +2,7 @@ class TestimonialsController < ApplicationController
   include PetHelper
   include TestimonialsHelper
   before_action :set_testimonial, only: [:edit, :update, :show, :destroy]
+  before_action :require_user, only: [:new, :edit, :update, :show, :destroy]
   before_action :require_admin, only: [:edit, :update, :show, :destroy]
 
   def index
@@ -10,6 +11,7 @@ class TestimonialsController < ApplicationController
 
   def new
     @testimonial = Testimonial.new
+    redirect_to testimonials_path unless logged_in? && current_user.testimonial.blank?
   end
 
   def create
