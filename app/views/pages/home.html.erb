@@ -6,9 +6,9 @@
   </div>
   <div class="cta-box">
     <% if logged_in? %>
-      <%= link_to "Make a Reservation", new_reservation_path, class: "btn btn-primary btn-lg btn-xlg" %>
+      <%= link_to "Make a Reservation", new_reservation_path, class: "btn btn-primary btn-lg btn-xlg", title: "Make a Reservation" %>
     <% else %>
-      <%= link_to "Make a Reservation", signup_path, class: "btn btn-primary btn-lg btn-xlg" %>
+      <%= link_to "Make a Reservation", signup_path, class: "btn btn-primary btn-lg btn-xlg", title: "Make a Reservation" %>
     <% end %>
   </div>
 </div>

@@ -2,7 +2,7 @@
   <h1 align="center">Testimonials</h1>
   <% if logged_in? && current_user.testimonial.blank? %>
     <div class="data-content">
-      <a href="<%= new_testimonial_path %>" class="btn btn-lg btn-primary">
+      <a href="<%= new_testimonial_path %>" class="btn btn-lg btn-primary" title="Add Testimonial">
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
         Add Testimonial
       </a>
@@ -26,7 +26,7 @@
         <% @testimonials.each do |testimonial| %>
           <% if testimonial.approved? || (logged_in? && current_user.admin?) %>
             <div class="testimonial-image-box">
-              <img src="assets/paw-print.jpg" id="testimonial-image" class="img-circle">
+              <img src="assets/paw-print.jpg" id="testimonial-image" class="img-circle" alt="Petsit Bend Testimonials paw icon">
             </div>
             <div class="testimonial-content-box">
               <div class="testimonial-name-box">

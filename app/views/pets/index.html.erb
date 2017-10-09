@@ -1,7 +1,7 @@
 <div class="content">
   <h1 align="center">Pets</h1>
   <div class="data-content">
-    <a href="<%= new_pet_path %>" class="btn btn-lg btn-primary">
+    <a href="<%= new_pet_path %>" class="btn btn-lg btn-primary" title="Add Pet">
       <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
       Add Pet
     </a>
@@ -10,9 +10,9 @@
     <% if current_user.pets.present? || current_user.admin? %>
       <div class="data-header">
         <ul class="ul-list">
-          <li class="li-list"><div class="data-icon"><img src="assets/users.jpg" id="icon" class="img-circle"></div></li>
-          <li class="li-list"><div class="data-icon"><img src="assets/pets.jpg" id="icon" class="img-circle"></div></li>
-          <li class="li-list"><div class="data-icon"><img src="assets/options.jpg" id="icon" class="img-circle"></div></li>
+          <li class="li-list"><div class="data-icon"><img src="assets/users.jpg" id="icon" class="img-circle" alt="User icon"></div></li>
+          <li class="li-list"><div class="data-icon"><img src="assets/pets.jpg" id="icon" class="img-circle" alt="Pet icon"></div></li>
+          <li class="li-list"><div class="data-icon"><img src="assets/options.jpg" id="icon" class="img-circle" alt="Options icon"></div></li>
         </ul>
       </div>
       <div class="data-content">
