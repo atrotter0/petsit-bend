@@ -4,6 +4,8 @@ Requirements:
 
 * Ruby version 2.4.1
 
+* Rails version 5.0.5
+
 * Postgres
 
 Setup:
@@ -18,10 +20,10 @@ Setup:
 
 Contribute:
 
-* git checkout -b <branch name>
+* git checkout -b [branch name]
 
 * Write some code
 
-* git push origin <branch name>
+* git push origin [branch name]
 
 * Create a pull request
