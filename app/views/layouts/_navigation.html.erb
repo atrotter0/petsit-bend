@@ -8,16 +8,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to 'Petist Bend', root_path, class: 'navbar-brand', id: 'logo', title: 'Home' %>
+      <%= link_to 'Petist Bend', root_path, class: 'navbar-brand', id: 'logo', title: 'Petsit Bend Home' %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="#">About</a></li>
-        <li><a href="#">FAQ</a></li>
-        <li><a href="#">Services</a></li>
-        <li><%= link_to 'Testimonials', testimonials_path, title: 'Testimonials' %></li>
+        <li><%= link_to 'About', about_path, title: 'About Petsit Bend' %></li>
+        <li><%= link_to 'FAQ', faq_path, title: 'Petsit Bend FAQ' %></li>
+        <li><%= link_to 'Services', services_path, title: 'Petsit Bend Services' %></li>
+        <li><%= link_to 'Testimonials', testimonials_path, title: 'Petsit Bend Testimonials' %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? && current_user.admin? %>

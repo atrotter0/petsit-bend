@@ -4,10 +4,11 @@
   </small>
   <nav>
     <ul>
-      <li><%= link_to 'Home', root_path %></li>
-      <li><%= link_to 'About', root_path %></li>
-      <li><%= link_to 'FAQ', root_path %></li>
-      <li><%= link_to 'Services', root_path %></li>
+      <li><%= link_to 'Home', root_path, title: 'Petsit Bend Home' %></li>
+      <li><%= link_to 'About', about_path, title: 'About Petsit Bend' %></li>
+      <li><%= link_to 'FAQ', faq_path, title: 'Petsit Bend FAQ' %></li>
+      <li><%= link_to 'Services', services_path, title: 'Petsit Bend Services' %></li>
+      <li><%= link_to 'Testimonials', testimonials_path, title: 'Petsit Bend Testimonials' %></li>
     </ul>
   </nav>
 </footer>
