@@ -35,7 +35,7 @@
               <div class="testimonial-body-box">
                 "<%= testimonial.body %>"
               </div>
-          </div>
+            </div>
               <% if logged_in? && current_user.admin? %>
                 <div class="testimonial-options">
                   <%= link_to 'View', testimonial_path(testimonial), class: "btn btn-med btn-primary" %>
@@ -45,7 +45,6 @@
                       class: "btn btn-med btn-primary" %>
                 </div>
               <% end %>
-            </div>
           <% end %>
         <% end %>
       <% end %>
