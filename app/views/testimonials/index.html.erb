@@ -28,13 +28,14 @@
             <div class="testimonial-image-box">
               <img src="assets/paw-print.jpg" id="testimonial-image" class="img-circle" alt="Petsit Bend Testimonials paw icon">
             </div>
-            <div class="testimonial-content-box">
+            <div class="testimonial-content-box faq-item-box">
               <div class="testimonial-name-box">
                 <%= "#{testimonial.user.last_name} Family & Pets" %>
               </div>
               <div class="testimonial-body-box">
                 "<%= testimonial.body %>"
               </div>
+          </div>
               <% if logged_in? && current_user.admin? %>
                 <div class="testimonial-options">
                   <%= link_to 'View', testimonial_path(testimonial), class: "btn btn-med btn-primary" %>
