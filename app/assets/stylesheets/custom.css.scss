@@ -144,24 +144,13 @@ body {
   text-decoration: none;
 }
 
-.internal-page-box {
-  height: auto;
-  width: 75%;
+.about-content-box {
+  background-color: #fff;
   margin-left: auto;
   margin-right: auto;
   margin-top: 30px;
-}
-
-.about-image-box {
-  float: left;
-  width: 20%;
-  margin-right: 20px;
-}
-
-.about-data-box {
   text-align: left;
-  float: left;
-  width: 75%;
+  width: 70%;
 }
 
 #about-img {
@@ -193,10 +182,19 @@ body {
   color: #000;
 }
 
+.image-float-left {
+  float: left;
+}
+
 .faq-item-box {
   border: 3px solid #fff;
   transition: box-shadow 0.5s, border 0.5s;
   margin-bottom: 40px;
+}
+
+.min-height-extension {
+  min-height: 350px;
+  background-color: #fff;
 }
 
 .faq-item-box:hover {
@@ -212,6 +210,13 @@ body {
 .faq-answer > a:hover {
   color: #35383d;
   text-decoration: underline;
+}
+
+.faq-ul {
+  padding-bottom: 5px;
+  color: #000;
+  background-color: #fff;
+  margin-bottom: 0px;
 }
 
 .data-container {
@@ -555,25 +560,15 @@ footer ul li {
   }
 }
 
-@media screen and (max-width: 768px) {
-  #about-img {
-    min-width: 200px;
-  }
+/* mmobile styles */
 
-  .about-image-box {
+@media screen and (max-width: 650px) {
+  .image-float-left {
+    float: none;
     text-align: center;
-    float: none;
-    min-width: 200px;
-    width: 40%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 20px;
   }
 
-  .about-data-box {
-    text-align: left;
-    float: none;
-    margin: 0 auto;
-    width: 100%;
+  .about-content-box {
+    width: 80%;
   }
 }
