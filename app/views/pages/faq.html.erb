@@ -8,8 +8,15 @@
       </div>
       <div class="faq-item-box">
         <p class="faq-question">I'm new to Petsit Bend, what should I do first?</p>
-        <p class="faq-answer">If you are new to Petsit Bend, please <%= link_to 'Sign Up', signup_path, title: 'Sign up for Petsit Bend'%> for our services. Next, add your pets by visiting Account > My Pets, and click the 'Add Pet' button. Fill out the form completely to register your pet.</p>
-        <p class="faq-answer">To book a reservation, visit Account > My Reservations. Click the 'Add Reservation' button and fill out the form to create your reservation. Abel will contact you within 1-2 business days to schedule a meet and greet for you and your pets.</p>
+        <p class="faq-answer">If you are new to Petsit Bend you will need to:
+          <ul class="faq-ul">
+            <li><%= link_to 'Sign Up', signup_path, title: 'Sign up for Petsit Bend'%> for our services</li>
+            <li>Add your pets</li>
+            <li>Create a reservation</li>
+          </ul>
+        </p>
+        <p class="faq-answer">To add your pets, visit <strong>Account > My Pets</strong>, and click the <strong>Add Pet</strong> button. Fill out the form completely to register your pet.</p>
+        <p class="faq-answer">To book a reservation, visit <strong>Account > My Reservations</strong>. Click the <strong>Add Reservation</strong> button and fill out the form to create your reservation. Abel will contact you within 1-2 business days to schedule a meet and greet for you and your pets.</p>
       </div>
       <div class="faq-item-box">
         <p class="faq-question">How do I sign up for Petsit Bend services?</p>
@@ -35,7 +42,7 @@
       <div class="faq-item-box">
         <p class="faq-question">I need to cancel my reservation, what should I do?</p>
         <p class="faq-answer">A reservation can be cancelled at any time. Please plan accordingly and notify us as soon as possible if you need to cancel a reservation.</p>
-        <p class="faq-answer">To cancel a reservation, log in to your account and visit Account > My Reservations. Find the reservation you would like to cancel and click the 'Cancel' button.</p>
+        <p class="faq-answer">To cancel a reservation, log in to your account and visit <strong>Account > My Reservations</strong>. Find the reservation you would like to cancel and click the <strong>Cancel</strong> button.</p>
       </div>
       <div class="faq-item-box">
         <p class="faq-question">I don't see any prices listed on the Services page, what are your rates?</p>
@@ -43,8 +50,8 @@
       </div>
       <div class="faq-item-box">
         <p class="faq-question">How do I submit a testimonial?</p>
-        <p class="faq-answer">You will need to Sign Up for Petsit Bend services in order to leave a testimonial.</p>
-        <p class="faq-answer">After you have logged in, visit the <%= link_to 'Testimonials', testimonials_path, title: 'Petsit Bend Testimonials'%> page and click 'Add Testimonial'. After you have sibmitted the form, we will review your testimonial. Once it is accepted, it will display no the Testimonials page. You may only submit one testimonial per account.</p>
+        <p class="faq-answer">You will need to <%= link_to 'Sign Up', signup_path, title: 'Sign up for Petsit Bend'%> for Petsit Bend services in order to leave a testimonial.</p>
+        <p class="faq-answer">After you have logged in, visit the <%= link_to 'Testimonials', testimonials_path, title: 'Petsit Bend Testimonials'%> page and click <strong>Add Testimonial</strong>. After you have sibmitted the form, we will review your testimonial. Once it is accepted, the testimonial will display on the Testimonials page. You may only submit one testimonial per account.</p>
       </div>
       <div class="faq-item-box">
         <p class="faq-question">I'm having a hard time setting up my account or encountering application errors, who should I contact?</p>

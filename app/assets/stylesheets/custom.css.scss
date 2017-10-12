@@ -153,7 +153,7 @@ body {
   width: 70%;
 }
 
-#about-img {
+#public-content-img {
   max-width: 200px;
   width: 100%;
   border: 5px solid #000;
@@ -202,14 +202,14 @@ body {
   border: 5px solid #000;
 }
 
-.faq-answer > a {
+.faq-answer > a, .faq-ul > li > a {
   color: #0099cc;
-  text-decoration: underline;
+  font-weight: bold;
+  transition: color 1s;
 }
 
-.faq-answer > a:hover {
+.faq-answer > a:hover, .faq-ul > li > a:hover {
   color: #35383d;
-  text-decoration: underline;
 }
 
 .faq-ul {
@@ -217,6 +217,19 @@ body {
   color: #000;
   background-color: #fff;
   margin-bottom: 0px;
+}
+
+.services-images-container {
+  width: 100%;
+  text-align: center;
+}
+
+.services-image-box {
+  width: 33%;
+  float: left;
+  margin-bottom: 20px;
+  margin-top: 0px;
+  mmargin: 0 auto;
 }
 
 .data-container {
