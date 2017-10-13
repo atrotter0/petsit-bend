@@ -3,9 +3,9 @@
   <div class="data-container">
     <div class="data-header">
       <ul class="ul-list">
-        <li class="li-list"><div class="data-icon"><img src="assets/users.jpg" id="icon" class="img-circle" alt="Users icon"></div></li>
-        <li class="li-list"><div class="data-icon"><img src="assets/reservations.jpg" id="icon" class="img-circle" alt="Reservations icon"></div></li>
-        <li class="li-list"><div class="data-icon"><img src="assets/options.jpg" id="icon" class="img-circle" alt="Options icon"></div></li>
+        <li class="li-list"><div class="data-icon"><img src="https://s3.amazonaws.com/petsit-bend/users.jpg" id="icon" class="img-circle" alt="Users icon"></div></li>
+        <li class="li-list"><div class="data-icon"><img src="https://s3.amazonaws.com/petsit-bend/reservations.jpg" id="icon" class="img-circle" alt="Reservations icon"></div></li>
+        <li class="li-list"><div class="data-icon"><img src="https://s3.amazonaws.com/petsit-bend/options.jpg" id="icon" class="img-circle" alt="Options icon"></div></li>
       </ul>
     </div>
     <div class="data-content">
@@ -13,7 +13,7 @@
         <ul class="ul-list">
           <li class="li-list">
             <div class="data-date-check-box">
-              <span><img src="assets/pets.jpg" class="info-icon" alt="User pet icon"></span>
+              <span><img src="https://s3.amazonaws.com/petsit-bend/pets.jpg" class="info-icon" alt="User pet icon"></span>
               <% if user.pets.present? %>
                 <span class="tooltiptext"><%= pet_names_for_user(user) %></span>
               <% else %>
@@ -21,7 +21,7 @@
               <% end %>
             </div>
             <div class="data-date-check-box">
-              <span><img src="assets/timestamp.jpg" class="info-icon" alt="User last login timestamp icon"></span>
+              <span><img src="https://s3.amazonaws.com/petsit-bend/timestamp.jpg" class="info-icon" alt="User last login timestamp icon"></span>
                <% if user.last_login.present? %>
                 <span class="tooltiptext"><%= user.last_login %></span>
               <% else %>

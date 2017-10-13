@@ -1,7 +1,7 @@
 <% @testimonials.each do |testimonial| %>
   <% if testimonial.approved? || (logged_in? && current_user.admin?) %>
     <div class="testimonial-image-box">
-      <img src="assets/paw-print.jpg" id="testimonial-image" class="img-circle">
+      <img src="https://s3.amazonaws.com/petsit-bend/paw-print.jpg" id="testimonial-image" class="img-circle">
     </div>
     <div class="testimonial-content-box">
       <div class="testimonial-name-box">
