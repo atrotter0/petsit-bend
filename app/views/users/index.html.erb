@@ -12,24 +12,27 @@
       <% @users.each do |user| %>
         <ul class="ul-list">
           <li class="li-list">
-            <div class="data-date-check-box">
-              <span><img src="https://s3.amazonaws.com/petsit-bend/pets.jpg" class="info-icon" alt="User pet icon"></span>
-              <% if user.pets.present? %>
-                <span class="tooltiptext"><%= pet_names_for_user(user) %></span>
-              <% else %>
-                <span class="tooltiptext">None</span>
-              <% end %>
-            </div>
-            <div class="data-date-check-box">
-              <span><img src="https://s3.amazonaws.com/petsit-bend/timestamp.jpg" class="info-icon" alt="User last login timestamp icon"></span>
-               <% if user.last_login.present? %>
-                <span class="tooltiptext"><%= user.last_login %></span>
-              <% else %>
-                <span class="tooltiptext">None</span>
-              <% end %>
-            </div>
-            <div class="data-user-name-box">
-              <%= user.first_name + ' ' + user.last_name %>
+            <div class="data-icon-list-box">
+              <div class="data-date-check-box">
+                <span><img src="https://s3.amazonaws.com/petsit-bend/pets.jpg" class="info-icon" alt="User pet icon"></span>
+                <% if user.pets.present? %>
+                  <span class="tooltiptext"><%= pet_names_for_user(user) %></span>
+                <% else %>
+                  <span class="tooltiptext">None</span>
+                <% end %>
+              </div>
+              <div class="data-date-check-box">
+                <span><img src="https://s3.amazonaws.com/petsit-bend/timestamp.jpg" class="info-icon" alt="User last login timestamp icon"></span>
+                 <% if user.last_login.present? %>
+                  <span class="tooltiptext"><%= user.last_login %></span>
+                <% else %>
+                  <span class="tooltiptext">None</span>
+                <% end %>
+              </div>
+              <div class="data-date-check-box">
+                <span><img src="https://s3.amazonaws.com/petsit-bend/users.jpg" class="info-icon"></span>
+                <span class="tooltiptext"><%= user.first_name + ' ' + user.last_name %></span>
+              </div>
             </div>
           </li>
           <li class="li-list"><%= user.email %></li>

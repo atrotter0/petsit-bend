@@ -116,6 +116,7 @@ body {
   display: block;
   margin: 0 auto;
   width: 50%;
+  max-width: 700px;
 }
 
 .content {
@@ -318,7 +319,32 @@ body {
   color: #fff;
 }
 
-.data-date-check-box, .data-pet-name-box {
+.info-icon {
+  width: 30px;
+  height: auto;
+}
+
+.data-date-check-box {
+  float: left;
+  width: 30%;
+  color: #000;
+  height: 45px;
+  line-height: 45px;
+}
+
+.data-date-check-box:hover {
+  cursor: pointer;
+}
+
+#reservation-date-string {
+  display: block;
+}
+
+#reservation-date-icon {
+  display: none;
+}
+
+.data-pet-name-box {
   float: left;
   width: 12%;
   color: #000;
@@ -326,13 +352,9 @@ body {
   line-height: 45px;
 }
 
-.info-icon {
-  width: 30px;
-  height: auto;
-}
-
-.data-pet-list-box {
-  width: 88%;
+.data-icon-list-box {
+  width: 100%;
+  text-align: center;
 }
 
 .data-user-name-box {
@@ -644,16 +666,13 @@ footer ul li {
     border-bottom: 1px solid black;
   }
 
-  span > .info-icon {
-    display: none;
-  }
-
   .li-list > .btn.btn-primary.btn-med {
     font-size: 1em;
     color: #fff;
     background-color: #000;
     border-color: #fff;
-    border-radius: 2px 2px 2px 2px;
+    border-radius: 3px 3px 3px 3px;
+    padding: 8px;
     margin-left: 10px;
     margin-bottom: 0px;
     width: 100%;
@@ -673,13 +692,10 @@ footer ul li {
     border-radius: 2px 2px 2px 2px;
   }
 
-  .data-pet-list-box {
-    text-indent: -20px;
-    width: 95%;
-  }
-
-  .data-date-check-box > span {
-    margin-left: -45px;
+  .data-date-check-box {
+    margin: 0 auto;
+    float: left;
+    width: 30%;
   }
 
   .data-content .li-list {
@@ -694,6 +710,16 @@ footer ul li {
     width: 30%;
     background-color: #fff;
     color: #000;
+  }
+
+  #reservation-date-string {
+    display: none;
+  }
+
+  #reservation-date-icon {
+    width: 100%;
+    text-align: center;
+    display: block;
   }
 }
 
@@ -711,10 +737,6 @@ footer ul li {
 }
 
 @media screen and (max-width: 716px) {
-  .info-icon {
-    width: 90%;
-  }
-
   .li-list .btn {
     font-size: 0.7em;
   }
@@ -727,6 +749,7 @@ footer ul li {
   }
 
   .messages-box > .row {
+    margin: 0 auto;
     width: 90%;
   }
 }
