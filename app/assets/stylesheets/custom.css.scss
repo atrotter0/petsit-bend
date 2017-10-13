@@ -645,6 +645,10 @@ footer ul li {
     border-bottom: 1px solid black;
   }
 
+  span > .info-icon {
+    display: none;
+  }
+
   .li-list > .btn.btn-primary.btn-med {
     font-size: 1em;
     color: #fff;
@@ -715,6 +719,17 @@ footer ul li {
 
   .li-list .btn {
     font-size: 0.7em;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .messages-box {
+    margin-left: 20px;
+    width: 100%;
+  }
+
+  .messages-box > .row {
+    width: 100%;
   }
 }
 
