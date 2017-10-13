@@ -223,6 +223,7 @@ body {
 }
 
 .services-images-container {
+  margin-left: 2px;
   width: 100%;
   text-align: center;
 }
@@ -324,9 +325,20 @@ body {
   height: auto;
 }
 
+.data-icon-list-box {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 150px;
+  text-align: center;
+  height: 45px;
+}
+
 .data-date-check-box {
+  margin: 0 auto;
+  display: block;
   float: left;
   width: 30%;
+  max-width: 50px;
   color: #000;
   height: 45px;
   line-height: 45px;
@@ -344,28 +356,8 @@ body {
   display: none;
 }
 
-.data-pet-name-box {
-  float: left;
-  width: 12%;
-  color: #000;
-  height: 45px;
-  line-height: 45px;
-}
-
-.data-icon-list-box {
-  width: 100%;
-  text-align: center;
-}
-
-.data-user-name-box {
-  float: left;
-  width: 50%;
-}
-
-.data-admin-pet-box {
-  float: left;
-  width: 60%;
-  text-align: center;
+#reservation-date-icon-list-box {
+  display: none;
 }
 
 .data-date-check-box .tooltiptext {
@@ -720,6 +712,12 @@ footer ul li {
     width: 100%;
     text-align: center;
     display: block;
+  }
+
+  #reservation-date-icon-list-box {
+    width: 50px;
+    display: block;
+    margin: 0 auto;
   }
 }
 

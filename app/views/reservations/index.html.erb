@@ -40,9 +40,11 @@
               </li>
               <li class="li-list">
                 <div id="reservation-date-string"><%= "#{reservation.start_date} - #{reservation.end_date}" %></div>
-                <div class="data-date-check-box" id="reservation-date-icon">
-                  <span><img src="https://s3.amazonaws.com/petsit-bend/timestamp.jpg" class="info-icon"></span>
-                  <span class="tooltiptext"><%= reservation.start_date %><br/><%= reservation.end_date %></span>
+                <div class="data-icon-list-box" id="reservation-date-icon-list-box">
+                  <div class="data-date-check-box" id="reservation-date-icon">
+                    <span><img src="https://s3.amazonaws.com/petsit-bend/timestamp.jpg" class="info-icon"></span>
+                    <span class="tooltiptext"><%= reservation.start_date %><br/><%= reservation.end_date %></span>
+                  </div>
                 </div>
               </li>
               <li class="li-list">
