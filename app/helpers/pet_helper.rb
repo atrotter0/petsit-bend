@@ -12,7 +12,7 @@ module PetHelper
   def sort_pets_by_user
     get_pet_users_and_sort
     list = build_sorted_pet_list
-    list.flatten!.paginate(paginate_settings(10))
+    list.flatten!.paginate(paginate_settings(6))
   end
 
   def get_pet_users_and_sort
