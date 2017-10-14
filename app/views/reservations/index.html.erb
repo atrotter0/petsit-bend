@@ -7,60 +7,27 @@
     </a>
   </div>
   <div class="data-container">
-    <% if current_user.reservations.present? || current_user.admin? %>
-      <div class="data-header">
-        <ul class="ul-list">
-          <li class="li-list"><div class="data-icon"><img src="https://s3.amazonaws.com/petsit-bend/pets.jpg" id="icon" class="img-circle" alt="Pet icon"></div></li>
-          <li class="li-list"><div class="data-icon"><img src="https://s3.amazonaws.com/petsit-bend/reservations.jpg" id="icon" class="img-circle" alt="Reservations icon"></div></li>
-          <li class="li-list"><div class="data-icon"><img src="https://s3.amazonaws.com/petsit-bend/options.jpg" id="icon" class="img-circle" alt="Options icon"></div></li>
-        </ul>
-      </div>
-      <div class="data-content clearfix">
-        <% if current_user.admin? %>
-          <%= render 'admin/reservations_index.html.erb' %>
-        <% else %>
-          <% @reservations.each do |reservation| %>
-            <ul class="ul-list">
-              <li class="li-list">
-                <div class="data-icon-list-box">
-                  <div class="data-date-check-box">
-                    <% if petsit_started?(reservation.start_date) && !petsit_finished?(reservation.end_date) %>
-                      <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                      <span class="tooltiptext">In-Progress</span>
-                    <% elsif petsit_finished?(reservation.end_date) %>
-                      <span class="glyphicon glyphicon-ok" aria-hidden="true" style="color: #0099cc;"></span>
-                      <span class="tooltiptext">Complete</span>
-                    <% end %>
-                  </div>
-                  <div class="data-date-check-box">
-                    <span><img src="https://s3.amazonaws.com/petsit-bend/pets.jpg" class="info-icon"></span>
-                    <span class="tooltiptext"><%= reservation.pet_list %></span>
-                  </div>
-                </div>
-              </li>
-              <li class="li-list">
-                <div id="reservation-date-string"><%= "#{reservation.start_date} - #{reservation.end_date}" %></div>
-                <div class="data-icon-list-box" id="reservation-date-icon-list-box">
-                  <div class="data-date-check-box" id="reservation-date-icon">
-                    <span><img src="https://s3.amazonaws.com/petsit-bend/timestamp.jpg" class="info-icon"></span>
-                    <span class="tooltiptext"><%= reservation.start_date %><br/><%= reservation.end_date %></span>
-                  </div>
-                </div>
-              </li>
-              <li class="li-list">
-                <%= link_to 'View', reservation_path(reservation), class: "btn btn-med btn-primary" %>
-                <%= link_to 'Edit', edit_reservation_path(reservation), class: "btn btn-med btn-primary" %>
-                <%= link_to 'Cancel', reservation_path(reservation), method: :delete,
-                  data: { confirm: "Are you sure you want to cancel this reservation?" },
-                    class: "btn btn-med btn-primary" %>
-              </li>
-            </ul>
-          <% end %>
-        <% end %>
-      </div>
+    <div class="data-content clearfix">
+      <% @reservations.each do |reservation| %>
+        <div class="page-data-box">
+          <div class="page-item-box">
+            <p class="page-content-header">Reservation ID: <%= reservation.id %></p>
+            <p class="page-content"><img src="https://s3.amazonaws.com/petsit-bend/pets.jpg" class="info-icon"><%= reservation.pet_list %></p>
+            <p class="page-content"><img src="https://s3.amazonaws.com/petsit-bend/timestamp.jpg" class="info-icon"><%= "#{reservation.start_date} - #{reservation.end_date}" %></p>
+            <p class="page-content">
+              <img src="https://s3.amazonaws.com/petsit-bend/options.jpg" class="info-icon">
+              <%= link_to 'View', reservation_path(reservation), class: "btn btn-med btn-primary", id: "no-margin-button" %>
+              <%= link_to 'Edit', edit_reservation_path(reservation), class: "btn btn-med btn-primary", id:"no-margin-button" %>
+              <%= link_to 'Cancel', reservation_path(reservation), method: :delete,
+                data: { confirm: "Are you sure you want to cancel this reservation?" },
+                  class: "btn btn-med btn-primary", id:"no-margin-button" %>
+            </p>
+          </div>
+        </div>
+      <% end %>
+    </div>
     <div class="paginate-box center">
         <%= will_paginate if @reservations.present? %>
     </div>
-    <% end %>
   </div>
 </div>
