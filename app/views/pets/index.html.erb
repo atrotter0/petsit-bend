@@ -6,37 +6,30 @@
       Add Pet
     </a>
   </div>
-  <div class="data-container clearfix">
-    <% if current_user.pets.present? || current_user.admin? %>
-      <div class="data-header">
-        <ul class="ul-list">
-          <li class="li-list"><div class="data-icon"><img src="https://s3.amazonaws.com/petsit-bend/users.jpg" id="icon" class="img-circle" alt="User icon"></div></li>
-          <li class="li-list"><div class="data-icon"><img src="https://s3.amazonaws.com/petsit-bend/pets.jpg" id="icon" class="img-circle" alt="Pet icon"></div></li>
-          <li class="li-list"><div class="data-icon"><img src="https://s3.amazonaws.com/petsit-bend/options.jpg" id="icon" class="img-circle" alt="Options icon"></div></li>
-        </ul>
-      </div>
-      <div class="data-content">
-        <% if current_user.admin? %>
-          <%= render 'admin/pets_index.html.erb' %>
-        <% else %>
-          <% @pets.each do |pet| %>
-            <ul class="ul-list">
-              <li class="li-list"><%= pet.user.first_name + ' ' + pet.user.last_name %></li>
-              <li class="li-list"><%= pet.name %></li>
-              <li class="li-list">
-                <%= link_to 'View', pet_path(pet), class: "btn btn-med btn-primary" %>
-                <%= link_to 'Edit', edit_pet_path(pet), class: "btn btn-med btn-primary" %>
-                <%= link_to 'Delete', pet_path(pet), method: :delete,
-                  data: { confirm: "Are you sure you want to delete this pet?" },
-                    class: "btn btn-med btn-primary" %>
-              </li>
-            </ul>
-          <% end %>
-        <% end %>
-      </div>
-      <div class="paginate-box center">
-          <%= will_paginate %>
-      </div>
-    <% end %>
+  <div class="data-container">
+    <div class="data-content clearfix">
+      <% @pets.each do |pet| %>
+        <div class="page-data-box">
+          <div class="page-item-box">
+            <p class="page-content-header">Pet ID: <%= pet.id %></p>
+            <% if current_user.admin? %>
+              <p class="page-content"><img src="https://s3.amazonaws.com/petsit-bend/users.jpg" class="info-icon"><%= pet.user.first_name %></p>
+            <% end %>
+            <p class="page-content"><img src="https://s3.amazonaws.com/petsit-bend/pets.jpg" class="info-icon"><%= pet.name %></p>
+            <p class="page-content">
+              <img src="https://s3.amazonaws.com/petsit-bend/options.jpg" class="info-icon">
+              <%= link_to 'View', pet_path(pet), class: "btn btn-med btn-primary", id: "no-margin-button" %>
+              <%= link_to 'Edit', edit_pet_path(pet), class: "btn btn-med btn-primary", id: "no-margin-button" %>
+              <%= link_to 'Delete', pet_path(pet), method: :delete,
+                data: { confirm: "Are you sure you want to delete this pet?" },
+                  class: "btn btn-med btn-primary", id: "no-margin-button" %>
+            </p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="paginate-box center">
+      <%= will_paginate %>
+    </div>
   </div>
 </div>
