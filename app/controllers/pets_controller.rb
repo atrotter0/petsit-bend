@@ -9,12 +9,14 @@ class PetsController < ApplicationController
   before_action :require_user
   before_action :require_same_user
 
+  PETS_PAGINATE_LIMIT = 6
+
   def index
     if current_user.admin?
       @pets = Pet.all
-      @pets = sort_pets_by_user
+      @pets = sort_pets_by_user.paginate(paginate_settings(PETS_PAGINATE_LIMIT))
     else
-      @pets = Pet.where(user_id: current_user.id).order("name ASC")
+      @pets = Pet.where(user_id: current_user.id).order("name ASC").paginate(paginate_settings(PETS_PAGINATE_LIMIT))
     end
   end
 

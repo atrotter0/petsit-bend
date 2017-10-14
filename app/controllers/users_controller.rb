@@ -6,8 +6,10 @@ class UsersController < ApplicationController
   before_action :require_same_user, only: [:index, :edit, :update, :show, :destroy]
   before_action :require_admin, only: [:destroy]
 
+  USERS_PAGINATE_LIMIT = 8
+
   def index
-    @users = User.all.order("last_login DESC").paginate(paginate_settings(8))
+    @users = User.all.order("last_login DESC").paginate(paginate_settings(USERS_PAGINATE_LIMIT))
   end
 
   def new
