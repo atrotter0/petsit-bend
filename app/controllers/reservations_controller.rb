@@ -9,8 +9,8 @@ class ReservationsController < ApplicationController
   before_action :require_user
   before_action :require_same_user
 
-  RESERVATIONS_PAGINATE_LIMIT_USER = 6
-  RESERVATIONS_PAGINATE_LIMIT_ADMIN = 6
+  RESERVATIONS_PAGINATE_LIMIT_USER = 10
+  RESERVATIONS_PAGINATE_LIMIT_ADMIN = 10
 
   def index
     if current_user.admin?
