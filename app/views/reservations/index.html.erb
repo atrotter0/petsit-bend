@@ -9,7 +9,7 @@
   <div class="data-container">
     <div class="data-content clearfix">
       <% @reservations.each do |reservation| %>
-        <div class="page-data-box">
+        <div class="page-data-box block-width-small">
           <div class="page-item-box">
             <p class="page-content-header">Reservation ID: <%= reservation.id %></p>
             <% if current_user.admin? %>

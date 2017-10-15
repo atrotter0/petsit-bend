@@ -9,7 +9,7 @@
   <div class="data-container">
     <div class="data-content clearfix">
       <% @pets.each do |pet| %>
-        <div class="page-data-box">
+        <div class="page-data-box block-width-small">
           <div class="page-item-box">
             <p class="page-content-header">Pet ID: <%= pet.id %></p>
             <% if current_user.admin? %>

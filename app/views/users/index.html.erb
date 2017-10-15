@@ -3,7 +3,7 @@
   <div class="data-container">
     <div class="data-content clearfix">
       <% @users.each do |user| %>
-        <div class="page-data-box">
+        <div class="page-data-box block-width-small">
           <div class="page-item-box">
             <p class="page-content-header">User ID: <%= user.id %></p>
             <p class="page-content"><img src="https://s3.amazonaws.com/petsit-bend/timestamp.jpg" class="info-icon"><%= user.last_login if user.last_login.present? %></p>

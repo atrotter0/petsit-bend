@@ -19,21 +19,19 @@
     </div>
   <% end %>
   <div class="data-container">
-    <div class="data-content testimonial">
+    <div class="data-content clearfix">
       <% if logged_in? && current_user.admin? %>
         <%= render 'admin/testimonials_index.html.erb' %>
       <% else %>
         <% @testimonials.each do |testimonial| %>
           <% if testimonial.approved? || (logged_in? && current_user.admin?) %>
-            <div class="testimonial-image-box">
-              <img src="https://s3.amazonaws.com/petsit-bend/paw-print.jpg" id="testimonial-image" class="img-circle" alt="Petsit Bend Testimonials paw icon">
-            </div>
-            <div class="testimonial-content-box page-item-box">
-              <div class="testimonial-name-box">
-                <%= "#{testimonial.user.last_name} Family & Pets" %>
-              </div>
-              <div class="testimonial-body-box">
-                "<%= testimonial.body %>"
+            <div class="page-data-box block-width-small">
+              <div class="page-item-box">
+                <p class="page-content-header">
+                  <img src="https://s3.amazonaws.com/petsit-bend/paw-print.jpg" class="img-circle info-icon" alt="Petsit Bend Testimonials paw icon">
+                  <%= "#{testimonial.user.last_name} Family & Pets" %>
+                </p>
+                <p class="page-content">"<%= testimonial.body %>"</p>
               </div>
             </div>
           <% end %>
