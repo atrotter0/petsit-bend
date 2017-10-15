@@ -1,19 +1,17 @@
 <div class="content">
   <h1 align="center"><img src="https://s3.amazonaws.com/petsit-bend/users.jpg" id="icon-image" class="img-circle" alt="User details user icon">My Profile</h1>
   <div class="data-container">
-    <div class="show-data-header">Account Details</div>
-    <div class="show-data-content">
-      <strong>Email:</strong> <%= @user.email %></br>
-    </div>
-    <div class="show-data-header">Personal Details</div>
-    <div class="show-data-content">
-      <strong>First Name:</strong> <%= @user.first_name %></br>
-      <strong>Last Name:</strong> <%= @user.last_name %></br>
-      <strong>Phone:</strong> <%= @user.phone %>
-    </div>
-    <div class="show-data-header">Address</div>
-    <div class="show-data-content">
-      <%= @user.address %>
+    <div class="page-data-box">
+      <div class="page-item-box">
+        <p class="page-content-header">Account Details</p>
+        <p class="page-content"><strong>Email:</strong> <%= @user.email %></p>
+        <p class="page-content-header">Personal Details</p>
+        <p class="page-content"><strong>First Name:</strong> <%= @user.first_name %></p>
+        <p class="page-content"><strong>Last Name:</strong> <%= @user.last_name %></p>
+        <p class="page-content"><strong>Phone:</strong> <%= @user.phone %></p>
+        <p class="page-content-header">Address</p>
+        <p class="page-content"><%= @user.address %></p>
+      </div>
     </div>
     <div class="show-edit-box">
       <%= link_to 'Edit', edit_user_path(@user), class: "btn btn-med btn-primary" %>
