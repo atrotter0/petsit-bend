@@ -6,19 +6,22 @@
         <p class="page-content-header">Pets</p>
         <p class="page-content"><%= @reservation.pet_list %></p>
         <P class="page-content-header">Reservation Date</p>
-        <p class="page-content">Starts:</strong> <%= @reservation.start_date %></p>
-        <p class="page-content"><strong>Ends:</strong> <%= @reservation.end_date %></p>
-        <p class="page-content-header">Details</p>
-        <p class="page-content"><strong>Medications:</strong>
-          <% meds = @reservation.medications ? 'Yes' : 'No' %>
-          <%= meds %>
+        <p class="page-content">
+          <strong>Starts:</strong> <%= @reservation.start_date %></br>
+          <strong>Ends:</strong> <%= @reservation.end_date %>
         </p>
-        <p class="page-content"><strong>Special Instructions:</strong> <%= @reservation.special_instructions %></p>
+        <p class="page-content-header">Details</p>
+        <p class="page-content">
+          <strong>Medications:</strong><% meds = @reservation.medications ? 'Yes' : 'No' %><%= meds %></br>
+          <strong>Special Instructions:</strong> <%= @reservation.special_instructions %>
+        </p>
         <% if current_user.admin? %>
           <p class="page-content-header">Owner Info</p>
-          <p class="page-content"><strong>Owner:</strong> <%= "#{@reservation.user.first_name} #{@reservation.user.last_name}" %></p>
-          <p class="page-content"><strong>Phone:</strong> <%= @reservation.user.phone %></p>
-          <p class="page-content"><strong>Address:</strong> <%= @reservation.user.address %></p>
+          <p class="page-content">
+            <strong>Owner:</strong> <%= "#{@reservation.user.first_name} #{@reservation.user.last_name}" %></br>
+            <strong>Phone:</strong> <%= @reservation.user.phone %></br>
+            <strong>Address:</strong> <%= @reservation.user.address %>
+          </p>
         <% end %>
       </div>
     </div>

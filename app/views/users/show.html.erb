@@ -6,9 +6,11 @@
         <p class="page-content-header">Account Details</p>
         <p class="page-content"><strong>Email:</strong> <%= @user.email %></p>
         <p class="page-content-header">Personal Details</p>
-        <p class="page-content"><strong>First Name:</strong> <%= @user.first_name %></p>
-        <p class="page-content"><strong>Last Name:</strong> <%= @user.last_name %></p>
-        <p class="page-content"><strong>Phone:</strong> <%= @user.phone %></p>
+        <p class="page-content">
+          <strong>First Name:</strong> <%= @user.first_name %></br>
+          <strong>Last Name:</strong> <%= @user.last_name %></br>
+          <strong>Phone:</strong> <%= @user.phone %>
+        </p>
         <p class="page-content-header">Address</p>
         <p class="page-content"><%= @user.address %></p>
       </div>
