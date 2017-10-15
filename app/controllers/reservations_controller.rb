@@ -9,16 +9,16 @@ class ReservationsController < ApplicationController
   before_action :require_user
   before_action :require_same_user
 
+  RESERVATIONS_PAGINATE_LIMIT_ADMIN = 5
   RESERVATIONS_PAGINATE_LIMIT_USER = 5
-  RESERVATIONS_PAGINATE_LIMIT_ADMIN = 10
 
   def index
     if current_user.admin?
       @reservations = Reservation.all
-      @reservations = setup_sort_paginate('admin', RESERVATIONS_PAGINATE_LIMIT_USER) if @reservations.present?
+      @reservations = setup_sort_paginate('admin', RESERVATIONS_PAGINATE_LIMIT_ADMIN) if @reservations.present?
     else
       @reservations = Reservation.where(user_id: current_user.id)
-      @reservations = setup_sort_paginate(current_user.id, RESERVATIONS_PAGINATE_LIMIT_ADMIN) if @reservations.present?
+      @reservations = setup_sort_paginate(current_user.id, RESERVATIONS_PAGINATE_LIMIT_USER) if @reservations.present?
     end
   end
 
