@@ -1,14 +1,23 @@
 <div class="content">
   <h1 align="center"><img src="https://s3.amazonaws.com/petsit-bend/pets.jpg" id="icon-image" class="img-circle" alt="Pet details pet icon"><%= @pet.name %></h1>
   <div class="data-container">
-    <div class="show-data-header">Pet Details</div>
-    <div class="show-data-content">
-      <strong>Name:</strong> <%= @pet.name %></br>
-      <strong>Type:</strong> <%= @pet.pet_type %></br>
-      <strong>Age:</strong> <%= @pet.age %></br>
-      <strong>Color:</strong> <%= @pet.color %></br>
+    <div class="page-data-box">
+      <div class="page-item-box">
+        <p class="page-content-header">Pet Details</p>
+        <p class="page-content">
+          <strong>Name:</strong> <%= @pet.name %></br>
+          <strong>Type:</strong> <%= @pet.pet_type %></br>
+          <strong>Age:</strong> <%= @pet.age %></br>
+          <strong>Color:</strong> <%= @pet.color %>
+        </p>
+        <% if current_user.admin? %>
+          <p class="page-content-header">Reservations</p>
+            <% pet_previous_reservations.each do |reservation| %>
+              <p class="page-content"><%= "#{reservation.start_date} to #{reservation.end_date}" %></p>
+            <% end %>
+        <% end %>
+      </div>
     </div>
-    <%= render 'admin/pets_show' if current_user.admin? %>
     <div class="show-edit-box">
       <%= link_to 'Edit', edit_pet_path(@pet), class: "btn btn-med btn-primary" %>
       <%= link_to 'Back', pets_path, class: "btn btn-med btn-primary" %>

@@ -160,7 +160,7 @@ body {
   border: 5px solid #000;
 }
 
-.faq-data-box {
+.page-data-box {
   text-align: left;
   width: 70%;
   max-width: 980px;
@@ -169,14 +169,24 @@ body {
   margin-top: 30px;
 }
 
-.faq-question {
+.page-item-box {
+  border: 3px solid #fff;
+  transition: box-shadow 0.5s, border 0.5s;
+  margin-bottom: 40px;
+}
+
+.page-item-box:hover {
+  border: 5px solid #000;
+}
+
+.page-content-header {
   font-weight: bold;
   letter-spacing: 1px;
   padding: 10px;
   background-color: #000;
 }
 
-.faq-answer {
+.page-content {
   margin-top: -10px;
   margin-bottom: 0px;
   padding: 10px;
@@ -188,29 +198,18 @@ body {
   float: left;
 }
 
-.faq-item-box {
-  border: 3px solid #fff;
-  transition: box-shadow 0.5s, border 0.5s;
-  margin-bottom: 40px;
-}
-
 .min-height-extension {
   min-height: 270px;
   background-color: #fff;
 }
 
-.faq-item-box:hover {
-  bbox-shadow: 5px 5px 10px #fff;
-  border: 5px solid #000;
-}
-
-.faq-answer > a, .faq-ul > li > a {
+.page-content > a, .faq-ul > li > a {
   color: #0099cc;
   font-weight: bold;
   transition: color 1s;
 }
 
-.faq-answer > a:hover, .faq-ul > li > a:hover {
+.page-content > a:hover, .faq-ul > li > a:hover {
   color: #35383d;
 }
 
@@ -242,48 +241,15 @@ body {
   height: auto;
 }
 
-.data-icon {
-  text-align: center;
-  margin-bottom: 10px;
-  margin-top: 10px;
-}
-
-#icon {
-  max-width: 50px;
-  height: auto;
-}
-
-.data-image-box {
-  text-align: center;
-  margin-bottom: 20px;
-  margin-top: 10px;
-}
-
 #icon-image {
   max-width: 40px;
   height: auto;
   margin-right: 20px;
 }
 
-.data-header {
-  margin: 0 auto;
-  text-align: center;
-  width: 100%;
-  height: 50px;
-}
-
-.data-header .ul-list, .data-content .ul-list {
-  list-style-type: none;
-}
-
-.data-header .ul-list .li-list {
-  margin-left: 5px;
-  margin-right: 5px;
-  height: 70px;
-  float: left;
-  width: 30%;
-  background-color: #000;
-  color: #fff;
+.reservation-options, .testimonial-options {
+  margin-top: 0px;
+  background-color: #fff;
 }
 
 .data-content {
@@ -295,71 +261,14 @@ body {
   margin-top: 10px;
 }
 
-.data-content .li-list {
-  text-align: center;
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-bottom: 10px;
-  padding-left: 5px;
-  height: 45px;
-  line-height: 45px;
-  float: left;
-  width: 30%;
-  background-color: #fff;
-  color: #000;
-}
-
-.data-content .li-list a {
-  margin-top: 5px;
-  color: #fff;
-  transition: color 1s;
-}
-
-.data-content .li-list a:hover {
-  color: #fff;
-}
-
 .info-icon {
   width: 30px;
   height: auto;
+  margin-right: 5px;
 }
 
-.data-icon-list-box {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 150px;
-  text-align: center;
-  height: 45px;
-}
-
-.data-date-check-box {
-  margin: 0 auto;
-  display: block;
-  float: left;
-  width: 30%;
-  max-width: 50px;
-  color: #000;
-  height: 45px;
-  line-height: 45px;
-}
-
-.data-date-check-box:hover {
-  cursor: pointer;
-}
-
-#reservation-date-string {
-  display: block;
-}
-
-#reservation-date-icon {
-  display: none;
-}
-
-#reservation-date-icon-list-box {
-  display: none;
-}
-
-.data-date-check-box .tooltiptext {
+/*
+.put-class-here .tooltiptext {
   float:left;
   border: 1px solid #fff;
   visibility: hidden;
@@ -372,14 +281,14 @@ body {
   border-radius: 3px;
   padding: 0px;
 
-  /* Position the tooltip */
   position: absolute;
   z-index: 1;
 }
 
-.data-date-check-box:hover .tooltiptext {
+.put-class-here .tooltiptext {
   visibility: visible;
 }
+*/
 
 .show-data-header {
   margin-left: auto;
@@ -423,7 +332,6 @@ body {
   background-color: #000;
   border-color: #fff;
   border-radius: 2px 2px 2px 2px;
-  margin-bottom: 30px;
   transition: background-color 1s, letter-spacing 1s;
 }
 
@@ -431,7 +339,6 @@ body {
   color: #fff;
   background-color: #0099cc;
   border-color: #fff;
-  margin-bottom: 30px;
 }
 
 .btn.btn-primary.btn-lg {
@@ -501,54 +408,16 @@ textarea {
   margin-top: 10px;
 }
 
-.testimonial {
-  text-align: left;
-  margin: 0 auto;
-  width: 60%;
-}
-
-.testimonial-image-box {
-  float: left;
-  margin-top: 25px;
-  margin-right: 10px;
-  text-align: center;
-  width: 10%;
-  height: 30px;
-}
-
-#testimonial-image {
-  width: 50px;
-}
-
-.testimonial-content-box {
-  float: left;
-  width: 80%;
-  margin-top: 10px;
-  margin-bottom: 30px;
-}
-
-.testimonial-name-box {
-  padding: 10px;
-  font-style: italic;
-  background-color: #000;
-  color: #fff;
+.block-width-small {
+  width: 70%;
+  max-width: 600px;
 }
 
 .testimonial-approved-icon-box {
   text-align: right;
   float: right;
   width: 10%;
-}
-
-.testimonial-body-box {
-  text-indent: 10px;
-  background-color: #fff;
-  color: #000;
-  padding: 10px;
-}
-
-.testimonial-options {
-  margin-top: 10px;
+  margin-right: 5px;
 }
 
 footer {
@@ -587,17 +456,7 @@ footer ul li {
 
 /* responsive styles */
 
-@media screen and (max-width: 400px) {
-  .tooltiptext {
-    width: 50%;
-  }
-}
-
 @media screen and (max-width: 500px) {
-  .show-data-header, .show-data-content {
-    width: 100%;
-  }
-
   footer ul {
     display: none;
   }
@@ -621,7 +480,7 @@ footer ul li {
 }
 
 @media screen and (max-width: 599px) {
-  .faq-data-box {
+  .page-data-box {
     width: 90%;
   }
 
@@ -641,101 +500,10 @@ footer ul li {
   }
 }
 
-@media screen and (max-width: 640px) {
-  .data-header {
-    margin-bottom: 20px;
-  }
-
-  .data-header .ul-list .li-list {
-    margin-left: 0px;
-    margin-right: 0px;
-    background-color: #fff;
-  }
-
-  .data-icon {
-    background-color: #fff;
-    border-bottom: 1px solid black;
-  }
-
-  .li-list > .btn.btn-primary.btn-med {
-    font-size: 1em;
-    color: #fff;
-    background-color: #000;
-    border-color: #fff;
-    border-radius: 3px 3px 3px 3px;
-    padding: 8px;
-    margin-left: 10px;
-    margin-bottom: 0px;
-    width: 100%;
-    float: none;
-    transition: background-color 1s;
-  }
-
-  .li-list > .btn.btn-primary.btn-med:hover {
-    background-color: #0099cc;
-  }
-
-  .ul-list {
-    display: inline-block;
-    height: 200px;
-    background-color: #fff;
-    width: 100%;
-    border-radius: 2px 2px 2px 2px;
-  }
-
-  .data-date-check-box {
-    margin: 0 auto;
-    float: left;
-    width: 30%;
-  }
-
-  .data-content .li-list {
-    text-align: center;
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-bottom: 10px;
-    padding-left: 0px;
-    height: 200px;
-    line-height: 45px;
-    float: left;
-    width: 30%;
-    background-color: #fff;
-    color: #000;
-  }
-
-  #reservation-date-string {
-    display: none;
-  }
-
-  #reservation-date-icon {
-    width: 100%;
-    text-align: center;
-    display: block;
-  }
-
-  #reservation-date-icon-list-box {
-    width: 50px;
-    display: block;
-    margin: 0 auto;
-  }
-}
-
 @media screen and (max-width: 650px) {
   .image-float-left {
     float: none;
     text-align: center;
-  }
-}
-
-@media screen and (max-width: 690px) {
-  .li-list a {
-    font-size: 0.7em;
-  }
-}
-
-@media screen and (max-width: 716px) {
-  .li-list .btn {
-    font-size: 0.7em;
   }
 }
 

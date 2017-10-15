@@ -1,23 +1,30 @@
 <div class="content">
   <h1 align="center"><img src="https://s3.amazonaws.com/petsit-bend/reservations.jpg" id="icon-image" class="img-circle" alt="Reservation details reservation icon">My Reservation</h1>
   <div class="data-container">
-    <div class="show-data-header">Pets</div>
-    <div class="show-data-content">
-      <%= @reservation.pet_list %>
+    <div class="page-data-box">
+      <div class="page-item-box">
+        <p class="page-content-header">Pets</p>
+        <p class="page-content"><%= @reservation.pet_list %></p>
+        <P class="page-content-header">Reservation Date</p>
+        <p class="page-content">
+          <strong>Starts:</strong> <%= @reservation.start_date %></br>
+          <strong>Ends:</strong> <%= @reservation.end_date %>
+        </p>
+        <p class="page-content-header">Details</p>
+        <p class="page-content">
+          <strong>Medications:</strong><% meds = @reservation.medications ? 'Yes' : 'No' %> <%= meds %></br>
+          <strong>Special Instructions:</strong> <%= @reservation.special_instructions %>
+        </p>
+        <% if current_user.admin? %>
+          <p class="page-content-header">Owner Info</p>
+          <p class="page-content">
+            <strong>Owner:</strong> <%= "#{@reservation.user.first_name} #{@reservation.user.last_name}" %></br>
+            <strong>Phone:</strong> <%= @reservation.user.phone %></br>
+            <strong>Address:</strong> <%= @reservation.user.address %>
+          </p>
+        <% end %>
+      </div>
     </div>
-    <div class="show-data-header">Reservation Dates</div>
-    <div class="show-data-content">
-      <strong>Starts:</strong> <%= @reservation.start_date %></br>
-      <strong>Ends:</strong> <%= @reservation.end_date %></br>
-    </div>
-    <div class="show-data-header">Details</div>
-    <div class="show-data-content">
-      <strong>Medications:</strong>
-      <% meds = @reservation.medications ? 'Yes' : 'No' %>
-      <%= meds %></br>
-     <strong>Special Instructions:</strong> <%= @reservation.special_instructions %>
-    </div>
-    <%= render 'admin/reservations_show.html.erb' if current_user.admin? %>
     <div class="show-edit-box">
       <%= link_to 'Edit', edit_reservation_path(@reservation), class: "btn btn-med btn-primary" %>
       <%= link_to 'Back', reservations_path, class: "btn btn-med btn-primary" %>
