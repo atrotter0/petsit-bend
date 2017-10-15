@@ -176,7 +176,6 @@ body {
 }
 
 .page-item-box:hover {
-  bbox-shadow: 5px 5px 10px #fff;
   border: 5px solid #000;
 }
 
@@ -268,10 +267,6 @@ body {
   margin-right: 5px;
 }
 
-#no-margin-button {
-  margin-bottom: 0px;
-}
-
 /*
 .put-class-here .tooltiptext {
   float:left;
@@ -337,7 +332,6 @@ body {
   background-color: #000;
   border-color: #fff;
   border-radius: 2px 2px 2px 2px;
-  margin-bottom: 30px;
   transition: background-color 1s, letter-spacing 1s;
 }
 
@@ -345,7 +339,6 @@ body {
   color: #fff;
   background-color: #0099cc;
   border-color: #fff;
-  margin-bottom: 30px;
 }
 
 .btn.btn-primary.btn-lg {
