@@ -12,7 +12,7 @@
         </p>
         <p class="page-content-header">Details</p>
         <p class="page-content">
-          <strong>Medications:</strong><% meds = @reservation.medications ? 'Yes' : 'No' %><%= meds %></br>
+          <strong>Medications:</strong><% meds = @reservation.medications ? 'Yes' : 'No' %> <%= meds %></br>
           <strong>Special Instructions:</strong> <%= @reservation.special_instructions %>
         </p>
         <% if current_user.admin? %>
