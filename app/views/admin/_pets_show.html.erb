@@ -1,8 +1,8 @@
 <div class="show-data-header">Reservations</div>
-  <div class="show-data-content">
-    <ul>
-    <% pet_previous_reservations.each do |reservation| %>
-      <li><%= "#{reservation.start_date} to #{reservation.end_date}" %></li>
-    <% end %>
-    </ul>
-  </div>
+<div class="show-data-content">
+  <ul>
+  <% pet_previous_reservations.each do |reservation| %>
+    <li><%= "#{reservation.start_date} to #{reservation.end_date}" %></li>
+  <% end %>
+  </ul>
+</div>
