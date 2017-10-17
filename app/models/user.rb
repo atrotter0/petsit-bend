@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessor :remember_token, :activation_token, :reset_token
+  attr_accessor :reset_token
 
   has_many :pets, dependent: :destroy
   has_many :reservations, dependent: :destroy
