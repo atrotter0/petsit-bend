@@ -358,6 +358,18 @@ body {
   letter-spacing: 5px;
 }
 
+.label-style {
+  font-family: 'Amatic SC', cursive;
+  font-size: 1.1em;
+  font-weight: bold;
+  letter-spacing: 5px;
+  margin-top: 20px;
+}
+
+.add-top-margin {
+  margin-top: 8px;
+}
+
 #ms-pet-list, #ms-user-list {
   width: 100%;
   margin-top: 10px;
