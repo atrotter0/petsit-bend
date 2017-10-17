@@ -1,0 +1,39 @@
+<div class="content">
+  <h1 align="center">Reset Password</h1>
+
+  <%= render 'shared/errors', obj: @user %>
+  <% provide(:title, "Password Reset") %>
+
+  <div class="form-container small-form-width">
+    <div class="row">
+      <div class="col-xs-12">
+        <%= form_for(@user, url: password_reset_path(params[:id]), :html => { class: 'form-horizontal', role: 'form' }) do |f| %>
+          
+          <%= hidden_field_tag :email, @user.email %>
+
+          <div class="form-group">
+            <div class="control-label col-sm-2">
+              <%= f.label :password %>
+            </div>
+            <div class="col-sm-8">
+              <%= f.password_field :password, class: 'form-control', placeholder: 'Password' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="control-label col-sm-2">
+              <%= f.label :password_confirmation, 'Confirm' %>
+            </div>
+            <div class="col-sm-8">
+              <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'Retype Password' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <%= f.submit "Update Password", class: "btn btn-med btn-primary" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
