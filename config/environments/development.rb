@@ -26,6 +26,10 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+  # mailer preview setup for local development environment
+  host = 'localhost:3000'
+  config.action_mailer.default_url_options = { host: host, protocol: 'https' }
+
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
