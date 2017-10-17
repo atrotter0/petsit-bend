@@ -1,5 +1,14 @@
 # Preview all emails at http://localhost:3000/rails/mailers/user_mailer
 class UserMailerPreview < ActionMailer::Preview
+  def reservation
+    reservation = Reservation.last
+    UserMailer.reservation(reservation)
+  end
+
+  def reservation_update
+    reservation = Reservation.last
+    UserMailer.reservation_update(reservation)
+  end
 
   # Preview this email at http://localhost:3000/rails/mailers/user_mailer/password_reset
   def password_reset
@@ -7,5 +16,4 @@ class UserMailerPreview < ActionMailer::Preview
     user.reset_token = User.new_token
     UserMailer.password_reset(user)
   end
-
 end

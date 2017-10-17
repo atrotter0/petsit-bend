@@ -1,0 +1,18 @@
+Thank you for making a reservation with Petsit Bend! Your reservation details are listed below:
+
+Reservation Details
+
+Reservation ID: <%= @reservation.id %>
+Pets: <%= @reservation.pet_list %>
+Reservation Dates: <%= @reservation.start_date %> to <%= @reservation.end_date %>
+Medications: <%= @reservation.medications %>
+Special Instructions: <%= @reservation.special_instructions %>
+
+User Details
+
+<%= @reservation.user.first_name %> <%= @user.last_name %>
+<%= @reservation.user.email %>
+<%= @reservation.user.phone %>
+<%= @reservation.user.address %>
+
+If this is your first reservation, Abel will reach out to schedule a meet and greet for you and your pets.

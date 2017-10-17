@@ -31,6 +31,7 @@ class ReservationsController < ApplicationController
     create_pet_list if params[:pet_list].present?
     @reservation.user_id = get_user_id
     if @reservation.save
+      @reservation.user.send_reservation_email(@reservation)
       flash[:success] = "Reservation successfully created!"
       redirect_to reservation_path(@reservation)
     else
@@ -48,6 +49,7 @@ class ReservationsController < ApplicationController
     create_pet_list if params[:pet_list].present?
     @reservation.user_id = get_user_id
     if @reservation.update(reservation_params)
+      @reservation.user.send_reservation_update_email(@reservation)
       flash[:success] = "Reservation was successfully updated!"
       redirect_to reservation_path(@reservation)
     else

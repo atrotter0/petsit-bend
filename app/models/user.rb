@@ -42,4 +42,16 @@ class User < ActiveRecord::Base
 
     reset_sent_at < 2.hours.ago
   end
+
+  def send_sign_up_email
+    UserMailer.sign_up(self).deliver_now
+  end
+
+  def send_reservation_email(reservation)
+    UserMailer.reservation(reservation).deliver_now
+  end
+
+  def send_reservation_update_email(reservation)
+    UserMailer.reservation_update(reservation).deliver_now
+  end
 end
