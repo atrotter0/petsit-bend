@@ -1,4 +1,9 @@
 class UserMailer < ApplicationMailer
+  def sign_up(user)
+    @user = user
+    mail from: "Petsit Bend <donotreply@petsitbend.com>", to: @user.email, bcc: "petsitbend@gmail.com", subject: "Account Created"
+  end
+
   def reservation(reservation)
     @reservation = reservation
     @user = @reservation.user

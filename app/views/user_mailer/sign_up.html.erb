@@ -1,0 +1,19 @@
+<p>Welcome, <%= @user.first_name %>!
+
+<p>Thank you for signing up with <%= link_to 'Petsit Bend', root_url %>. Your account details are listed below:</p>
+
+<h4>Account Details</h4>
+<p>
+  Name: <%= @user.first_name %> <%= @user.last_name %><br/>
+  Email: <%= @user.email %><br/>
+  Phone: <%= @user.phone %><br/>
+  Address: <%= @user.address %><br/>
+</p>
+
+<p>
+  Next steps:<br/>
+  1) Add your pets<br/>
+  2) Create upcoming reservations
+</p>
+
+<p>If you need help getting started, please visit our <%= link_to 'FAQ page', faq_url %> for more info!</p>
