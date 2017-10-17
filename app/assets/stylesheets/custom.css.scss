@@ -3,7 +3,12 @@ $navbar-default-bg: #404040;
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+html {
+  height: 100%;
+}
+
 body {
+  height: 100%;
   background-color: #404040;
 }
 
@@ -51,7 +56,7 @@ body {
 
 .jumbotron {
   background-color: #262626;
-  min-height: 675px;
+  height: 86%;
   margin-bottom: 0px;
 }
 
@@ -123,8 +128,9 @@ body {
   color: #fff;
   background-color: #262626;
   width: 100%;
-  min-height: 675px;
+  height: 86%;
   padding: 20px;
+  overflow: auto;
 }
 
 .content h1 {
@@ -429,9 +435,11 @@ textarea {
 }
 
 footer {
+  position: relative;
+  bottom: 0px;
   margin-top: 0px;
   width: 100%;
-  height: 50px;
+  height: 40px;
   padding: 10px;
   color: #777;
   background-color: #404040;
