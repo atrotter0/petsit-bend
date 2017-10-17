@@ -6,55 +6,33 @@
         <%= form_for(@pet, :html => { class: 'form-horizontal', role: 'form' }) do |f| %>
         <% if current_user.admin? %>
             <div class="form-group">
-              <div class="control-label col-sm-2">
-                <%= f.label :user_list, 'User' %>
-              </div>
-              <div class="col-sm-8">
-                <select multiple="multiple" id="user-list" name="user_list[]">
-                  <% User.all.each do |user| %>
-                    <option><%= user_name_and_id(user) %></option>
-                  <% end %>
-                </select>
-              </div>
+              <%= f.label :user_list, 'User', class: 'label-style' %>
+              <select multiple="multiple" id="user-list" name="user_list[]">
+                <% User.all.each do |user| %>
+                  <option><%= user_name_and_id(user) %></option>
+                <% end %>
+              </select>
             </div>
           <% end %>
           <div class="form-group">
-            <div class="control-label col-sm-2">
-              <%= f.label :name %>
-            </div>
-            <div class="col-sm-8">
-              <%= f.text_field :name, class: 'form-control', placeholder: "Name" %>
-            </div>
+            <%= f.label :name, class: 'label-style' %>
+            <%= f.text_field :name, class: 'form-control', placeholder: "Name" %>
           </div>
           <div class="form-group">
-            <div class="control-label col-sm-2">
-              <%= f.label :pet_type, 'Type' %>
-            </div>
-            <div class="col-sm-8">
-              <%= f.select(:pet_type, ['Dog', 'Cat', 'Horse', 'Other'], { :include_blank => "Type" }, { :class => 'form-control'}) %>
-            </div>
+            <%= f.label :pet_type, 'Type', class: 'label-style' %>
+            <%= f.select(:pet_type, ['Dog', 'Cat', 'Horse', 'Other'], { :include_blank => "Type" }, { :class => 'form-control'}) %>
           </div>
           <div class="form-group">
-            <div class="control-label col-sm-2">
-              <%= f.label :age %>
-            </div>
-            <div class="col-sm-8">
-              <%= f.select(:age, number_select_generator(1, 30), { :include_blank => "Age"}, { :class => 'form-control'}) %>
-            </div>
+            <%= f.label :age, class: 'label-style' %>
+            <%= f.select(:age, number_select_generator(1, 30), { :include_blank => "Age"}, { :class => 'form-control'}) %>
           </div>
           <div class="form-group">
-            <div class="control-label col-sm-2">
-              <%= f.label :color %>
-            </div>
-            <div class="col-sm-8">
-              <%= f.text_field :color, class: 'form-control', placeholder: "Color" %>
-            </div>
+            <%= f.label :color, class: 'label-style' %>
+            <%= f.text_field :color, class: 'form-control', placeholder: "Color" %>
           </div>
           <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-              <%= f.submit(@pet.new_record? ? "Add Pet" : "Update Pet", class: 'btn btn-primary btn-med') %>
-              <%= link_to 'Back', pets_path, class: "btn btn-med btn-primary" %>
-            </div>
+            <%= f.submit(@pet.new_record? ? "Add Pet" : "Update Pet", class: 'btn btn-primary btn-lg') %>
+            <%= link_to 'Back', pets_path, class: "btn btn-lg btn-primary" %>
           </div>
         <% end %>
       </div>

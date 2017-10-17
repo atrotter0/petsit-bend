@@ -1,6 +1,6 @@
 <%= render 'shared/errors', obj: @testimonial %>
 
-  <div class="form-container small-form-width">
+  <div class="form-container medium-form-width">
     <div class="row clearfix">
       <div class="col-xs-12">
         <%= form_for(@testimonial) do |f| %>
@@ -20,8 +20,8 @@
             </div>
             <% end %>
           <div class="form-group">
-            <%= f.submit(@testimonial.new_record? ? "Submit Testimonial" : "Update Testimonial", class: 'btn btn-primary btn-med') %>
-            <%= link_to 'Back', testimonials_path, class: "btn btn-med btn-primary" %>
+            <%= f.submit(@testimonial.new_record? ? "Submit Testimonial" : "Update Testimonial", class: 'btn btn-primary btn-lg') %>
+            <%= link_to 'Back', testimonials_path, class: "btn btn-lg btn-primary" %>
           </div>
         <% end %>
       </div>
