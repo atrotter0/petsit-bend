@@ -11,6 +11,7 @@
         <p class="page-content">If you are new to Petsit Bend you will need to:
           <ul class="faq-ul">
             <li><%= link_to 'Sign Up', signup_path, title: 'Sign up for Petsit Bend'%> for our services</li>
+            <li>Activate your account (an email with an activation link will be sent to the email address used during sign up)</li>
             <li>Add your pets</li>
             <li>Create a reservation</li>
           </ul>
@@ -52,6 +53,14 @@
         <p class="page-content-header">How do I submit a testimonial?</p>
         <p class="page-content">You will need to <%= link_to 'Sign Up', signup_path, title: 'Sign up for Petsit Bend'%> for Petsit Bend services in order to leave a testimonial.</p>
         <p class="page-content">After you have logged in, visit the <%= link_to 'Testimonials', testimonials_path, title: 'Petsit Bend Testimonials'%> page and click <strong>Add Testimonial</strong>. After you have sibmitted the form, we will review your testimonial. Once it is accepted, the testimonial will display on the Testimonials page. You may only submit one testimonial per account.</p>
+      </div>
+      <div class="page-item-box">
+        <p class="page-content-header">How can I reset my password?</p>
+        <p class="page-content">Visit the <%= link_to 'Forgot Password?', new_password_reset_path, title: 'Reset Password' %> page to reset the password on your account.</p>
+      </div>
+      <div class="page-item-box">
+        <p class="page-content-header">How can I resend my account activation link?</p>
+        <p class="page-content">Visit the <%= link_to 'Resend Account Activiation', new_account_activation_path, title: 'Resend Account Activation Email' %> page to resend an email with a link to activate your account.</p>
       </div>
       <div class="page-item-box">
         <p class="page-content-header">I'm having a hard time setting up my account or encountering application errors, who should I contact?</p>

@@ -5,7 +5,14 @@
       <% @users.each do |user| %>
         <div class="page-data-box block-width-small">
           <div class="page-item-box">
-            <p class="page-content-header">User ID: <%= user.id %></p>
+            <p class="page-content-header">
+              User ID: <%= user.id %>
+              <% if user.activated? %>
+                <span class="glyphicon glyphicon-ok-circle verified-glyph" aria-hidden="true"></span>
+              <% else %>
+                <span class="glyphicon glyphicon-remove-circle verified-glyph" aria-hidden="true"></span>
+              <% end %>
+            </p>
             <p class="page-content"><img src="https://s3.amazonaws.com/petsit-bend/timestamp.jpg" class="info-icon"><%= user.last_login if user.last_login.present? %></p>
             <p class="page-content"><img src="https://s3.amazonaws.com/petsit-bend/pets.jpg" class="info-icon"><%= pet_names_for_user(user) if user.pets.present? %></p>
             <p class="page-content"><img src="https://s3.amazonaws.com/petsit-bend/users.jpg" class="info-icon"><%= user.first_name + ' ' + user.last_name %> | <%= user.email %></p>

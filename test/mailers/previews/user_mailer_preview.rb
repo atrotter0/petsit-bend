@@ -5,6 +5,12 @@ class UserMailerPreview < ActionMailer::Preview
     UserMailer.sign_up(user)
   end
 
+  def account_activation
+    user = User.last
+    user.activation_token = User.new_token
+    UserMailer.account_activation(user)
+  end
+
   def reservation
     reservation = Reservation.last
     UserMailer.reservation(reservation)
