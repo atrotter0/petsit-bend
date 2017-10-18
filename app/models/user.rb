@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
             format: { with: VALID_EMAIL_REGEX }
   validates :first_name, presence: true, length: { maximum: 25 }
   validates :last_name, presence: true, length: { maximum: 25 }
-  validates :phone, presence: true, length: { minimum: 9, maximum: 14 }
+  validates :phone, presence: true, length: { minimum: 14, maximum: 14 }
   validates :address, presence: true, length: { minimum: 4, maximum: 100 }
 
   has_secure_password

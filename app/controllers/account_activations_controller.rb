@@ -7,7 +7,7 @@ class AccountActivationsController < ApplicationController
     if @user
       @user.create_activation_reset_digest
       @user.send_account_activation
-      flash[:warning] = "An email has been sent with an activation link."
+      flash[:warning] = "An email has been sent with an account activation link."
       redirect_to root_url
     else
       flash.now[:danger] = "Email address not found."
