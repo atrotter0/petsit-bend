@@ -19,6 +19,7 @@ class AccountActivationsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && !user.activated? && user.authenticated?(:activation, params[:id])
       user.activate
+      user.set_last_login
       session[:user_id] = user.id
       flash[:success] = "Account successfully activated! Welcome to Petsit Bend, #{user.first_name}!"
       redirect_to user

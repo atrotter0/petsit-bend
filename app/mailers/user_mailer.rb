@@ -6,7 +6,7 @@ class UserMailer < ApplicationMailer
 
   def account_activation(user)
     @user = user
-    mail from: "Petsit Bend <donotreply@petsitbend.com>", to: @user.email, bcc: "petsitbend@gmail.com", subject: "Account Activation Required"
+    mail from: "Petsit Bend <donotreply@petsitbend.com>", to: @user.email, subject: "Account Activation Required"
   end
 
   def reservation(reservation)

@@ -19,6 +19,10 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
+  def set_last_login
+    update_attribute(:last_login, Time.now)
+  end
+
   def User.new_token
     SecureRandom.urlsafe_base64
   end
