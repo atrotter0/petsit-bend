@@ -4,11 +4,14 @@ class AccountActivationsController < ApplicationController
 
   def create
     @user = User.find_by(email: params[:account_activations][:email].downcase)
-    if @user
+    if @user && !@user.activated?
       @user.create_activation_reset_digest
       @user.send_account_activation
       flash[:warning] = "An email has been sent with an account activation link."
       redirect_to root_url
+    elsif @user && @user.activated?
+      flash.now[:danger] = "Account has already been activated."
+      render 'new'
     else
       flash.now[:danger] = "Email address not found."
       render 'new'
