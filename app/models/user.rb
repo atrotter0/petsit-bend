@@ -43,6 +43,11 @@ class User < ActiveRecord::Base
     update_columns(activated: true, activated_at: Time.zone.now)
   end
 
+  def create_activation_reset_digest
+    self.activation_token = User.new_token
+    update_attribute(:activation_digest, User.digest(activation_token))
+  end
+
   def create_reset_digest
     self.reset_token = User.new_token
     update_attribute(:reset_digest,  User.digest(reset_token))
