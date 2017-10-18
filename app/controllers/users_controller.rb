@@ -21,9 +21,9 @@ class UsersController < ApplicationController
     @user.last_login = Time.now
     if @user.save
       @user.send_sign_up_email
-      session[:user_id] = @user.id
-      flash[:success] = "Account successfully created! Welcome to the Petsit Bend, #{@user.first_name}!"
-      redirect_to user_path(@user)
+      @user.send_account_activation
+      flash[:warning] = "Please check your email to activate your account."
+      redirect_to root_url
     else
       render 'new'
     end

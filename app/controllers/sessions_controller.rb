@@ -4,11 +4,14 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(email: params[:session][:email].downcase)
-    if user && user.authenticate(params[:session][:password])
+    if user && user.authenticate(params[:session][:password]) && user.activated?
       set_last_login(user)
       session[:user_id] = user.id
       flash[:success] = "You have successfully logged in. Welcome back, #{user.first_name}!"
       redirect_to reservations_path
+    elsif user && user.authenticate(params[:session][:password]) && !user.activated
+      flash.now[:warning] = "Your account has not been activated. Please check your email for the account activation link."
+      render 'new'
     else
       flash.now[:danger] = "Your email or password is incorrect."
       render 'new'
