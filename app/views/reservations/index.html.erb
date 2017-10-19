@@ -11,7 +11,17 @@
       <% @reservations.each do |reservation| %>
         <div class="page-data-box block-width-small">
           <div class="page-item-box">
-            <p class="page-content-header">Reservation ID: <%= reservation.id %></p>
+            <p class="page-content-header">
+              Reservation ID: <%= reservation.id %>
+              <% if petsit_finished?(reservation.end_date) %>
+                <span class="glyphicon glyphicon-ok-circle verified-glyph" aria-hidden="true" style="color: #66c1e0;"></span>
+              <% end %>
+            </p>
+            <% if petsit_finished?(reservation.end_date) %>
+              <p class="page-content"><img src="https://s3.amazonaws.com/petsit-bend/petsit-house.jpg" class="info-icon">Complete</p>
+            <% elsif petsit_started?(reservation.start_date) && !petsit_finished?(reservation.end_date) %>
+              <p class="page-content"><img src="https://s3.amazonaws.com/petsit-bend/petsit-house.jpg" class="info-icon">In-Progress</p>
+            <% end %>
             <% if current_user.admin? %>
               <p class="page-content"><img src="https://s3.amazonaws.com/petsit-bend/users.jpg" class="info-icon"><%= reservaton_user_name(reservation) %></p>
             <% end %>
