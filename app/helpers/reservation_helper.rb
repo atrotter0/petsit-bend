@@ -23,6 +23,11 @@ module ReservationHelper
     convert_to_date(end_date) <= Date.today.end_of_day
   end
 
+  def petsit_finished_plus_one_day?(end_date)
+    next_day = convert_to_date(end_date).next_day
+    next_day <= Date.today.end_of_day
+  end
+
   def convert_to_date(date_string)
     Date.strptime(date_string, '%m/%d/%Y').to_date
   end

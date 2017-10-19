@@ -26,7 +26,7 @@
       </div>
     </div>
     <div class="show-edit-box">
-      <%= link_to 'Edit', edit_reservation_path(@reservation), class: "btn btn-lg btn-primary" %>
+      <%= link_to 'Edit', edit_reservation_path(@reservation), class: "btn btn-lg btn-primary" unless petsit_finished_plus_one_day?(@reservation.end_date) %>
       <%= link_to 'Back', reservations_path, class: "btn btn-lg btn-primary" %>
     </div>
   </div>
