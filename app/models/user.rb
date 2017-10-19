@@ -80,6 +80,10 @@ class User < ActiveRecord::Base
     UserMailer.reservation_update(reservation).deliver_now
   end
 
+  def send_reservation_cancel_email(reservation)
+    UserMailer.reservation_cancel(reservation).deliver_now
+  end
+
   private
 
   def create_activation_digest

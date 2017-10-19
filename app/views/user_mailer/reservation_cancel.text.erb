@@ -1,0 +1,16 @@
+Your reservation at Petsit Bend has been cancelled! The details of your cancelled reservation are listed below:
+
+Reservation Details
+
+Reservation ID: <%= @reservation.id %>
+Pets: <%= @reservation.pet_list %>
+Reservation Dates: <%= @reservation.start_date %> to <%= @reservation.end_date %>
+Medications: <%= @reservation.medications %>
+Special Instructions: <%= @reservation.special_instructions %>
+
+User Details
+
+Name: <%= @reservation.user.first_name %> <%= @user.last_name %>
+Email: <%= @reservation.user.email %>
+Phone: <%= @reservation.user.phone %>
+Address: <%= @reservation.user.address %>

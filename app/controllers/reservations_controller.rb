@@ -58,6 +58,7 @@ class ReservationsController < ApplicationController
   end
 
   def destroy
+    @reservation.user.send_reservation_cancel_email(@reservation)
     @reservation.destroy
     flash[:danger] = "Reservation was successfully cancelled!"
     redirect_to reservations_path

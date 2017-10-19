@@ -21,6 +21,11 @@ class UserMailerPreview < ActionMailer::Preview
     UserMailer.reservation_update(reservation)
   end
 
+  def reservation_cancel
+    reservation = Reservation.last
+    UserMailer.reservation_cancel(reservation)
+  end
+
   # Preview this email at http://localhost:3000/rails/mailers/user_mailer/password_reset
   def password_reset
     user = User.first
