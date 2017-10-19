@@ -16,16 +16,16 @@ module ReservationHelper
   end
 
   def petsit_started?(start_date)
-    convert_to_date(start_date) <= Date.today
+    convert_to_date(start_date).beginning_of_day <= Time.zone.now
   end
 
   def petsit_finished?(end_date)
-    convert_to_date(end_date) <= Date.today.end_of_day
+    convert_to_date(end_date).end_of_day <= Time.zone.now
   end
 
   def petsit_finished_plus_one_day?(end_date)
-    next_day = convert_to_date(end_date).next_day
-    next_day <= Date.today.end_of_day
+    next_day = convert_to_date(end_date).next_day.beginning_of_day
+    next_day <= Time.zone.now
   end
 
   def convert_to_date(date_string)
