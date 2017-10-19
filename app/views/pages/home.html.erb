@@ -1,14 +1,14 @@
 <div class="center jumbotron">
   <div class="image-box">
-    <img src="https://s3.amazonaws.com/petsit-bend/penny-2.jpg" id="image" class="img-circle" alt="Penny pitbull: a client utilizing Petsit Bend's petsitting services.">
-    <img src="https://s3.amazonaws.com/petsit-bend/tidus-2.jpg" id="image" class="img-circle" alt="Petsit Bend owner's dog, Tidus, in Bend, OR.">
-    <img src="https://s3.amazonaws.com/petsit-bend/digger-2.jpg" id="image" class="img-circle" alt="Digger: a client of Petsit Bend's petsitting services in Bend, OR.">
+    <img src="https://s3.amazonaws.com/petsit-bend/penny-2.jpg" id="image" class="img-circle" alt="Penny pitbull: A client utilizing Petsit Bend's pet sitting services.">
+    <img src="https://s3.amazonaws.com/petsit-bend/tidus-2.jpg" id="image" class="img-circle" alt="Owner's dog, Tidus, enjoying petsitting and dog walking services in Central Oregon.">
+    <img src="https://s3.amazonaws.com/petsit-bend/digger-2.jpg" id="image" class="img-circle" alt="Digger: A Petsit Bend client using our pet sit and dog walking services in Bend, OR.">
   </div>
   <div class="cta-box">
     <% if logged_in? %>
-      <%= link_to "Make a Reservation", new_reservation_path, class: "btn btn-primary btn-lg btn-xlg", title: "Make a Reservation" %>
+      <%= link_to "Make a Reservation", new_reservation_path, class: "btn btn-primary btn-lg btn-xlg", title: "Make a pet sit Reservation" %>
     <% else %>
-      <%= link_to "Make a Reservation", signup_path, class: "btn btn-primary btn-lg btn-xlg", title: "Make a Reservation" %>
+      <%= link_to "Make a Reservation", signup_path, class: "btn btn-primary btn-lg btn-xlg", title: "Make a pet sit Reservation" %>
     <% end %>
   </div>
 </div>
