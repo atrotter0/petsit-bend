@@ -1,0 +1,17 @@
+  <% provide(:title, "Contact Petsit Bend") %>
+  <div class="form-container small-form-width">
+    <div class="row">
+      <div class="col-xs-12">
+        <%= form_for(:contact_forms, url: contact_forms_path, :html => { class: 'form-horizontal', role: 'form' }) do |f| %>
+          <div class="form-group">
+            <%= f.label :email, class: 'label-style' %>
+            <%= f.email_field :email, class: 'form-control', placeholder: 'Email' %>
+          </div>
+          <div class="form-group">
+            <%= f.submit "Submit", class: "btn btn-lg btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
