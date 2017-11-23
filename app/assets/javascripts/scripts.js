@@ -43,9 +43,9 @@ function formatPhone(target) {
 $(document).ready(function() {
   characterCounter("#reservation_special_instructions", 250, "#instructions-count");
   characterCounter("#testimonial_body", 800, "#testimonials-count");
-  characterCounter("#contact_forms_body", 300, "#contact-count");
+  characterCounter("#lead_message", 300, "#contact-count");
   phoneNumberFormatter("#user_phone");
-  phoneNumberFormatter("#contact_forms_phone");
+  phoneNumberFormatter("#lead_phone");
 
   $('#pet-list, #user-list').multiSelect({
     selectionHeader: 'Selected',

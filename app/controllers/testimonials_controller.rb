@@ -18,7 +18,7 @@ class TestimonialsController < ApplicationController
     @testimonial = Testimonial.new(testimonial_params)
     @testimonial.user_id = current_user.id
     if @testimonial.save
-      flash[:success] = "Testimonial successfully submitted! You testimonial will be reviewed shortly."
+      flash[:success] = "Testimonial successfully submitted! Your testimonial will be reviewed shortly."
       redirect_to testimonials_path
     else
       render 'new'
