@@ -6,7 +6,6 @@ class LeadsController < ApplicationController
   def create
     @lead = Lead.new(leads_params)
     if @lead.save
-      flash[:success] = "Your form has been successfully submitted! Your message will be reviewed shortly."
       redirect_to thank_you_path
     else
       render 'new'
