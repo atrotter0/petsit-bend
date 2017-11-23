@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :users, except: [:new]
 
   get 'contact', to: 'leads#new'
+  get 'thank_you', to: 'leads#thank_you'
   resources :leads, only: [:new, :create]
 
   get 'login', to: 'sessions#new'
