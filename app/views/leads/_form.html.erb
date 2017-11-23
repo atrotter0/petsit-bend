@@ -22,6 +22,10 @@
             <%= f.text_field :phone, class: 'form-control', placeholder: 'Phone Number', required: true %>
           </div>
           <div class="form-group">
+            <%= f.label :reason, 'Reason for contacting', class: 'label-style' %>
+            <%= f.select(:reason, ['Dog Walking', 'Petsitting', 'Pricing', 'Availability', 'Other'], { :include_blank => " " }, { :class => 'form-control'}) %>
+          </div>
+          <div class="form-group">
             <%= f.label :message, class: 'label-style' %>
             <%= f.text_area :message, class: 'form-control', placeholder: "Type your message here.", :maxlength => 300, rows: 10, required: true %>
             <div id="contact-count">0 / 300 characters</div>

@@ -8,4 +8,9 @@ class Lead < ActiveRecord::Base
   validates :last_name, presence: true, length: { maximum: 25 }
   validates :phone, presence: true, length: { minimum: 14, maximum: 14 }
   validates :message, presence: true, length: { maximum: 300 }
+  validates :reason, presence: true
+
+  def send_new_lead_notifier
+    LeadMailer.new_lead_notifier(self).deliver_now
+  end
 end
