@@ -4,8 +4,25 @@
       <div class="col-xs-12">
         <%= form_for(:contact_forms, url: contact_forms_path, :html => { class: 'form-horizontal', role: 'form' }) do |f| %>
           <div class="form-group">
+              <%= f.label :first_name, class: 'label-style' %>
+              <%= f.text_field :first_name, class: 'form-control', placeholder: 'First Name', required: true %>
+          </div>
+          <div class="form-group">
+            <%= f.label :last_name, class: 'label-style' %>
+            <%= f.text_field :last_name, class: 'form-control', placeholder: 'Last Name', required: true %>
+          </div>
+          <div class="form-group">
             <%= f.label :email, class: 'label-style' %>
-            <%= f.email_field :email, class: 'form-control', placeholder: 'Email' %>
+            <%= f.email_field :email, class: 'form-control', placeholder: 'Email', required: true %>
+          </div>
+          <div class="form-group">
+            <%= f.label :phone, class: 'label-style' %>
+            <%= f.text_field :phone, class: 'form-control', placeholder: 'Phone Number', required: true %>
+          </div>
+          <div class="form-group">
+            <%= f.label :message, class: 'label-style' %>
+            <%= f.text_area :body, class: 'form-control', placeholder: "Type your message here!", rows: 10, required: true %>
+            <div id="contact-count">0 / 300 characters</div>
           </div>
           <div class="form-group">
             <%= f.submit "Submit", class: "btn btn-lg btn-primary" %>

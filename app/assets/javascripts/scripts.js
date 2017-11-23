@@ -5,11 +5,11 @@ function characterCounter(inputFieldId, maxChars, charDisplayDivId) {
   });
 }
 
-function phoneNumberFormatter() {
-  $("#user_phone").keyup(function(evt) {
+function phoneNumberFormatter(inputFieldId) {
+  $(inputFieldId).keyup(function(evt) {
     if (keyCodeValid(evt) == true) {
       var input = formatPhone(this);
-      $("#user_phone").val(input);
+      $(inputFieldId).val(input);
     }
   });
 }
@@ -43,7 +43,9 @@ function formatPhone(target) {
 $(document).ready(function() {
   characterCounter("#reservation_special_instructions", 250, "#instructions-count");
   characterCounter("#testimonial_body", 800, "#testimonials-count");
-  phoneNumberFormatter();
+  characterCounter("#contact_forms_body", 300, "#contact-count");
+  phoneNumberFormatter("#user_phone");
+  phoneNumberFormatter("#contact_forms_phone");
 
   $('#pet-list, #user-list').multiSelect({
     selectionHeader: 'Selected',
