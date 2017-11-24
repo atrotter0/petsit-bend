@@ -28,10 +28,13 @@
             <div class="page-data-box block-width-small">
               <div class="page-item-box">
                 <p class="page-content-header">
-                  <img src="https://s3.amazonaws.com/petsit-bend/paw-print.jpg" class="img-circle info-icon" alt="Petsit Bend Testimonials paw icon">
                   <%= "#{testimonial.user.last_name} Family & Pets" %>
                 </p>
                 <p class="page-content">"<%= testimonial.body %>"</p>
+                <p class="page-content testimonial-name-tag">
+                  <img src="https://s3.amazonaws.com/petsit-bend/paw-print.jpg" class="img-circle testimonial-paw-icon" alt="Petsit Bend Testimonials paw icon"> 
+                  <%= testimonial.user.first_name %>, <%= testimonial.display_short_date %>
+                </p>
               </div>
             </div>
           <% end %>
