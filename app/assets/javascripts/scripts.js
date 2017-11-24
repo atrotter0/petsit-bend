@@ -40,12 +40,17 @@ function formatPhone(target) {
   return input;
 }
 
+function flashDisplay() {
+  $('#flash').fadeOut(10).delay(1100).slideDown(900).delay(5000).fadeOut(3000);
+}
+
 $(document).ready(function() {
   characterCounter("#reservation_special_instructions", 250, "#instructions-count");
   characterCounter("#testimonial_body", 800, "#testimonials-count");
   characterCounter("#lead_message", 300, "#contact-count");
   phoneNumberFormatter("#user_phone");
   phoneNumberFormatter("#lead_phone");
+  flashDisplay();
 
   $('#pet-list, #user-list').multiSelect({
     selectionHeader: 'Selected',
