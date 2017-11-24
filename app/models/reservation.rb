@@ -16,6 +16,7 @@ class Reservation < ActiveRecord::Base
   end
 
   def valid_end_date?
+    return unless self.start_date.present? && self.end_date.present?
     end_date = Date.strptime(self.end_date, '%m/%d/%Y').to_date
     start_date = Date.strptime(self.start_date, '%m/%d/%Y').to_date
     end_date >= start_date

@@ -1,10 +1,11 @@
-<div class="content">
+<% provide(:title, "Petsit Bend | FAQ") %>
+<div class="content quick-fade-in">
   <h1 align="center">FAQ</h1>
-  <div class="data-content">
+  <div class="data-content slow-fade-in">
     <div class="page-data-box">
       <div class="page-item-box">
         <p class="page-content-header">What is Petsit Bend and what services do you offer?</p>
-        <p class="page-content">Petsit Bend is a petsitting service that caters to clients in Bend, OR. We offer pet sit services such as drop-ins and overnight stays for your pet. Visit our <%= link_to 'Services', services_path, title: 'Petsit Bend pet sit Services' %> page for more details.</p>
+        <p class="page-content">Petsit Bend is a petsitting service that caters to clients in Bend, OR. We offer services such as drop-ins and overnight stays for your pet. Visit our <%= link_to 'Services', services_path, title: 'Petsit Bend pet sit Services' %> page for more details.</p>
       </div>
       <div class="page-item-box">
         <p class="page-content-header">I'm new to Petsit Bend, what should I do first?</p>
@@ -47,7 +48,7 @@
       </div>
       <div class="page-item-box">
         <p class="page-content-header">I don't see any prices listed on the Services page, what are your rates?</p>
-        <p class="page-content">Please contact <a href="mailto:petsitbend@gmail.com" title="Contact Petsit Bend">petsitbend@gmail.com</a> to inquire about our current rates!</p>
+        <p class="page-content">Please reach out to us via our <%= link_to 'Contact', contact_path, title: 'Contact Petsit Bend' %> page to inquire about our current rates!</p>
       </div>
       <div class="page-item-box">
         <p class="page-content-header">How do I submit a testimonial?</p>
@@ -64,7 +65,7 @@
       </div>
       <div class="page-item-box">
         <p class="page-content-header">I'm having a hard time setting up my account or encountering application errors, who should I contact?</p>
-        <p class="page-content">Feel free to reach out to <a href="mailto:petsitbend@gmail.com" title="Contact Petsit Bend">petsitbend@gmail.com</a> with any questions or concerns.</p>
+        <p class="page-content">Feel free to reach out to us via our <%= link_to 'Contact', contact_path, title: 'Contact Petsit Bend' %> page with any questions or concerns.</p>
       </div>
     </div>
   </div>
