@@ -4,7 +4,7 @@
         <%= form_for(:password_reset, url: password_resets_path, :html => { class: 'form-horizontal', role: 'form' }) do |f| %>
           <div class="form-group">
             <%= f.label :email, class: 'label-style' %>
-            <%= f.email_field :email, class: 'form-control', placeholder: 'Email' %>
+            <%= f.email_field :email, class: 'form-control', placeholder: 'Email', required: true %>
           </div>
           <div class="form-group">
             <%= f.submit "Submit", class: "btn btn-lg btn-primary" %>
