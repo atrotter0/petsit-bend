@@ -516,6 +516,23 @@ footer ul li {
   font-size: 0.8em;
 }
 
+.social-list {
+  float: left;
+  margin-left: -20px;
+}
+
+.social-icon {
+  width: 35px;
+  background-color: #999999;
+  transition: box-shadow, background-color .5s;
+}
+
+.social-icon:hover {
+  background-color: #fff;
+  cursor: pointer;
+  box-shadow: 2px 2px 2px 2px #222;
+}
+
 /* page-fade styles */
 
 .quick-fade-in {
@@ -589,12 +606,6 @@ footer ul li {
 
 /* responsive styles */
 
-@media screen and (max-width: 500px) {
-  footer ul {
-    display: none;
-  }
-}
-
 @media screen and (max-width: 550px) {
   .container {
     width: 100%;
@@ -645,6 +656,10 @@ footer ul li {
 
   .error-messages {
     width: 85%;
+  }
+
+  .footer-links {
+    display: none;
   }
 }
 

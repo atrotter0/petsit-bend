@@ -1,9 +1,19 @@
 <footer class="footer clearfix">
-  <small>
-    Copyright &copy; Petsit Bend
-  </small>
   <nav>
-    <ul>
+    <ul class="footer-copyright">
+      <li>&copy; Petsit Bend <%= Time.now.year %></li>
+    </ul>
+  </nav>
+  <nav>
+    <ul class="social-list">
+      <li><%= link_to image_tag('https://s3.amazonaws.com/petsit-bend/facebook-icon.png', alt: "Petsit Bend's Facebook page", class: 'social-icon img-circle' ),
+        'https://www.facebook.com/Petsit-Bend-1418477511786914/', target: '_blank', title: 'Petsit Bend Instagram'%></li>
+      <li><%= link_to image_tag('https://s3.amazonaws.com/petsit-bend/instagram-icon.png', alt: "Petsit Bend's Instagram page", class: 'social-icon img-circle' ),
+        'https://www.instagram.com/petsitbend/', target: '_blank', title: 'Petsit Bend Facebook'%></li>
+    </ul>
+  </nav>
+  <nav>
+    <ul class="footer-links">
       <li><%= link_to 'Home', root_path, title: 'Petsit Bend Home' %></li>
       <li><%= link_to 'About', about_path, title: 'About Petsit Bend' %></li>
       <li><%= link_to 'FAQ', faq_path, title: 'Petsit Bend FAQ' %></li>
