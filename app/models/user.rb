@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   has_many :pets, dependent: :destroy
   has_many :reservations, dependent: :destroy
   has_one :testimonial, dependent: :destroy
+  has_one :walking_schedule, dependent: :destroy
 
   before_save { self.email = email.downcase }
   before_create :create_activation_digest

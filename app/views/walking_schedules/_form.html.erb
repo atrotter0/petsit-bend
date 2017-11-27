@@ -1,0 +1,29 @@
+<%= render 'shared/errors', obj: @schedule %>
+
+  <div class="form-container medium-form-width">
+    <div class="row">
+      <div class="col-xs-12">
+        <%= form_for(@schedule, :html => { class: 'form-horizontal', role: 'form' }) do |f| %>
+        <% if current_user.admin? %>
+            <div class="form-group">
+              <%= f.label :user_list, 'User', class: 'label-style' %>
+              <select multiple="multiple" id="user-list" name="user_list[]">
+                <% User.all.each do |user| %>
+                  <option><%= user_name_and_id(user) %></option>
+                <% end %>
+              </select>
+            </div>
+        <% end %>
+          <div class="form-group">
+            <%= f.label :pet_list, class: 'label-style' %>
+            <%= f.text_field :pet_list, class: 'form-control', placeholder: "Pet List" %>
+          </div>
+          <div class="form-group">
+            <%= f.submit(@schedule.new_record? ? "Add Schedule" : "Update Schedule", class: 'btn btn-primary btn-lg') %>
+            <%= link_to 'Back', walking_schedules_path, class: "btn btn-lg btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
