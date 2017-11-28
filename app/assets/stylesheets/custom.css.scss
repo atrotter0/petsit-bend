@@ -350,7 +350,7 @@ body {
   width: 60%;
 }
 
-.btn.btn-primary.btn-med, .btn.btn-primary.btn-lg {
+.btn.btn-primary.btn-med, .btn.btn-primary.btn-lg, .btn.btn-primary.btn-small {
   color: #fff;
   background-color: #000;
   border-color: #fff;
@@ -358,7 +358,7 @@ body {
   transition: background-color 1s, letter-spacing 1s;
 }
 
-.btn.btn-primary.btn-med:hover, .btn.btn-primary.btn-lg:hover {
+.btn.btn-primary.btn-med:hover, .btn.btn-primary.btn-lg:hover, .btn.btn-primary.btn-small:hover {
   color: #fff;
   background-color: #0099cc;
   border-color: #fff;
@@ -366,6 +366,13 @@ body {
 
 .btn.btn-primary.btn-lg {
   margin-top: 10px;
+}
+
+.btn.btn-primary.btn-small {
+  margin-right: 10px;
+  border-radius: 50px 50px 50px 50px;
+  width: 50px;
+  height: 50px;
 }
 
 .control-label {
@@ -465,6 +472,79 @@ textarea {
   width: 20px;
   height: auto;
   margin-right: 2px;
+}
+
+.pet-select {
+  margin-bottom: 20px;
+}
+
+.small-select {
+  width: 50px;
+  height: 50px;
+}
+
+.day-select {
+  width: 100%;
+  height: auto;
+}
+
+.day-box {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.time-container {
+  width: 80%;
+}
+
+.time-select-box {
+  display: none;
+  margin-left: 10px;
+}
+
+.time-block {
+  width: 100%;
+  padding: 5px;
+}
+
+.select-box {
+  float: left;
+  height: 50px;
+  margin-left: 10px;
+}
+
+.btn-mobile-friendly {
+  width: 50px;
+  height: 50px;
+}
+
+.btn-toggle {
+  background-color: #fff;
+  color: #000;
+  margin-right: 10px;
+}
+
+.btn-toggle:hover, .add-time-clicked:hover {
+  color: #000;
+  box-shadow: 2px 2px 2px 2px #000;
+}
+
+.btn-toggle:focus, .add-time-clicked:focus {
+  color: #000;
+}
+
+.btn-add-time {
+  margin-left: 10px;
+}
+
+.btn-toggle-clicked {
+  background-color: #0099cc;
+  color: #fff;
+}
+
+.add-time-clicked {
+  background-color: #0099cc;
+  color: #fff;
 }
 
 .small-form-width {

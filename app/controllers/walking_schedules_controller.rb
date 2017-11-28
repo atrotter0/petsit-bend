@@ -1,5 +1,6 @@
 class WalkingSchedulesController < ApplicationController
   include UserHelper
+  include FormHelper
 
   before_action :set_schedule, only: [:edit, :update, :show, :destroy]
   before_action :require_user
@@ -53,7 +54,7 @@ class WalkingSchedulesController < ApplicationController
   private
 
   def schedule_params
-    # params.require(:walking_schedule).permit(:pet_list, :days, :times)
+    params.require(:walking_schedule).permit(:pet_list, :schedule)
   end
 
   def set_schedule
