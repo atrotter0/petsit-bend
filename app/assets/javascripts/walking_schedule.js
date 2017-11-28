@@ -1,8 +1,25 @@
 function getPrefix(id) {
   var splitString = id.split('-');
   var value = splitString[0];
-  console.log(value);
+  //console.log(value);
   return value;
+}
+
+function getSection(id) {
+  var splitString = id.split('-');
+  var section = splitString[2];
+  //console.log(section);
+  return section;
+}
+
+function getTimeFromSelect(day, section) {
+  var timeId = '#' + day + '-' + section + '-time-select-box';
+  var periodId = '#' + day + '-' + section + '-period-select-box';
+  var timeSelect = $(timeId).children('select');
+  var periodSelect = $(periodId).children('select');
+  var finalTimeVal = timeSelect[0].value + ' ' + periodSelect[0].value;
+  console.log(finalTimeVal);
+  return finalTimeVal;
 }
 
 function showTimeBox(day) {
@@ -11,10 +28,12 @@ function showTimeBox(day) {
   $(timeBoxId).toggle('fast');
 }
 
-function addToSchedule(day) {
-  var currentVal = $('#sunday-schedule').text();
-  console.log(currentVal);
-  $('#sunday-schedule').text(currentVal + 'noob');
+function addToSchedule(day, time, object) {
+  if (object.hasClass('add-time-clicked')) {
+    console.log('do smething');
+  } else {
+    console.log('do something else');
+  }
 }
 
 $(document).ready(function() {
@@ -25,7 +44,10 @@ $(document).ready(function() {
   });
 
   $('#sunday-visit-1-btn, #sunday-visit-2-btn').click(function() {
-    addToSchedule(getPrefix(this.id));
+    var day = getPrefix(this.id);
+    var section = getSection(this.id);
+    var time = getTimeFromSelect(day, section);
+    addToSchedule(day, time, this);
     $(this).toggleClass('btn-primary').toggleClass('add-time-clicked');
     $(this).children('span').toggleClass('glyphicon glyphicon-ok').toggleClass('glyphicon glyphicon-remove');
   });
