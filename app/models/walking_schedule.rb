@@ -3,5 +3,6 @@ class WalkingSchedule < ActiveRecord::Base
 
   # validates :user_id, presence: true
   # validates :pet_list, presence: true
-  # validates :schedule, presence: true
+
+  # validate days_and_times
 end
