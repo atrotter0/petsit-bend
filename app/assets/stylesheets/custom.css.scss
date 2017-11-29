@@ -507,11 +507,24 @@ textarea {
   line-height: 50px;
 }
 
+.pet-box-item {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 .pet-name-box {
   padding: 5px;
   width: 150px;
   height: 70px;
   max-width: 150px;
+}
+
+.pet-name-selected {
+  line-height: 55px;
+  text-align: center;
+  background-color: #0099cc;
+  border-radius: 5px;
+  border: 1px solid white;
 }
 
 .pet-btn-box {
