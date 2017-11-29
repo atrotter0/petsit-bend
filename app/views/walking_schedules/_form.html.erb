@@ -18,7 +18,6 @@
           <% end %>
         </div>
         <%= render 'day_select' %>
-        </div>
         <%= form_for(@schedule, :html => { class: 'form-horizontal', role: 'form' }) do |f| %>
         <% if current_user.admin? %>
             <div class="form-group">
