@@ -474,18 +474,25 @@ textarea {
   margin-right: 2px;
 }
 
-.pet-select {
-  margin-bottom: 20px;
+.pet-select-container {
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.schedule-form-header {
+  font-family: 'Amatic SC', cursive;
+  font-size: 1.5em;
 }
 
 .small-select {
-  width: 50px;
+  width: 75px;
   height: 50px;
 }
 
-.day-select {
+.day-select-container {
   width: 100%;
   height: auto;
+  margin-top: 30px;
 }
 
 .day-box {
@@ -493,14 +500,53 @@ textarea {
   margin-bottom: 20px;
 }
 
-.day-box-item {
+.day-box-item, .pet-box-item {
   float: left;
   height: 50px;
-  border: 1px solid red;
+  width: 50px;
+  line-height: 50px;
+}
+
+.pet-name-box {
+  padding: 5px;
+  width: 150px;
+  height: 70px;
+  max-width: 150px;
+}
+
+.pet-btn-box {
+  line-height: 55px;
+  height: 70px;
+  padding: 5px;
+  width: 80px;
+  max-width: 80px;
+}
+
+.day-item {
+  width: 30%;
+  max-width: 90px;
+  padding-left: 10px;
+}
+
+.time-item {
+  line-height: 50px;
+  text-align: center;
+  width: 20%;
+  max-width: 55px;
+  display: none;
+  background-color: #0099cc;
+  border-radius: 5px;
+  margin-left: 2px;
+  margin-right: 2px;
+  border: 1px solid white;
+}
+
+.large-glyph {
+  font-size: 1.5em;
 }
 
 .time-container {
-  width: 80%;
+  width: 100%;
 }
 
 .time-select-box {
@@ -541,6 +587,10 @@ textarea {
 
 .btn-add-time {
   margin-left: 10px;
+}
+
+.btn-no-margin-left {
+  margin-left: 0px;
 }
 
 .btn-toggle-clicked {

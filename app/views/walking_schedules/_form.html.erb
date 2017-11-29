@@ -3,21 +3,21 @@
   <div class="form-container medium-form-width">
     <div class="row">
       <div class="col-xs-12">
-        <div class="pet-select">
-          <p>Select Pets:</p>
+        <div class="pet-select-container">
+          <p class="schedule-form-header">Select Pets</p>
           <% current_user.pets.each_with_index do |pet, index| %>
-            <div class="pet-select-item">
-              <%= pet.name %>
-              <button class="btn btn-primary btn-med btn-add-time btn-mobile-friendly" id="<%= index %>-btn-add-pet">
-                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-              </button>
+            <div class="pet-select-box clearfix">
+              <div class="pet-box-item pet-btn-box">
+                <button class="btn btn-primary btn-med btn-add-time btn-mobile-friendly btn-no-margin-left" id="<%= index %>-btn-add-pet">
+                  <span class="glyphicon glyphicon-plus-sign large-glyph" aria-hidden="true"></span>
+                </button>
+              </div>
+              <div class="pet-box-item pet-name-box"><%= pet.name %></div>
             </div>
           <% end %>
         </div>
         <%= render 'day_select' %>
         </div>
-
-
         <%= form_for(@schedule, :html => { class: 'form-horizontal', role: 'form' }) do |f| %>
         <% if current_user.admin? %>
             <div class="form-group">
