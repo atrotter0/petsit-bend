@@ -60,6 +60,21 @@ function highlightPetName(section) {
   $(nameId).toggleClass('pet-name-selected');
 }
 
+function addPetsToInputField() {
+  var petList = getPetNames();
+  $('#walking_schedule_pet_list').val(petList);
+}
+
+function getPetNames() {
+  var elements = document.getElementsByClassName('pet-name-selected');
+  var list = [];
+  for (i = 0; i < elements.length; i++) {
+    list.push($('#' + elements[i].id).text());
+  }
+  list = list.join(', ')
+  return list;
+}
+
 $(document).ready(function() {
   $('#sunday-button, #monday-button').click(function() {
     showTimeSelection(getPrefix(this.id));
@@ -80,5 +95,6 @@ $(document).ready(function() {
     var section = getSection(this.id, 0);
     toggleBtnGlyphs(this);
     highlightPetName(section);
+    addPetsToInputField();
   });
 });
