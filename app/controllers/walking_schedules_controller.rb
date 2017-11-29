@@ -19,42 +19,40 @@ class WalkingSchedulesController < ApplicationController
   end
 
   def create
-    # @schedule = WalkingSchedules.new(schedule_params)
-    # @schedule.user_id = get_user_id
-    # if @schedule.save
-    #   flash[:success] = "Dog walking schedule successfully created!"
-    #   redirect_to dog_walking_path(@schedule)
-    # else
-    #   render 'new'
-    # end
+    @schedule = WalkingSchedule.new(schedule_params)
+    @schedule.user_id = get_user_id
+    if @schedule.save
+      flash[:success] = "Dog walking schedule successfully created!"
+      redirect_to walking_schedules_path
+    else
+      render 'new'
+    end
   end
 
   def edit
   end
 
   def update
-    # @schedule.user_id = get_user_id
-    # if @schedule.update(schedule_params)
-    #   flash[:success] = "Your walking schedule was successfully updated!"
-    #   redirect_to walking_schedule_path(@schedule)
-    # else
-    #   render 'edit'
-    # end
-  end
-
-  def show
+    @schedule.user_id = get_user_id
+    if @schedule.update(schedule_params)
+      flash[:success] = "Your dog walking schedule was successfully updated!"
+      redirect_to walking_schedules_path
+    else
+      render 'edit'
+    end
   end
 
   def destroy
     @schedule.destroy
-    flash[:danger] = "Schedule was successfully deleted!"
+    flash[:danger] = "Dog walking schedule was successfully deleted!"
     redirect_to walking_schedules_path
   end
 
   private
 
   def schedule_params
-    params.require(:walking_schedule).permit(:pet_list, :schedule)
+    params.require(:walking_schedule).permit(:pet_list, :sunday_times, :monday_times, :tuesday_times, :wednesday_times, :thursday_times,
+      :friday_times, :saturday_times)
   end
 
   def set_schedule

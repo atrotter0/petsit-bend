@@ -28,13 +28,13 @@ function showTimeSelection(day) {
   $(timeBoxId).toggle('fast');
 }
 
-function addTime(day, time, section, btnObject) {
+function displaySelectedTime(day, time, section, btnObject) {
   var check_one = $(btnObject).hasClass('add-time-clicked');
   var timeItemId = '#' + day + '-visit-' + section + '-schedule';
   if (check_one) {
     $(timeItemId).text(time).toggle('fast');
   } else {
-    $(timeItemId).toggle('fast');
+    $(timeItemId).text('').toggle('fast');
   }
 }
 
@@ -61,16 +61,34 @@ function highlightPetName(section) {
 }
 
 function addPetsToInputField() {
-  var petList = getPetNames();
+  var petList = getValuesByClass('pet-name-selected');
   $('#walking_schedule_pet_list').val(petList);
 }
 
-function getPetNames() {
-  var elements = document.getElementsByClassName('pet-name-selected');
+function getValuesByClass(className) {
+  var elements = document.getElementsByClassName(className);
   var list = [];
   for (i = 0; i < elements.length; i++) {
     list.push($('#' + elements[i].id).text());
   }
+  list = list.join(', ')
+  return list;
+}
+
+function addTimeToInputField(day) {
+  var timeList = getTimesByDay(day);
+  console.log(timeList);
+  $('#' + 'walking_schedule_' + day + '_times').val(timeList);
+}
+
+function getTimesByDay(day) {
+  var time1 = $('#' + day + '-visit-1-schedule').text();
+  var time2 = $('#' + day + '-visit-2-schedule').text();
+  var time3 = $('#' + day + '-visit-3-schedule').text();
+  var list = [];
+  if (time1 != '') list.push(time1);
+  if (time2 != '') list.push(time2);
+  if (time3 != '') list.push(time3);
   list = list.join(', ')
   return list;
 }
@@ -88,10 +106,11 @@ $(document).ready(function() {
     var time = getTimeFromSelect(day, section);
     toggleBtnGlyphs(this);
     disableTimeSelect(day, section);
-    addTime(day, time, section, this);
+    displaySelectedTime(day, time, section, this);
+    addTimeToInputField(day);
   });
 
-  $('#0-btn-add-pet, #1-btn-add-pet, #2-btn-add-pet, #3-btn-add-pet, #4-btn-add-pet, #5-btn-add-pet, #6-btn-add-pet, #7-btn-add-pet, #8btn-add-pet, #9-btn-add-pet').click(function() {
+  $('#0-btn-add-pet, #1-btn-add-pet, #2-btn-add-pet, #3-btn-add-pet, #4-btn-add-pet, #5-btn-add-pet').click(function() {
     var section = getSection(this.id, 0);
     toggleBtnGlyphs(this);
     highlightPetName(section);
