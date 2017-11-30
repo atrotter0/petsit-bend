@@ -1,14 +1,12 @@
 function getPrefix(id) {
   var splitString = id.split('-');
   var value = splitString[0];
-  //console.log(value);
   return value;
 }
 
 function getSection(id, arrayPos) {
   var splitString = id.split('-');
   var section = splitString[arrayPos];
-  //console.log(section);
   return section;
 }
 
@@ -18,13 +16,11 @@ function getTimeFromSelect(day, section) {
   var timeSelect = $(timeId).children('select');
   var periodSelect = $(periodId).children('select');
   var formattedTimeVal = timeSelect[0].value + ' ' + periodSelect[0].value;
-  console.log(formattedTimeVal);
   return formattedTimeVal;
 }
 
 function showTimeSelection(day) {
   var timeBoxId = '#' + day + '-time-select-box';
-  console.log('toggling: ' + timeBoxId);
   $(timeBoxId).toggle('fast');
 }
 
@@ -77,7 +73,6 @@ function getValuesByClass(className) {
 
 function addTimeToInputField(day) {
   var timeList = getTimesByDay(day);
-  console.log(timeList);
   $('#' + 'walking_schedule_' + day + '_times').val(timeList);
 }
 
@@ -94,13 +89,13 @@ function getTimesByDay(day) {
 }
 
 $(document).ready(function() {
-  $('#sunday-button, #monday-button').click(function() {
+  $('.schedule-day-select-btn').click(function() {
     showTimeSelection(getPrefix(this.id));
     $(this).toggleClass('btn-toggle-clicked');
     $(this).children('span').toggleClass('glyphicon glyphicon-plus').toggleClass('glyphicon glyphicon-minus');
   });
 
-  $('#sunday-visit-1-btn, #sunday-visit-2-btn, #sunday-visit-3-btn').click(function() {
+  $('.schedule-add-time-btn').click(function() {
     var day = getPrefix(this.id);
     var section = getSection(this.id, 2);
     var time = getTimeFromSelect(day, section);
@@ -110,7 +105,7 @@ $(document).ready(function() {
     addTimeToInputField(day);
   });
 
-  $('#0-btn-add-pet, #1-btn-add-pet, #2-btn-add-pet, #3-btn-add-pet, #4-btn-add-pet, #5-btn-add-pet').click(function() {
+  $('.schedule-add-pet-btn').click(function() {
     var section = getSection(this.id, 0);
     toggleBtnGlyphs(this);
     highlightPetName(section);

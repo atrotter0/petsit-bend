@@ -4,7 +4,7 @@
     <% @day = day %>
     <div class="day-box clearfix" id="<%= day %>-box">
       <div class="day-box-item" id="<%= day %>-btn-div">
-        <button class="btn btn-small btn-toggle btn-mobile-friendly" id="<%= day %>-button">
+        <button class="btn btn-small btn-toggle btn-mobile-friendly schedule-day-select-btn" id="<%= day %>-button">
           <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
         </button>
       </div>
@@ -19,7 +19,7 @@
           <div class="select-box-item" id="<%= day %>-1-time-select-box"><%= render 'hour_select', obj: @day %></div>
           <div class="select-box-item" id="<%= day %>-1-period-select-box"><%= render 'am_pm', obj: @day %></div>
           <div class="select-box-item">
-            <button class="btn btn-primary btn-med btn-add-time btn-mobile-friendly" id="<%= day %>-visit-1-btn">
+            <button class="btn btn-primary btn-med btn-add-time btn-mobile-friendly schedule-add-time-btn" id="<%= day %>-visit-1-btn">
               <span class="glyphicon glyphicon-plus-sign large-glyph" aria-hidden="true"></span>
             </button>
           </div>
@@ -28,7 +28,7 @@
           <div class="select-box-item" id="<%= day %>-2-time-select-box"><%= render 'hour_select', obj: @day %></div>
           <div class="select-box-item" id="<%= day %>-2-period-select-box"><%= render 'am_pm', obj: @day %></div>
           <div class="select-box-item">
-            <button class="btn btn-primary btn-med btn-add-time btn-mobile-friendly" id="<%= day %>-visit-2-btn">
+            <button class="btn btn-primary btn-med btn-add-time btn-mobile-friendly schedule-add-time-btn" id="<%= day %>-visit-2-btn">
               <span class="glyphicon glyphicon-plus-sign large-glyph" aria-hidden="true"></span>
             </button>
           </div>
@@ -37,7 +37,7 @@
           <div class="select-box-item" id="<%= day %>-3-time-select-box"><%= render 'hour_select', obj: @day %></div>
           <div class="select-box-item" id="<%= day %>-3-period-select-box"><%= render 'am_pm', obj: @day %></div>
           <div class="select-box-item">
-            <button class="btn btn-primary btn-med btn-add-time btn-mobile-friendly" id="<%= day %>-visit-3-btn">
+            <button class="btn btn-primary btn-med btn-add-time btn-mobile-friendly schedule-add-time-btn" id="<%= day %>-visit-3-btn">
               <span class="glyphicon glyphicon-plus-sign large-glyph" aria-hidden="true"></span>
             </button>
           </div>
