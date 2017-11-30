@@ -88,7 +88,20 @@ function getTimesByDay(day) {
   return list;
 }
 
+function stripDogWalkingInputFields() {
+  $('#walking_schedule_pet_list').val('');
+  $('#walking_schedule_sunday_times').val('');
+  $('#walking_schedule_monday_times').val('');
+  $('#walking_schedule_tuesday_times').val('');
+  $('#walking_schedule_wednesday_times').val('');
+  $('#walking_schedule_thursday_times').val('');
+  $('#walking_schedule_friday_times').val('');
+  $('#walking_schedule_saturday_times').val('');
+}
+
 $(document).ready(function() {
+  stripDogWalkingInputFields();
+
   $('.schedule-day-select-btn').click(function() {
     showTimeSelection(getPrefix(this.id));
     $(this).toggleClass('btn-toggle-clicked');
