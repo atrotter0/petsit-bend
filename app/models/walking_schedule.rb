@@ -23,7 +23,7 @@ class WalkingSchedule < ActiveRecord::Base
 
   def time_format
     unless valid_time_values?
-      self.errors.add(:time_selected, "does not have an acceptable format")
+      self.errors.add(:time_selected, "is invalid")
     end
   end
 
@@ -48,9 +48,13 @@ class WalkingSchedule < ActiveRecord::Base
   end
 
   def check_time_values(list)
+    regex_test_one = /^([1-9]|1[012])\s[a-z][a-z]$/
+    regex_test_two = /^([1-9]|1[012])\s[a-z][a-z].\s([1-9]|1[012])\s[a-z][a-z]$/
+    regex_test_three = /^([1-9]|1[012])\s[a-z][a-z].\s([1-9]|1[012])\s[a-z][a-z].\s([1-9]|1[012])\s[a-z][a-z]$/
+
     list.each do |item|
-      if (/^([1-9]|1[012])\s[A-Z][A-Z]$/ === item) || item == "" ? true : false
-        return true
+      if regex_test_one === item || regex_test_two === item || regex_test_three === item || item == ""
+        next
       else
         return false
       end

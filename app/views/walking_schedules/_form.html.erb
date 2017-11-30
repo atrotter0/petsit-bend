@@ -4,21 +4,35 @@
     <div class="row">
       <div class="col-xs-12">
         <div>
-          <p>*If you are a client looking for weekly dog walking services, select the applicable options and submit the form below!</p>
+          <p>*If you are a client looking for weekly dog walking services, select the applicable options and submit the form below.</p>
           <p>If you are a client looking for dog walking services while out of town, please make a reservation.</p>
         </div>
         <div class="pet-select-container">
           <p class="schedule-form-header">Select Pets</p>
-          <% current_user.pets.each_with_index do |pet, index| %>
-            <% next if pet.pet_type != 'Dog' %>
-            <div class="pet-select-box clearfix">
-              <div class="pet-box-item pet-btn-box">
-                <button class="btn btn-primary btn-med btn-add-time btn-mobile-friendly btn-no-margin-left schedule-add-pet-btn" id="<%= index %>-btn-add-pet">
-                  <span class="glyphicon glyphicon-plus-sign large-glyph" aria-hidden="true"></span>
-                </button>
+          <% if current_user.admin? %>
+            <% Pet.all.each_with_index do |pet, index| %>
+              <% next if pet.pet_type != 'Dog' %>
+              <div class="pet-select-box clearfix">
+                <div class="pet-box-item pet-btn-box">
+                  <button class="btn btn-primary btn-med btn-add-time btn-mobile-friendly btn-no-margin-left schedule-add-pet-btn" id="<%= index %>-btn-add-pet">
+                    <span class="glyphicon glyphicon-plus-sign large-glyph" aria-hidden="true"></span>
+                  </button>
+                </div>
+                <div class="pet-box-item pet-name-box" id="<%= index %>-pet-name"><%= pet.name %><br/>(<%= full_user_name(pet) %>)</div>
               </div>
-              <div class="pet-box-item pet-name-box" id="<%= index %>-pet-name"><%= pet.name %></div>
-            </div>
+            <% end %>
+          <% else %>
+            <% current_user.pets.each_with_index do |pet, index| %>
+              <% next if pet.pet_type != 'Dog' %>
+              <div class="pet-select-box clearfix">
+                <div class="pet-box-item pet-btn-box">
+                  <button class="btn btn-primary btn-med btn-add-time btn-mobile-friendly btn-no-margin-left schedule-add-pet-btn" id="<%= index %>-btn-add-pet">
+                    <span class="glyphicon glyphicon-plus-sign large-glyph" aria-hidden="true"></span>
+                  </button>
+                </div>
+                <div class="pet-box-item pet-name-box" id="<%= index %>-pet-name"><%= pet.name %></div>
+              </div>
+            <% end %>
           <% end %>
         </div>
         <%= render 'day_select' %>
