@@ -22,6 +22,7 @@ class WalkingSchedulesController < ApplicationController
     @schedule = WalkingSchedule.new(schedule_params)
     @schedule.user_id = get_user_id
     if @schedule.save
+      @schedule.user.send_dog_walking_email(@schedule)
       flash[:success] = "Dog walking schedule successfully created!"
       redirect_to walking_schedules_path
     else
@@ -35,6 +36,7 @@ class WalkingSchedulesController < ApplicationController
   def update
     @schedule.user_id = get_user_id
     if @schedule.update(schedule_params)
+      @schedule.user.send_dog_walking_update_email(@schedule)
       flash[:success] = "Your dog walking schedule was successfully updated!"
       redirect_to walking_schedules_path
     else
