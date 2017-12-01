@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   attr_accessor :reset_token, :activation_token
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  ACCEPTED_DOMAIN_SUFFIX = ["com", "edu", "gov", "int", "mil", "net", "org"].freeze
 
   has_many :pets, dependent: :destroy
   has_many :reservations, dependent: :destroy
@@ -17,8 +18,19 @@ class User < ActiveRecord::Base
   validates :last_name, presence: true, length: { maximum: 25 }
   validates :phone, presence: true, length: { minimum: 14, maximum: 14 }
   validates :address, presence: true, length: { minimum: 4, maximum: 100 }
+  validate :email_suffix
 
   has_secure_password
+
+  def email_suffix
+    unless valid_email_suffix?
+      self.errors.add(:email_suffix, "must be one of the following: #{ACCEPTED_DOMAIN_SUFFIX}")
+    end
+  end
+
+  def valid_email_suffix?
+    ACCEPTED_DOMAIN_SUFFIX.include?(self.email.downcase.split('.').last)
+  end
 
   def set_last_login
     update_attribute(:last_login, Time.now)
