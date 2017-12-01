@@ -10,12 +10,13 @@ Rails.application.routes.draw do
   resources :testimonials
   resources :password_resets, only: [:new, :create, :edit, :update]
   resources :account_activations, only: [:new, :create, :edit]
+  resources :walking_schedules, except: :show
 
   get 'signup', to: 'users#new'
   resources :users, except: [:new]
 
   get 'contact', to: 'leads#new'
-  get 'thank_you', to: 'leads#thank_you'
+  get 'thank-you', to: 'leads#thank_you'
   resources :leads, only: [:new, :create]
 
   get 'login', to: 'sessions#new'

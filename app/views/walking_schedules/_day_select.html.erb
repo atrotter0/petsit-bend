@@ -1,0 +1,48 @@
+<div class="day-select-container">
+  <p class="schedule-form-header sm-form-header-bottom-margin">Select Days & Times</p>
+  <% days_of_the_week.each do |day| %>
+    <% @day = day %>
+    <div class="day-box clearfix" id="<%= day %>-box">
+      <div class="day-box-item" id="<%= day %>-btn-div">
+        <button class="btn btn-small btn-toggle btn-mobile-friendly schedule-day-select-btn" id="<%= day %>-button">
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="day-box-item day-item" id="<%= day %>-name-div"><%= day.capitalize %></div>
+      <div class="day-box-item time-item" id="<%= day %>-visit-1-schedule"></div>
+      <div class="day-box-item time-item" id="<%= day %>-visit-2-schedule"></div>
+      <div class="day-box-item time-item" id="<%= day %>-visit-3-schedule"></div>
+    </div>
+    <div class="time-container">
+      <div class="time-select-container clearfix" id="<%= day %>-time-select-box">
+        <div class="time-block clearfix" id="visit-1-box">
+          <div class="select-box-item" id="<%= day %>-1-time-select-box"><%= render 'hour_select', obj: @day %></div>
+          <div class="select-box-item" id="<%= day %>-1-period-select-box"><%= render 'am_pm', obj: @day %></div>
+          <div class="select-box-item">
+            <button class="btn btn-primary btn-med btn-add-time btn-mobile-friendly schedule-add-time-btn" id="<%= day %>-visit-1-btn">
+              <span class="glyphicon glyphicon-plus-sign large-glyph" aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+        <div class="time-block clearfix" id="visit-2-box">
+          <div class="select-box-item" id="<%= day %>-2-time-select-box"><%= render 'hour_select', obj: @day %></div>
+          <div class="select-box-item" id="<%= day %>-2-period-select-box"><%= render 'am_pm', obj: @day %></div>
+          <div class="select-box-item">
+            <button class="btn btn-primary btn-med btn-add-time btn-mobile-friendly schedule-add-time-btn" id="<%= day %>-visit-2-btn">
+              <span class="glyphicon glyphicon-plus-sign large-glyph" aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+        <div class="time-block clearfix" id="visit-3-box">
+          <div class="select-box-item" id="<%= day %>-3-time-select-box"><%= render 'hour_select', obj: @day %></div>
+          <div class="select-box-item" id="<%= day %>-3-period-select-box"><%= render 'am_pm', obj: @day %></div>
+          <div class="select-box-item">
+            <button class="btn btn-primary btn-med btn-add-time btn-mobile-friendly schedule-add-time-btn" id="<%= day %>-visit-3-btn">
+              <span class="glyphicon glyphicon-plus-sign large-glyph" aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -32,4 +32,14 @@ class UserMailerPreview < ActionMailer::Preview
     user.reset_token = User.new_token
     UserMailer.password_reset(user)
   end
+
+  def dog_walking
+    schedule = WalkingSchedule.last
+    UserMailer.dog_walking(schedule)
+  end
+
+  def dog_walking_update
+    schedule = WalkingSchedule.last
+    UserMailer.dog_walking_update(schedule)
+  end
 end

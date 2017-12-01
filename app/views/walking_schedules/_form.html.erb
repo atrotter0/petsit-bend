@@ -1,0 +1,93 @@
+<%= render 'shared/errors', obj: @schedule %>
+
+  <div class="form-container medium-form-width">
+    <div class="row">
+      <div class="col-xs-12">
+        <div>
+          <p>*If you are a client looking for weekly dog walking services, select the applicable options and submit the form below.</p>
+          <p>If you are a client looking for dog walking services while out of town, please make a reservation.</p>
+        </div>
+        <div class="pet-select-container">
+          <p class="schedule-form-header">Select Pets</p>
+          <% if current_user.admin? %>
+            <% Pet.all.each_with_index do |pet, index| %>
+              <% next if pet.pet_type != 'Dog' %>
+              <div class="pet-select-box clearfix">
+                <div class="pet-user-name-box" id="<%= index %>-pet-user-name">Owner: <%= full_user_name(pet) %></div>
+                <div class="pet-box-item pet-btn-box">
+                  <button class="btn btn-primary btn-med btn-add-time btn-mobile-friendly btn-no-margin-left schedule-add-pet-btn" id="<%= index %>-btn-add-pet">
+                    <span class="glyphicon glyphicon-plus-sign large-glyph" aria-hidden="true"></span>
+                  </button>
+                </div>
+                <div class="pet-box-item pet-name-box" id="<%= index %>-pet-name"><%= pet.name %></div>
+              </div>
+            <% end %>
+          <% else %>
+            <% current_user.pets.each_with_index do |pet, index| %>
+              <% next if pet.pet_type != 'Dog' %>
+              <div class="pet-select-box clearfix">
+                <div class="pet-box-item pet-btn-box">
+                  <button class="btn btn-primary btn-med btn-add-time btn-mobile-friendly btn-no-margin-left schedule-add-pet-btn" id="<%= index %>-btn-add-pet">
+                    <span class="glyphicon glyphicon-plus-sign large-glyph" aria-hidden="true"></span>
+                  </button>
+                </div>
+                <div class="pet-box-item pet-name-box" id="<%= index %>-pet-name"><%= pet.name %></div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+        <%= render 'day_select' %>
+        <%= form_for(@schedule, :html => { class: 'form-horizontal', role: 'form' }) do |f| %>
+        <% if current_user.admin? %>
+            <div class="form-group">
+              <%= f.label :user_list, 'User', class: 'label-style' %>
+              <select multiple="multiple" id="user-list" name="user_list[]">
+                <% User.all.each do |user| %>
+                  <option><%= user_name_and_id(user) %></option>
+                <% end %>
+              </select>
+            </div>
+        <% end %>
+          <div class="walking-schedule-form-inputs">
+            <div class="form-group">
+              <%= f.label :pet_list, class: 'label-style' %>
+              <%= f.text_field :pet_list, class: 'form-control'%>
+            </div>
+            <div class="form-group">
+               <%= f.label :sunday_times, class: 'label-style' %>
+              <%= f.text_field :sunday_times, class: 'form-control' %>
+            </div>
+            <div class="form-group">
+               <%= f.label :monday_times, class: 'label-style' %>
+              <%= f.text_field :monday_times, class: 'form-control' %>
+            </div>
+            <div class="form-group">
+               <%= f.label :tuesday_times, class: 'label-style' %>
+              <%= f.text_field :tuesday_times, class: 'form-control' %>
+            </div>
+            <div class="form-group">
+               <%= f.label :wednesday_times, class: 'label-style' %>
+              <%= f.text_field :wednesday_times, class: 'form-control' %>
+            </div>
+            <div class="form-group">
+               <%= f.label :thursday_times, class: 'label-style' %>
+              <%= f.text_field :thursday_times, class: 'form-control' %>
+            </div>
+            <div class="form-group">
+               <%= f.label :friday_times, class: 'label-style' %>
+              <%= f.text_field :friday_times, class: 'form-control' %>
+            </div>
+            <div class="form-group">
+               <%= f.label :saturday_times, class: 'label-style' %>
+              <%= f.text_field :saturday_times, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="form-group" style="margin-left: 0px;">
+            <%= f.submit(@schedule.new_record? ? "Add Schedule" : "Update Schedule", class: 'btn btn-primary btn-lg') %>
+            <%= link_to 'Back', walking_schedules_path, class: "btn btn-lg btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

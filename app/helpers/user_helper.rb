@@ -1,6 +1,6 @@
 module UserHelper
-  def reservaton_user_name(reservation)
-    "#{reservation.user.first_name} #{reservation.user.last_name}"
+  def full_user_name(object)
+    "#{object.user.first_name} #{object.user.last_name}"
   end
 
   def all_pets_for_users

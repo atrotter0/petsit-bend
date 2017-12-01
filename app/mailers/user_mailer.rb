@@ -34,4 +34,19 @@ class UserMailer < ApplicationMailer
     @user = user
     mail from: DO_NOT_REPLY_EMAIL, to: user.email, subject: "Password Reset"
   end
+
+  def dog_walking(schedule)
+    @schedule = schedule
+    mail from: DO_NOT_REPLY_EMAIL, to: ADMIN_EMAIL, subject: "New Dog Walking Schedule"
+  end
+
+  def dog_walking_update(schedule)
+    @schedule = schedule
+    mail from: DO_NOT_REPLY_EMAIL, to: ADMIN_EMAIL, subject: "Dog Walking Schedule Updated"
+  end
+
+  def dog_walking_cancel(schedule)
+    @schedule = schedule
+    mail from: DO_NOT_REPLY_EMAIL, to: ADMIN_EMAIL, subject: "Dog Walking Schedule Cancelled"
+  end
 end

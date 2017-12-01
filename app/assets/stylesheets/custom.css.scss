@@ -183,7 +183,7 @@ body {
 .page-data-box {
   text-align: left;
   width: 70%;
-  max-width: 980px;
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 30px;
@@ -350,7 +350,7 @@ body {
   width: 60%;
 }
 
-.btn.btn-primary.btn-med, .btn.btn-primary.btn-lg {
+.btn.btn-primary.btn-med, .btn.btn-primary.btn-lg, .btn.btn-primary.btn-small {
   color: #fff;
   background-color: #000;
   border-color: #fff;
@@ -358,7 +358,7 @@ body {
   transition: background-color 1s, letter-spacing 1s;
 }
 
-.btn.btn-primary.btn-med:hover, .btn.btn-primary.btn-lg:hover {
+.btn.btn-primary.btn-med:hover, .btn.btn-primary.btn-lg:hover, .btn.btn-primary.btn-small:hover {
   color: #fff;
   background-color: #0099cc;
   border-color: #fff;
@@ -366,6 +366,13 @@ body {
 
 .btn.btn-primary.btn-lg {
   margin-top: 10px;
+}
+
+.btn.btn-primary.btn-small {
+  margin-right: 10px;
+  border-radius: 50px 50px 50px 50px;
+  width: 50px;
+  height: 50px;
 }
 
 .control-label {
@@ -456,6 +463,181 @@ textarea {
   margin-right: 5px;
 }
 
+.testimonial-name-tag {
+  padding-right: 35px;
+  text-align: right;
+}
+
+.testimonial-paw-icon {
+  width: 20px;
+  height: auto;
+  margin-right: 2px;
+}
+
+.pet-select-container {
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.schedule-form-header {
+  font-family: 'Amatic SC', cursive;
+  font-size: 1.5em;
+  background-color: #000;
+  height: 40px;
+  padding-left: 10px;
+  padding-top: 5px;
+}
+
+.sm-form-header-bottom-margin {
+  margin-bottom: 25px;
+}
+
+.small-select {
+  width: 70px;
+  height: 50px;
+}
+
+.day-select-container {
+  width: 100%;
+  height: auto;
+  margin-top: 30px;
+}
+
+.day-box {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.day-box-item, .pet-box-item {
+  float: left;
+  height: 50px;
+  width: 50px;
+  line-height: 50px;
+}
+
+.pet-box-item {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.pet-name-box {
+  padding: 5px;
+  width: 150px;
+  height: 70px;
+  max-width: 150px;
+}
+
+.pet-user-name-box {
+  padding: 5px;
+  text-align: left;
+  width: 100%;
+  height: 30px;
+  background-color: #fff;
+  color: #000;
+}
+
+.pet-name-selected {
+  line-height: 55px;
+  text-align: center;
+  background-color: #0099cc;
+  border-radius: 5px;
+  border: 1px solid white;
+}
+
+.pet-btn-box {
+  line-height: 55px;
+  height: 70px;
+  padding: 5px;
+  width: 80px;
+  max-width: 80px;
+}
+
+.day-item {
+  width: 30%;
+  max-width: 90px;
+  padding-left: 10px;
+}
+
+.time-item {
+  line-height: 50px;
+  text-align: center;
+  width: 20%;
+  max-width: 50px;
+  height: 50px;
+  display: none;
+  background-color: #0099cc;
+  border-radius: 5px;
+  margin-left: 2px;
+  margin-right: 2px;
+  border: 1px solid white;
+}
+
+.large-glyph {
+  font-size: 1.5em;
+}
+
+.time-container {
+  width: 100%;
+}
+
+.time-select-container {
+  display: none;
+  margin-left: 10px;
+}
+
+.time-block {
+  width: 100%;
+  padding: 5px;
+}
+
+.select-box-item {
+  float: left;
+  height: 50px;
+  margin-left: 10px;
+}
+
+.btn-mobile-friendly {
+  width: 50px;
+  height: 50px;
+}
+
+.btn-toggle {
+  background-color: #fff;
+  color: #000;
+  margin-right: 10px;
+}
+
+.btn-toggle:hover, .add-time-clicked:hover {
+  color: #000;
+  box-shadow: 2px 2px 2px 2px #000;
+}
+
+.btn-toggle:focus, .add-time-clicked:focus {
+  color: #000;
+}
+
+.btn-add-time {
+  margin-left: 10px;
+}
+
+.btn-no-margin-left {
+  margin-left: 0px;
+}
+
+.btn-toggle-clicked {
+  background-color: #0099cc;
+  color: #fff;
+}
+
+.add-time-clicked {
+  background-color: #0099cc;
+  color: #fff;
+}
+
+.walking-schedule-form-inputs {
+  display: none;
+}
+
 .small-form-width {
   max-width: 300px;
 }
@@ -503,6 +685,23 @@ footer ul li {
   float: left;
   margin-left: 15px;
   font-size: 0.8em;
+}
+
+.social-list {
+  float: left;
+  margin-left: -40px;
+}
+
+.social-icon {
+  width: 44px;
+  background-color: #999999;
+  transition: box-shadow, background-color .5s;
+}
+
+.social-icon:hover {
+  background-color: #fff;
+  cursor: pointer;
+  box-shadow: 2px 2px 2px 2px #222;
 }
 
 /* page-fade styles */
@@ -579,8 +778,12 @@ footer ul li {
 /* responsive styles */
 
 @media screen and (max-width: 500px) {
-  footer ul {
-    display: none;
+  .time-item {
+    margin-top: 8px;
+    line-height: 33.5px;
+    max-width: 35px;
+    height: 35px;
+    font-size: 0.8em;
   }
 }
 
@@ -634,6 +837,10 @@ footer ul li {
 
   .error-messages {
     width: 85%;
+  }
+
+  .footer-links {
+    display: none;
   }
 }
 

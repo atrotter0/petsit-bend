@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171123231003) do
+ActiveRecord::Schema.define(version: 20171129201909) do
 
   create_table "leads", force: :cascade do |t|
     t.string   "first_name"
@@ -68,6 +68,20 @@ ActiveRecord::Schema.define(version: 20171123231003) do
     t.string   "activation_digest"
     t.boolean  "activated",         default: false
     t.datetime "activated_at"
+  end
+
+  create_table "walking_schedules", force: :cascade do |t|
+    t.string   "pet_list"
+    t.string   "sunday_times"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "user_id"
+    t.string   "monday_times"
+    t.string   "tuesday_times"
+    t.string   "wednesday_times"
+    t.string   "thursday_times"
+    t.string   "friday_times"
+    t.string   "saturday_times"
   end
 
 end

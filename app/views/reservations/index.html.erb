@@ -23,7 +23,7 @@
               <p class="page-content"><img src="https://s3.amazonaws.com/petsit-bend/petsit-house.jpg" class="info-icon">In-Progress</p>
             <% end %>
             <% if current_user.admin? %>
-              <p class="page-content"><img src="https://s3.amazonaws.com/petsit-bend/users.jpg" class="info-icon"><%= reservaton_user_name(reservation) %></p>
+              <p class="page-content"><img src="https://s3.amazonaws.com/petsit-bend/users.jpg" class="info-icon"><%= full_user_name(reservation) %></p>
             <% end %>
             <p class="page-content"><img src="https://s3.amazonaws.com/petsit-bend/pets.jpg" class="info-icon"><%= reservation.pet_list %></p>
             <p class="page-content"><img src="https://s3.amazonaws.com/petsit-bend/timestamp.jpg" class="info-icon"><%= "#{reservation.start_date} - #{reservation.end_date}" %></p>
