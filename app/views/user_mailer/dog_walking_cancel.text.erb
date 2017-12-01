@@ -1,0 +1,20 @@
+A dog walking schedule was cancelled by <%= @schedule.user.first_name %> <%= @schedule.user.last_name %>!
+
+Dog Walking Schedule Cancellation
+
+Schedule ID: <%= @schedule.id %>
+Pets: <%= @schedule.pet_list %>
+Sunday: <%= @schedule.sunday_times %>
+Monday: <%= @schedule.monday_times %>
+Tuesday: <%= @schedule.tuesday_times %>
+Wednesday: <%= @schedule.wednesday_times %>
+Thursday: <%= @schedule.thursday_times %>
+Friday: <%= @schedule.friday_times %>
+Saturday: <%= @schedule.saturday_times %>
+
+User Details
+
+Name: <%= @schedule.user.first_name %> <%= @schedule.user.last_name %>
+Email: <%= @schedule.user.email %>
+Phone: <%= @schedule.user.phone %>
+Address: <%= @schedule.user.address %>

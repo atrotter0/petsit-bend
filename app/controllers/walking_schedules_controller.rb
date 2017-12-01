@@ -45,6 +45,7 @@ class WalkingSchedulesController < ApplicationController
   end
 
   def destroy
+    @schedule.user.send_dog_walking_cancel_email(@schedule)
     @schedule.destroy
     flash[:danger] = "Dog walking schedule was successfully deleted!"
     redirect_to walking_schedules_path

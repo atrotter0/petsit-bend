@@ -105,6 +105,10 @@ class User < ActiveRecord::Base
     UserMailer.dog_walking_update(schedule).deliver_now
   end
 
+  def send_dog_walking_cancel_email(schedule)
+    UserMailer.dog_walking_cancel(schedule).deliver_now
+  end
+
   private
 
   def create_activation_digest

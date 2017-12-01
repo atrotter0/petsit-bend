@@ -1,0 +1,22 @@
+<p>A dog walking schedule was cancelled by <%= @schedule.user.first_name %> <%= @schedule.user.last_name %>!</p>
+
+<h4>Dog Walking Schedule Cancellation</h4>
+<p>
+  Schedule ID: <%= @schedule.id %><br/>
+  Pets: <%= @schedule.pet_list %><br/>
+  Sunday: <%= @schedule.sunday_times %><br/>
+  Monday: <%= @schedule.monday_times %><br/>
+  Tuesday: <%= @schedule.tuesday_times %><br/>
+  Wednesday: <%= @schedule.wednesday_times %><br/>
+  Thursday: <%= @schedule.thursday_times %><br/>
+  Friday: <%= @schedule.friday_times %><br/>
+  Saturday: <%= @schedule.saturday_times %><br/>
+</p>
+
+<h4>User Details</h4>
+<p>
+  Name: <%= @schedule.user.first_name %> <%= @schedule.user.last_name %><br/>
+  Email: <%= @schedule.user.email %><br/>
+  Phone: <%= @schedule.user.phone %><br/>
+  Address: <%= @schedule.user.address %><br/>
+</p>
