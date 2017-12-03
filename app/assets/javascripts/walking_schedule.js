@@ -59,6 +59,7 @@ function highlightPetName(section) {
 function addPetsToInputField() {
   var petList = getValuesByClass('pet-name-selected');
   $('#walking_schedule_pet_list').val(petList);
+  $('#reservation_pet_list').val(petList);
 }
 
 function getValuesByClass(className) {
@@ -118,7 +119,7 @@ $(document).ready(function() {
     addTimeToInputField(day);
   });
 
-  $('.schedule-add-pet-btn').click(function() {
+  $('.schedule-add-pet-btn, .reservation-add-pet-btn').click(function() {
     var section = getSection(this.id, 0);
     toggleBtnGlyphs(this);
     highlightPetName(section);

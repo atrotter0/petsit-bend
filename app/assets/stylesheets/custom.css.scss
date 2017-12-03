@@ -488,6 +488,14 @@ textarea {
   padding-top: 5px;
 }
 
+.reservation-form-header {
+  font-family: 'Amatic SC', cursive;
+  font-size: 1.5em;
+  height: 40px;
+  padding-top: 5px;
+  margin-bottom: -10px;
+}
+
 .sm-form-header-bottom-margin {
   margin-bottom: 25px;
 }
@@ -634,7 +642,7 @@ textarea {
   color: #fff;
 }
 
-.walking-schedule-form-inputs {
+.walking-schedule-form-inputs, .reservation-form-inputs {
   display: none;
 }
 
