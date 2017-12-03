@@ -5,7 +5,7 @@ class Reservation < ActiveRecord::Base
   validates :start_date, presence: true
   validates :end_date, presence: true
   validates :special_instructions, length: { maximum: 250 }
-  validates :pet_list, presence: true
+  validates :pet_list, presence: true, length: { maximum: 100 }
 
   validate :check_end_date
 
