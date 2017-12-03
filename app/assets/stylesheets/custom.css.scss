@@ -536,12 +536,16 @@ textarea {
 }
 
 .pet-user-name-box {
+  margin-top: 10px;
   padding: 5px;
-  text-align: left;
-  width: 100%;
+  text-align: center;
+  width: 20%;
   height: 30px;
   background-color: #fff;
   color: #000;
+  font-family: 'Amatic SC', cursive;
+  font-size: 1.3em;
+  border-radius: 10px 10px 0px 0px;
 }
 
 .pet-name-selected {
