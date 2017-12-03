@@ -481,19 +481,30 @@ textarea {
 
 .schedule-form-header {
   font-family: 'Amatic SC', cursive;
-  font-size: 1.5em;
+  font-size: 1.3em;
+  font-weight: bold;
+  letter-spacing: 4px;
   background-color: #000;
   height: 40px;
   padding-left: 10px;
-  padding-top: 5px;
+  padding-top: 8px;
 }
 
 .reservation-form-header {
   font-family: 'Amatic SC', cursive;
-  font-size: 1.5em;
+  font-size: 1.2em;
+  font-weight: bold;
+  letter-spacing: 5px;
   height: 40px;
   padding-top: 5px;
-  margin-bottom: -10px;
+}
+
+.small-margin-bottom {
+  margin-bottom: 20px;
+}
+
+.header-margin-bottom {
+  margin-bottom: -15px;
 }
 
 .sm-form-header-bottom-margin {

@@ -10,10 +10,11 @@
         <div class="pet-select-container">
           <p class="schedule-form-header">Select Pets</p>
           <% if current_user.admin? %>
-            <% Pet.all.each_with_index do |pet, index| %>
+            <% list = sort_pets_by_user %>
+            <% list.each_with_index do |pet, index| %>
               <% next if pet.pet_type != 'Dog' %>
               <div class="pet-select-box clearfix">
-                <div class="pet-user-name-box" id="<%= index %>-pet-user-name">Owner: <%= full_user_name(pet) %></div>
+                <div class="pet-user-name-box" id="<%= index %>-pet-user-name"><%= full_user_name(pet) %></div>
                 <div class="pet-box-item pet-btn-box">
                   <button class="btn btn-primary btn-med btn-add-time btn-mobile-friendly btn-no-margin-left schedule-add-pet-btn" id="<%= index %>-btn-add-pet">
                     <span class="glyphicon glyphicon-plus-sign large-glyph" aria-hidden="true"></span>

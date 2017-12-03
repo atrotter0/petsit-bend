@@ -2,8 +2,8 @@
 
   <div class="form-container medium-form-width">
     <div class="row">
-      <div class="pet-select-container">
-        <p class="reservation-form-header">Select Pets</p>
+      <div class="pet-select-container small-margin-bottom">
+        <p class="reservation-form-header header-margin-bottom">Select Pets</p>
         <% if current_user.admin? %>
           <% list = sort_pets_by_user %>
           <% list.each_with_index do |pet, index| %>
