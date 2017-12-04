@@ -89,19 +89,29 @@ function getTimesByDay(day) {
   return list;
 }
 
-function stripDogWalkingInputFields() {
-  $('#walking_schedule_pet_list').val('');
-  $('#walking_schedule_sunday_times').val('');
-  $('#walking_schedule_monday_times').val('');
-  $('#walking_schedule_tuesday_times').val('');
-  $('#walking_schedule_wednesday_times').val('');
-  $('#walking_schedule_thursday_times').val('');
-  $('#walking_schedule_friday_times').val('');
-  $('#walking_schedule_saturday_times').val('');
+function stripAndDisableInputFields() {
+  var idList = hiddenInputFields();
+  for (i = 0; i < idList.length; i++) {
+    $('#' + idList[i]).val('').addClass('disabled').attr('disabled', 'disabled');
+  }
+}
+
+function enableHiddenFields() {
+  var idList = hiddenInputFields();
+  for (i = 0; i < idList.length; i++) {
+    $('#' + idList[i]).removeClass('disabled').removeAttr('disabled');
+  }
+}
+
+function hiddenInputFields() {
+  var list = ["walking_schedule_pet_list", "reservation_pet_list", "walking_schedule_sunday_times", "walking_schedule_monday_times",
+    "walking_schedule_tuesday_times", "walking_schedule_wednesday_times", "walking_schedule_thursday_times", "walking_schedule_friday_times",
+      "walking_schedule_saturday_times"];
+  return list;
 }
 
 $(document).ready(function() {
-  stripDogWalkingInputFields();
+  stripAndDisableInputFields();
 
   $('.schedule-day-select-btn').click(function() {
     showTimeSelection(getPrefix(this.id));
@@ -124,5 +134,9 @@ $(document).ready(function() {
     toggleBtnGlyphs(this);
     highlightPetName(section);
     addPetsToInputField();
+  });
+
+  $('#dog-walking-submit, #reservation-submit').click(function() {
+    enableHiddenFields();
   });
 });
