@@ -110,8 +110,22 @@ function hiddenInputFields() {
   return list;
 }
 
+function disableAddTimeBtns() {
+  $('.schedule-add-time-btn').addClass('disabled').attr('disabled', 'disabled');
+}
+
+function checkTimeBtn(object, day, section) {
+  var id = '#' + day + '-visit-' + section + '-btn';
+  if ($(object).val() != 'default') {
+    $(id).removeClass('disabled').removeAttr('disabled');
+  } else {
+    $(id).addClass('disabled').attr('disabled', 'disabled');
+  }
+}
+
 $(document).ready(function() {
   stripAndDisableInputFields();
+  disableAddTimeBtns();
 
   $('.schedule-day-select-btn').click(function() {
     showTimeSelection(getPrefix(this.id));
@@ -134,6 +148,13 @@ $(document).ready(function() {
     toggleBtnGlyphs(this);
     highlightPetName(section);
     addPetsToInputField();
+  });
+
+  $('.time-select').change(function() {
+    var day = getPrefix(this.id);
+    var parentId = $(this).parent().get(0).id;
+    var section = getSection(parentId, 1);
+    checkTimeBtn(this, day, section)
   });
 
   $('#dog-walking-submit, #reservation-submit').click(function() {

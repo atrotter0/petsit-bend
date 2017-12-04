@@ -1,4 +1,5 @@
-<select class="form-control small-select" id="<%= @day %>-hour-select">
+<select class="form-control small-select time-select" id="<%= @day %>-hour-select">
+  <option value="default"></option>
   <% hours_generator(1, 12).each do |hour| %>
     <option><%= hour %></option>
   <% end %>

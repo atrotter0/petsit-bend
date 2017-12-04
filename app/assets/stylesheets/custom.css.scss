@@ -661,6 +661,11 @@ textarea {
   display: none;
 }
 
+.small-select[disabled] {
+  background-color: #bee6f3;
+  opacity: 1;
+}
+
 .small-form-width {
   max-width: 300px;
 }
