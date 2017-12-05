@@ -59,6 +59,7 @@ function highlightPetName(section) {
 function addPetsToInputField() {
   var petList = getValuesByClass('pet-name-selected');
   $('#walking_schedule_pet_list').val(petList);
+  $('#reservation_pet_list').val(petList);
 }
 
 function getValuesByClass(className) {
@@ -88,19 +89,43 @@ function getTimesByDay(day) {
   return list;
 }
 
-function stripDogWalkingInputFields() {
-  $('#walking_schedule_pet_list').val('');
-  $('#walking_schedule_sunday_times').val('');
-  $('#walking_schedule_monday_times').val('');
-  $('#walking_schedule_tuesday_times').val('');
-  $('#walking_schedule_wednesday_times').val('');
-  $('#walking_schedule_thursday_times').val('');
-  $('#walking_schedule_friday_times').val('');
-  $('#walking_schedule_saturday_times').val('');
+function stripAndDisableInputFields() {
+  var idList = hiddenInputFields();
+  for (i = 0; i < idList.length; i++) {
+    $('#' + idList[i]).val('').addClass('disabled').attr('disabled', 'disabled');
+  }
+}
+
+function enableHiddenFields() {
+  var idList = hiddenInputFields();
+  for (i = 0; i < idList.length; i++) {
+    $('#' + idList[i]).removeClass('disabled').removeAttr('disabled');
+  }
+}
+
+function hiddenInputFields() {
+  var list = ["walking_schedule_pet_list", "reservation_pet_list", "walking_schedule_sunday_times", "walking_schedule_monday_times",
+    "walking_schedule_tuesday_times", "walking_schedule_wednesday_times", "walking_schedule_thursday_times", "walking_schedule_friday_times",
+      "walking_schedule_saturday_times"];
+  return list;
+}
+
+function disableAddTimeBtns() {
+  $('.schedule-add-time-btn').addClass('disabled').attr('disabled', 'disabled');
+}
+
+function checkTimeBtn(object, day, section) {
+  var id = '#' + day + '-visit-' + section + '-btn';
+  if ($(object).val() != 'default') {
+    $(id).removeClass('disabled').removeAttr('disabled');
+  } else {
+    $(id).addClass('disabled').attr('disabled', 'disabled');
+  }
 }
 
 $(document).ready(function() {
-  stripDogWalkingInputFields();
+  stripAndDisableInputFields();
+  disableAddTimeBtns();
 
   $('.schedule-day-select-btn').click(function() {
     showTimeSelection(getPrefix(this.id));
@@ -118,10 +143,21 @@ $(document).ready(function() {
     addTimeToInputField(day);
   });
 
-  $('.schedule-add-pet-btn').click(function() {
+  $('.schedule-add-pet-btn, .reservation-add-pet-btn').click(function() {
     var section = getSection(this.id, 0);
     toggleBtnGlyphs(this);
     highlightPetName(section);
     addPetsToInputField();
+  });
+
+  $('.time-select').change(function() {
+    var day = getPrefix(this.id);
+    var parentId = $(this).parent().get(0).id;
+    var section = getSection(parentId, 1);
+    checkTimeBtn(this, day, section)
+  });
+
+  $('#dog-walking-submit, #reservation-submit').click(function() {
+    enableHiddenFields();
   });
 });

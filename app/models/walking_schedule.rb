@@ -1,10 +1,14 @@
 class WalkingSchedule < ActiveRecord::Base
+  include PetHelper
+
   belongs_to :user
 
   validates :user_id, presence: true
   validates :pet_list, presence: true, length: { maximum: 50 }
   validate :scheduled_times
+
   validate :time_format
+  validate :check_pet_list
 
   def scheduled_times
     unless any_days_and_times?
@@ -59,5 +63,17 @@ class WalkingSchedule < ActiveRecord::Base
         return false
       end
     end
+  end
+
+  def check_pet_list
+    unless valid_pet_list?
+      self.errors.add(:pet_list, "is invalid")
+    end
+  end
+
+  def valid_pet_list?
+    pet_list = pet_names_for_user(self.user)
+    return false unless pet_list.include?(self.pet_list)
+    return true
   end
 end

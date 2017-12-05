@@ -481,11 +481,30 @@ textarea {
 
 .schedule-form-header {
   font-family: 'Amatic SC', cursive;
-  font-size: 1.5em;
+  font-size: 1.3em;
+  font-weight: bold;
+  letter-spacing: 4px;
   background-color: #000;
   height: 40px;
   padding-left: 10px;
+  padding-top: 8px;
+}
+
+.reservation-form-header {
+  font-family: 'Amatic SC', cursive;
+  font-size: 1.2em;
+  font-weight: bold;
+  letter-spacing: 5px;
+  height: 40px;
   padding-top: 5px;
+}
+
+.small-margin-bottom {
+  margin-bottom: 20px;
+}
+
+.header-margin-bottom {
+  margin-bottom: -15px;
 }
 
 .sm-form-header-bottom-margin {
@@ -528,12 +547,16 @@ textarea {
 }
 
 .pet-user-name-box {
+  margin-top: 10px;
   padding: 5px;
-  text-align: left;
-  width: 100%;
+  text-align: center;
+  width: 20%;
   height: 30px;
   background-color: #fff;
   color: #000;
+  font-family: 'Amatic SC', cursive;
+  font-size: 1.3em;
+  border-radius: 10px 10px 0px 0px;
 }
 
 .pet-name-selected {
@@ -634,8 +657,13 @@ textarea {
   color: #fff;
 }
 
-.walking-schedule-form-inputs {
+.walking-schedule-form-inputs, .reservation-form-inputs {
   display: none;
+}
+
+.small-select[disabled] {
+  background-color: #bee6f3;
+  opacity: 1;
 }
 
 .small-form-width {
@@ -702,6 +730,10 @@ footer ul li {
   background-color: #fff;
   cursor: pointer;
   box-shadow: 2px 2px 2px 2px #222;
+}
+
+.copyright-li {
+  margin-left: -10px;
 }
 
 /* page-fade styles */
