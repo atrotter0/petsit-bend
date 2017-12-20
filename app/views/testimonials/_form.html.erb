@@ -17,6 +17,22 @@
                 <%= f.label :approved, 'No' %>
                 <%= f.radio_button :approved, 'false'%>
               </div>
+              <div class="form-group">
+                <%= f.label :first_name_override, 'First Name Override', class: 'label-style' %>
+                <%= f.text_field :first_name_override, class: 'form-control'%>
+              </div>
+              <div class="form-group">
+                <%= f.label :last_name_override, 'Last Name Override', class: 'label-style' %>
+                <%= f.text_field :last_name_override, class: 'form-control'%>
+              </div>
+              <div class="form-group">
+                <%= f.label :date_override, 'Date Override', class: 'label-style' %>
+                <%= f.text_field :date_override, class: 'form-control'%>
+              </div>
+              <div class="form-group">
+                <%= f.label :external_url, 'External Url', class: 'label-style' %>
+                <%= f.text_field :external_url, class: 'form-control'%>
+              </div>
             </div>
             <% end %>
           <div class="form-group">

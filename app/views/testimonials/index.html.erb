@@ -1,6 +1,6 @@
 <div class="content quick-fade-in">
   <h1 align="center">Testimonials</h1>
-  <% if logged_in? && current_user.testimonial.blank? %>
+  <% if logged_in? && current_user.testimonial.blank? || current_user.admin? %>
     <div class="data-content">
       <a href="<%= new_testimonial_path %>" class="btn btn-lg btn-primary" title="Add Testimonial">
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
@@ -8,7 +8,7 @@
       </a>
     </div>
   <% end %>
-  <% if logged_in? && current_user.testimonial.present? && current_user.testimonial.approved == false %>
+  <% if logged_in? && current_user.testimonial.present? && current_user.testimonial.first.approved == false && !current_user.admin? %>
     <div class="data-content clearfix">
       <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
       Your testimonial is currently being reviewed.
@@ -28,12 +28,15 @@
             <div class="page-data-box block-width-small">
               <div class="page-item-box">
                 <p class="page-content-header">
-                  <%= "#{testimonial.user.last_name} Family & Pets" %>
+                  <%= "#{testimonial.last_name_display} Family & Pets" %>
                 </p>
                 <p class="page-content">"<%= testimonial.body %>"</p>
                 <p class="page-content testimonial-name-tag">
                   <img src="https://s3.amazonaws.com/petsit-bend/paw-print.jpg" class="img-circle testimonial-paw-icon" alt="Petsit Bend Testimonials paw icon"> 
-                  <%= testimonial.user.first_name %>, <%= testimonial.display_short_date %>
+                  <%= testimonial.first_name_display %>, <%= testimonial.date_display %><br/>
+                  <% if testimonial.external_url.present? %>
+                    via <%= link_to 'Faceboook', "#{testimonial.external_url}" %>
+                  <% end %>
                 </p>
               </div>
             </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171129201909) do
+ActiveRecord::Schema.define(version: 20171220222034) do
 
   create_table "leads", force: :cascade do |t|
     t.string   "first_name"
@@ -46,10 +46,14 @@ ActiveRecord::Schema.define(version: 20171129201909) do
 
   create_table "testimonials", force: :cascade do |t|
     t.text     "body"
-    t.boolean  "approved",   default: false
+    t.boolean  "approved",            default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.string   "first_name_override"
+    t.string   "last_name_override"
+    t.string   "date_override"
+    t.string   "external_url"
   end
 
   create_table "users", force: :cascade do |t|
