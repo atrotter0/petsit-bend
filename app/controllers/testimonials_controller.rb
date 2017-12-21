@@ -6,7 +6,7 @@ class TestimonialsController < ApplicationController
   before_action :require_admin, only: [:edit, :update, :show, :destroy]
 
   def index
-    @testimonials = Testimonial.all
+    @testimonials = Testimonial.all.order("created_at ASC")
   end
 
   def new
