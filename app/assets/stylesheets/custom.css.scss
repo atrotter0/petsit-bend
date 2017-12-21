@@ -192,7 +192,7 @@ body {
 .page-item-box {
   border: 3px solid #fff;
   transition: box-shadow 0.5s, border 0.5s;
-  margin-bottom: 40px;
+  margin-bottom: 55px;
 }
 
 /*.page-item-box:hover {
@@ -472,6 +472,30 @@ textarea {
   width: 20px;
   height: auto;
   margin-right: 2px;
+}
+
+.page-divider {
+  text-align: center;
+  width: 90px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 70px;
+}
+
+.page-divider > img {
+  width: 50px;
+  margin-bottom: 10px;
+}
+
+.top-link {
+  font-weight: bold;
+  border-bottom: 2px solid transparent;
+  transition: border-color 1s;
+}
+
+.top-link:hover {
+  transition: border-color 1s;
+  border-bottom: 2px solid #fff;
 }
 
 .pet-select-container {
@@ -810,6 +834,14 @@ footer ul li {
 /* responsive styles */
 
 @media screen and (max-width: 500px) {
+  .jumbotron {
+    min-height: 85%;
+  }
+
+  .content {
+    min-height: 85%;
+  }
+
   .time-item {
     margin-top: 8px;
     line-height: 33.5px;

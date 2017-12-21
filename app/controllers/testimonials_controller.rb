@@ -11,7 +11,7 @@ class TestimonialsController < ApplicationController
 
   def new
     @testimonial = Testimonial.new
-    redirect_to testimonials_path unless logged_in? && current_user.testimonial.blank?
+    redirect_to testimonials_path unless logged_in? && current_user.testimonial.blank? || current_user.admin?
   end
 
   def create
@@ -49,7 +49,7 @@ class TestimonialsController < ApplicationController
   private
 
   def testimonial_params
-    params.require(:testimonial).permit(:body, :approved)
+    params.require(:testimonial).permit(:body, :approved, :first_name_override, :last_name_override, :date_override, :external_url)
   end
 
   def set_testimonial

@@ -3,7 +3,7 @@
     <div class="page-item-box">
       <% if testimonial.approved? || (logged_in? && current_user.admin?) %>
         <p class="page-content-header">
-          <%= "#{testimonial.user.last_name} Family & Pets" %>
+          <%= "#{testimonial.last_name_display} Family & Pets" %>
           <% if testimonial.approved? %>
             <span class="glyphicon glyphicon-ok" aria-hidden="true" style="color: #0099cc;"></span>
           <% else %>
@@ -15,7 +15,10 @@
         <p class="page-content">"<%= testimonial.body %>"</p>
         <p class="page-content testimonial-name-tag">
           <img src="https://s3.amazonaws.com/petsit-bend/paw-print.jpg" class="img-circle testimonial-paw-icon" alt="Petsit Bend Testimonials paw icon">
-           <%= testimonial.user.first_name %>, <%= testimonial.display_short_date %>
+          <%= testimonial.first_name_display %>, <%= testimonial.date_display %><br/>
+          <% if testimonial.external_url.present? %>
+            via <%= link_to 'Facebook', "#{testimonial.external_url}", target: "_blank" %>
+          <% end %>
         </p>
         <% if logged_in? && current_user.admin? %>
           <div class="testimonial-options">
