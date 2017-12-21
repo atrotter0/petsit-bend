@@ -834,6 +834,14 @@ footer ul li {
 /* responsive styles */
 
 @media screen and (max-width: 500px) {
+  .jumbotron {
+    min-height: 85%;
+  }
+
+  .content {
+    min-height: 85%;
+  }
+
   .time-item {
     margin-top: 8px;
     line-height: 33.5px;
