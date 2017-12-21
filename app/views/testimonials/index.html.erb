@@ -1,6 +1,6 @@
 <div class="content quick-fade-in">
   <h1 align="center">Testimonials</h1>
-  <% if logged_in? && current_user.testimonial.blank? || current_user.admin? %>
+  <% if logged_in? && current_user.testimonial.blank? || logged_in? && current_user.admin? %>
     <div class="data-content">
       <a href="<%= new_testimonial_path %>" class="btn btn-lg btn-primary" title="Add Testimonial">
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
@@ -44,5 +44,9 @@
         <% end %>
       <% end %>
     </div>
+  </div>
+  <div class="page-divider">
+    <img src="https://s3.amazonaws.com/petsit-bend/testimonials.png" alt="Petsit Bend Reviews and Testimonials Icon"><br/>
+    <%= link_to 'Back To Top', '#top', class: 'top-link' %>
   </div>
 </div>
