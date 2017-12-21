@@ -479,7 +479,6 @@ textarea {
   width: 90px;
   margin-left: auto;
   margin-right: auto;
-  bborder: 1px solid red;
   margin-bottom: 70px;
 }
 
@@ -490,11 +489,12 @@ textarea {
 
 .top-link {
   font-weight: bold;
-  border-bottom: 2px solid #bfbfbf;
-  transition: border-bottom 1s;
+  border-bottom: 2px solid transparent;
+  transition: border-color 1s;
 }
 
 .top-link:hover {
+  transition: border-color 1s;
   border-bottom: 2px solid #fff;
 }
 
