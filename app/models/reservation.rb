@@ -33,7 +33,7 @@ class Reservation < ActiveRecord::Base
 
   def valid_pet_list?
     pet_list = pet_names_for_user(self.user)
-    return false unless pet_list.include?(self.pet_list)
+    return false unless pet_list.present? && pet_list.include?(self.pet_list)
     return true
   end
 end
