@@ -241,6 +241,7 @@ body {
 .services-image-box {
   width: 100%;
   height: auto;
+  margin-bottom: 50px;
 }
 
 .services-image-box > #image {
@@ -250,8 +251,8 @@ body {
   margin-left: 15px;
   margin-right: 15px;
   text-align: center;
-  border: 1px solid #000;
-  box-shadow: 2px 2px 2px 2px #000;
+  border-radius: 10px;
+  box-shadow: 5px 5px 0px 0px #000;
 }
 
 .data-container {
@@ -860,6 +861,10 @@ footer ul li {
   .services-image-box > #image {
     min-width: 23%;
   }
+
+  .services-image-box {
+    margin-bottom: 40px;
+  }
 }
 
 @media screen and (max-width: 580px) {
@@ -876,6 +881,10 @@ footer ul li {
 
   .about-content-box {
     width: 90%;
+  }
+
+  .services-image-box > #image {
+    box-shadow: 2px 2px 0px 0px #000;
   }
 }
 
