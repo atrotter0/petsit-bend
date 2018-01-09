@@ -1,4 +1,4 @@
-$navbar-default-bg: #404040;
+$navbar-default-bg: #000;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -10,6 +10,7 @@ html {
 body {
   height: 100%;
   background-color: #404040;
+  font-family: 'Helvetica', sans-serif;
 }
 
 .navbar {
@@ -41,13 +42,11 @@ body {
   letter-spacing: 5px;
   font-weight: bold;
   font-family: 'Amatic SC', cursive;
-  transition: text-shadow 0.5s;
 }
 
 #logo:hover {
   color: #fff;
   text-decoration: none;
-  text-shadow: 5px 2px 2px #000;
 }
 
 .center {
@@ -56,7 +55,7 @@ body {
 
 .jumbotron {
   background-color: #262626;
-  min-height: 86%;
+  min-height: 85%;
   margin-bottom: 0px;
 }
 
@@ -139,13 +138,13 @@ body {
   color: #fff;
   background-color: #262626;
   width: 100%;
-  min-height: 86%;
+  min-height: 85%;
   padding: 20px;
 }
 
 .content h1 {
-  margin-top: 0px;
-  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 40px;
   font-family: 'Amatic SC', cursive;
   font-weight: bold;
   letter-spacing: 5px;
@@ -162,6 +161,7 @@ body {
 }
 
 .about-content-box {
+  border-radius: 10px;
   background-color: #fff;
   margin-left: auto;
   margin-right: auto;
@@ -171,7 +171,7 @@ body {
   max-width: 980px;
 }
 
-#public-content-img {
+#about-img {
   max-width: 200px;
   width: 100%;
   margin-bottom: 5px;
@@ -188,9 +188,10 @@ body {
 }
 
 .page-item-box {
-  border: 3px solid #fff;
-  transition: box-shadow 0.5s, border 0.5s;
+  border: 10px solid #fff;
+  /* transition: box-shadow 0.5s, border 0.5s; */
   margin-bottom: 55px;
+  border-radius: 5px;
 }
 
 /*.page-item-box:hover {
@@ -198,10 +199,13 @@ body {
 }*/
 
 .page-content-header {
+  font-family: 'Roboto', sans-serif;
   font-weight: bold;
   letter-spacing: 1px;
   padding: 10px;
-  background-color: #000;
+  background-color: #fff;
+  color: #000;
+  border-bottom: 3px solid #000;
 }
 
 .page-content {
@@ -475,7 +479,7 @@ textarea {
 
 .page-divider {
   text-align: center;
-  width: 90px;
+  width: 100px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 70px;
@@ -483,11 +487,14 @@ textarea {
 
 .page-divider > img {
   width: 50px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .top-link {
-  font-weight: bold;
+  font-family: 'Amatic SC', cursive;
+  font-size: 1.5em;
+  ffont-weight: bold;
+  letter-spacing: 1px;
   border-bottom: 2px solid transparent;
   transition: border-color 1s;
 }
@@ -706,10 +713,11 @@ footer {
   bottom: 0px;
   margin-top: 0px;
   width: 100%;
-  height: 40px;
+  height: 8.5%;
   padding: 10px;
   color: #777;
   background-color: #404040;
+  background-color: #000;
 }
 
 footer a {
@@ -840,6 +848,10 @@ footer ul li {
     min-height: 85%;
   }
 
+  footer {
+    height: 8.5%;
+  }
+
   .time-item {
     margin-top: 8px;
     line-height: 33.5px;
@@ -864,6 +876,10 @@ footer ul li {
 
   .services-image-box {
     margin-bottom: 40px;
+  }
+
+  .image-box > #image {
+    box-shadow: 1px 1px 1px 1px #000;
   }
 }
 
@@ -905,7 +921,7 @@ footer ul li {
     text-align: center;
   }
 
-  #public-content-img {
+  #about-img {
     max-width: 500px;
     width: 100%;
   }
