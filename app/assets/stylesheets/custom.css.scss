@@ -26,8 +26,8 @@ body {
 }
 
 .navbar-default .navbar-nav > li > a:hover {
-  background-color: #000;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
 }
 
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
@@ -42,11 +42,14 @@ body {
   letter-spacing: 5px;
   font-weight: bold;
   font-family: 'Amatic SC', cursive;
+  transition: color, background 1s;
 }
 
 #logo:hover {
-  color: #fff;
+  color: #000;
+  background-color: #fff;
   text-decoration: none;
+  transition: color, background 1s;
 }
 
 .center {
