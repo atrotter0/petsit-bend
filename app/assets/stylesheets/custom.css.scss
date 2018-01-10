@@ -195,15 +195,11 @@ body {
 }
 
 .page-item-box {
-  border: 10px solid #fff;
-  /* transition: box-shadow 0.5s, border 0.5s; */
   margin-bottom: 55px;
   border-radius: 5px;
+  background-color: #fff;
+  padding: 10px;
 }
-
-/*.page-item-box:hover {
-  border: 5px solid #000;
-}*/
 
 .page-content-header {
   font-family: 'Roboto', sans-serif;
@@ -789,7 +785,7 @@ footer ul li {
 
 @keyframes fadeIn {
   0% {
-    opacity:0.2;
+    opacity:0.15;
   }
   100% {
     opacity:1;
@@ -798,7 +794,7 @@ footer ul li {
 
 @-moz-keyframes fadeIn {
   0% {
-    opacity:0.2;
+    opacity:0.15;
   }
   100% {
     opacity:1;
@@ -807,7 +803,7 @@ footer ul li {
 
 @-webkit-keyframes fadeIn {
   0% {
-    opacity:0.2;
+    opacity:0.15;
   }
   100% {
     opacity:1;
@@ -816,7 +812,7 @@ footer ul li {
 
 @-o-keyframes fadeIn {
   0% {
-    opacity:0.2;
+    opacity:0.15;
   }
   100% {
     opacity:1;
@@ -825,7 +821,7 @@ footer ul li {
 
 @-ms-keyframes fadeIn {
   0% {
-    opacity:0.2;
+    opacity:0.15;
   }
   100% {
     opacity:1;
