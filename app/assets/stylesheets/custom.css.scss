@@ -9,7 +9,7 @@ html {
 
 body {
   height: 100%;
-  background-color: #404040;
+  background-color: #000;
   font-family: 'Helvetica', sans-serif;
 }
 
@@ -789,7 +789,7 @@ footer ul li {
 
 @keyframes fadeIn {
   0% {
-    opacity:0;
+    opacity:0.2;
   }
   100% {
     opacity:1;
@@ -798,7 +798,7 @@ footer ul li {
 
 @-moz-keyframes fadeIn {
   0% {
-    opacity:0;
+    opacity:0.2;
   }
   100% {
     opacity:1;
@@ -807,7 +807,7 @@ footer ul li {
 
 @-webkit-keyframes fadeIn {
   0% {
-    opacity:0;
+    opacity:0.2;
   }
   100% {
     opacity:1;
@@ -816,7 +816,7 @@ footer ul li {
 
 @-o-keyframes fadeIn {
   0% {
-    opacity:0;
+    opacity:0.2;
   }
   100% {
     opacity:1;
@@ -825,7 +825,7 @@ footer ul li {
 
 @-ms-keyframes fadeIn {
   0% {
-    opacity:0;
+    opacity:0.2;
   }
   100% {
     opacity:1;
