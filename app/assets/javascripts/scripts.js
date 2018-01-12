@@ -56,4 +56,8 @@ $(document).ready(function() {
     selectionHeader: 'Selected',
     selectableHeader: 'Available'
   });
+
+  $('.faq-slide-click').click(function() {
+    $('.faq-slide').slideToggle('slow');
+  });
 });

@@ -243,6 +243,27 @@ body {
   color: #35383d;
 }
 
+.chevron-to-top {
+  font-size: 2em;
+  float: right;
+  width: 45px;
+  height: 40px;
+  text-align: center;
+  color: #000;
+}
+
+.chevron-to-top a {
+  color: #000;
+}
+
+.chevron-to-top a:hover {
+  color: #000;
+}
+
+.faq-slide-click {
+  cursor: pointer;
+}
+
 .faq-ul {
   padding-bottom: 5px;
   color: #000;
