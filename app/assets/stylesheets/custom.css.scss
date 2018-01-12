@@ -243,7 +243,7 @@ body {
   color: #35383d;
 }
 
-.chevron-to-top {
+.chevron-to-top, .faq-open-close-icon {
   font-size: 2em;
   float: right;
   width: 45px;
@@ -260,8 +260,12 @@ body {
   color: #000;
 }
 
-.faq-slide-click {
+.faq-slide-click, .faq-open-close-icon {
   cursor: pointer;
+}
+
+.faq-slide > li {
+  margin-bottom: 10px;
 }
 
 .faq-ul {

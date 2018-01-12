@@ -57,7 +57,8 @@ $(document).ready(function() {
     selectableHeader: 'Available'
   });
 
-  $('.faq-slide-click').click(function() {
+  $('.faq-slide-click, .faq-open-close-icon').click(function() {
     $('.faq-slide').slideToggle('slow');
+    $('.faq-open-close-icon').children('span').toggleClass('glyphicon glyphicon-plus').toggleClass('glyphicon glyphicon-minus');
   });
 });
