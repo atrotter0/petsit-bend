@@ -10,10 +10,10 @@ class AccountActivationsController < ApplicationController
       flash[:warning] = "An email has been sent with an account activation link."
       redirect_to root_url
     elsif @user && @user.activated?
-      flash.now[:danger] = "Account has already been activated."
+      flash.now[:danger] = "Invalid email address."
       render 'new'
     else
-      flash.now[:danger] = "Email address not found."
+      flash.now[:danger] = "Invalid email address."
       render 'new'
     end
   end
@@ -27,7 +27,7 @@ class AccountActivationsController < ApplicationController
       flash[:success] = "Account successfully activated! Welcome to Petsit Bend, #{user.first_name}!"
       redirect_to user
     else
-      flash[:danger] = "Invalid activation link"
+      flash[:danger] = "Invalid activation link."
       redirect_to root_url
     end
   end
