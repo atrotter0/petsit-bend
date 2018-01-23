@@ -75,7 +75,7 @@ class Rack::Attack
   #    ['']] # body
   # end
 
-  BLOCKED_LIST =['184.154.36.185','91.200.12.65']
+  BLOCKED_LIST =['184.154.36.185','91.200.12.65', '190.216.112.38']
 
   # Block requests from list
   Rack::Attack.blocklist('block BLOCKED_LIST') do |req|
@@ -83,7 +83,7 @@ class Rack::Attack
   end
 
   # Block suspicious requests for specific paths.
-  # After 1 blocked requests in 5 minutes, block all requests from that IP for 1 minutes.
+  # After 1 blocked requests in 5 minutes, block all requests from that IP for 90 minutes.
   Rack::Attack.blocklist('fail2ban pentesters') do |req|
     # `filter` returns truthy value if request fails, or if it's from a previously banned IP
     # so the request is blocked
