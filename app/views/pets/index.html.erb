@@ -13,7 +13,7 @@
           <div class="page-item-box">
             <p class="page-content-header">Pet ID: <%= pet.id %></p>
             <% if current_user.admin? %>
-              <p class="page-content"><img src="https://s3.amazonaws.com/petsit-bend/users.jpg" class="info-icon"><%= pet.user.first_name %></p>
+              <p class="page-content"><img src="https://s3.amazonaws.com/petsit-bend/users.jpg" class="info-icon"><%= full_user_name(pet) %></p>
             <% end %>
             <p class="page-content"><img src="https://s3.amazonaws.com/petsit-bend/pets.jpg" class="info-icon"><%= pet.name %></p>
             <p class="page-content">
