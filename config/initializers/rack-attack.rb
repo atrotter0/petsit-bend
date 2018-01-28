@@ -91,8 +91,12 @@ class Rack::Attack
       # The count for the IP is incremented if the return value is truthy
       CGI.unescape(req.query_string) =~ %r{/etc/passwd} ||
       CGI.unescape(req.query_string) =~ %r{authenticity_token} ||
+      CGI.unescape(req.query_string) =~ %r{th1s_1s_a_4o4} ||
       req.path.include?('/etc/passwd') ||
       req.path.include?('wp-admin') ||
+      req.path.include?('th1s_1s_a_4o4') ||
+      req.path.include?("'+s+'") ||
+      req.path.include?('location') ||
       req.path.include?('wp-login')
 
   end
