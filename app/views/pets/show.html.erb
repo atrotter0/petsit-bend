@@ -8,7 +8,9 @@
           <strong>Name:</strong> <%= @pet.name %><br/>
           <strong>Type:</strong> <%= @pet.pet_type %><br/>
           <strong>Age:</strong> <%= @pet.age %><br/>
-          <strong>Breed:</strong> <%= @pet.breed %><br/>
+          <% if @pet.breed.present? %>
+            <strong>Breed:</strong> <%= @pet.breed %><br/>
+          <% end %>
           <strong>Color:</strong> <%= @pet.color %>
         </p>
         <% if current_user.admin? %>
