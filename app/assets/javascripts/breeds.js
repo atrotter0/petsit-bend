@@ -1,13 +1,10 @@
-function hideBreedGroup() {
-  $('#pet-breed-group').css('display', 'none');
-}
-
 function checkPetType(pet) {
   if (pet == "Dog") {
     $('#pet-breed-group').css('display', 'block');
     getPetData();
   } else {
     hideBreedGroup();
+    clearBreedField();
   }
 }
 
@@ -32,6 +29,14 @@ function addDogs(list) {
 
 String.prototype.capitalize = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
+}
+
+function hideBreedGroup() {
+  $('#pet-breed-group').css('display', 'none');
+}
+
+function clearBreedField() {
+  $('#pet_breed').val('');
 }
 
 $(document).ready(function() {
