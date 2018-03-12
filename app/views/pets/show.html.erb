@@ -8,7 +8,7 @@
           <strong>Name:</strong> <%= @pet.name %><br/>
           <strong>Type:</strong> <%= @pet.pet_type %><br/>
           <strong>Age:</strong> <%= @pet.age %><br/>
-          <% if @pet.breed.present? %>
+          <% if @pet.pet_type == "Dog" %>
             <strong>Breed:</strong> <%= @pet.breed %><br/>
           <% end %>
           <strong>Color:</strong> <%= @pet.color %>
