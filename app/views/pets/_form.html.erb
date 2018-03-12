@@ -27,8 +27,9 @@
             <%= f.select(:age, number_select_generator(1, 30), { :include_blank => "Age"}, { :class => 'form-control'}) %>
           </div>
           <div class="form-group" id="pet-breed-group">
+            <datalist id="dogDataList"></datalist>
             <%= f.label :breed, 'Breed', class: 'label-style' %>
-            <%= f.text_field :breed, class: 'form-control', placeholder: "Breed" %>
+            <%= f.text_field :breed, class: 'form-control .awesomplete', list: "dogDataList", placeholder: "Breed" %>
           </div>
           <div class="form-group">
             <%= f.label :color, 'Color', class: 'label-style' %>
