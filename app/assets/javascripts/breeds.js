@@ -1,6 +1,5 @@
 function checkPetType(pet) {
   if (pet == "Dog") {
-    $('#pet-breed-group').css('display', 'block');
     getPetData();
   } else {
     hideBreedGroup();
@@ -13,7 +12,9 @@ function getPetData() {
     url: "https://dog.ceo/api/breeds/list",
     success: function(data) {
       var dogList = data.message;
-      addDogs(dogList);
+      capitalizeList(dogList);
+      enableAwesome(dogList);
+      displayBreedField();
     },
     error: function(err) {
       console.log(err);
@@ -21,14 +22,27 @@ function getPetData() {
   })
 }
 
-function addDogs(list) {
+function capitalizeList(list) {
   for(var i = 0; i < list.length; i++) {
-    $('#dogDataList').append('<option>' + list[i].capitalize() + '</option>');
+    list[i] = list[i].capitalize();
   }
 }
 
 String.prototype.capitalize = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
+}
+
+function enableAwesome(list) {
+  new Awesomplete('#breed-list', {
+    minChars: 2,
+    maxItems: 5,
+    list: list
+  });
+}
+
+function displayBreedField() {
+  $('#breed-list').addClass('form-control');
+  $('#pet-breed-group').css('display', 'block');
 }
 
 function hideBreedGroup() {
@@ -40,11 +54,11 @@ function clearBreedField() {
 }
 
 $(document).ready(function() {
+  hideBreedGroup();
   checkPetType($('#pet_pet_type').val());
 
   $('#pet_pet_type').change(function() {
     var selected = $(this).val();
     checkPetType(selected);
   });
-
 });
