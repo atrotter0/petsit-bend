@@ -189,7 +189,7 @@ DEPENDENCIES
   listen (~> 3.0.5)
   multi-select-rails
   newrelic_rpm
-  pg
+  pg (~> 1.0)
   puma (~> 3.0)
   rack-attack
   rails (~> 5.0.3)
