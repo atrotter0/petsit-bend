@@ -11,7 +11,7 @@
           <% if @pet.pet_type == "Dog" %>
             <strong>Breed:</strong> <%= @pet.breed %><br/>
           <% end %>
-          <strong>Color:</strong> <%= @pet.color %>
+          <strong>Color:</strong> <button class="pet-color" style="background-color: <%= @pet.color %>;"></button>
         </p>
         <% if current_user.admin? %>
           <p class="page-content-header">Reservations</p>

@@ -740,6 +740,18 @@ textarea {
   margin-top: 10px;
 }
 
+.pet-color {
+  width: 40px;
+  height: 15px;
+  cursor: default;
+  border-radius: 4px;
+  border: 1px solid #000;
+}
+
+.pet-color:focus {
+  outline: none;
+}
+
 footer {
   bottom: 0px;
   margin-top: 0px;
