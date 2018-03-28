@@ -1,19 +1,18 @@
 function checkPetType(pet) {
   if (pet == "Dog") {
-    getPetData();
+    getDogBreeds();
   } else {
     hideBreedGroup();
     clearBreedField();
   }
 }
 
-function getPetData() {
+function getDogBreeds() {
   $.ajax({
-    url: "https://dog.ceo/api/breeds/list",
+    url: "https://dog.ceo/api/breeds/list/all",
     success: function(data) {
-      var dogList = data.message;
-      capitalizeList(dogList);
-      enableAwesome(dogList);
+      var breedList = createBreedList(data.message);
+      enableAwesome(breedList);
       displayBreedField();
     },
     error: function(err) {
@@ -22,9 +21,22 @@ function getPetData() {
   })
 }
 
-function capitalizeList(list) {
-  for(var i = 0; i < list.length; i++) {
-    list[i] = list[i].capitalize();
+function createBreedList(breeds) {
+  var list = [];
+  Object.keys(breeds).forEach(function(key) {
+    if (breeds[key] != "") {
+      fullBreedName(breeds[key], key, list);
+    } else {
+      list.push(key.capitalize());
+    }
+  });
+  return list;
+}
+
+function fullBreedName(subBreedList, breed, list) {
+  for(var i = 0; i < subBreedList.length; i++) {
+    var name = subBreedList[i].capitalize() + " " + breed.capitalize();
+    list.push(name);
   }
 }
 
@@ -35,7 +47,7 @@ String.prototype.capitalize = function() {
 function enableAwesome(list) {
   new Awesomplete('#breed-list', {
     minChars: 2,
-    maxItems: 5,
+    maxItems: 8,
     list: list
   });
 }
