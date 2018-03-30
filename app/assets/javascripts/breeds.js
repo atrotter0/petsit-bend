@@ -24,6 +24,12 @@ function getDogBreeds() {
 
 function createBreedList(breeds) {
   var list = [];
+  addAllBreeds(breeds, list);
+  addCustomBreeds(list);
+  return list;
+}
+
+function addAllBreeds(breeds, list) {
   Object.keys(breeds).forEach(function(key) {
     if (breeds[key] != "") {
       fullBreedName(breeds[key], key, list);
@@ -31,7 +37,18 @@ function createBreedList(breeds) {
       list.push(key.capitalize());
     }
   });
-  return list;
+}
+
+function addCustomBreeds(list) {
+  var customList = customBreeds();
+  for(var i = 0; i < customList.length; i++) {
+    list.push(customList[i]);
+  }
+}
+
+function customBreeds() {
+  const customList = ["Australian Shepherd", "Boston Terrier"];
+  return customList;
 }
 
 function fullBreedName(subBreedList, breed, list) {
