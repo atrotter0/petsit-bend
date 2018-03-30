@@ -17,6 +17,7 @@ function getDogBreeds() {
     },
     error: function(err) {
       console.log(err);
+      displayBreedField();
     }
   })
 }
