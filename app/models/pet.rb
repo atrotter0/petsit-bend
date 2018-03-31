@@ -1,5 +1,5 @@
 class Pet < ActiveRecord::Base
-  MAX_BREED_LENGTH = 20
+  MAX_BREED_LENGTH = 35
 
   belongs_to :user
 
