@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180311223714) do
+ActiveRecord::Schema.define(version: 20180331220445) do
 
   create_table "leads", force: :cascade do |t|
     t.string   "first_name"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20180311223714) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.string   "breed"
+    t.string   "secondary_color"
   end
 
   create_table "reservations", force: :cascade do |t|

@@ -1,3 +1,5 @@
+const DEACTIVE_COLOR_VAL = '#E240E4';
+
 function characterCounter(inputFieldId, maxChars, charDisplayDivId) {
   $(inputFieldId).keyup(function() {
     var length = $(this).val().length;
@@ -44,6 +46,28 @@ function flashDisplay() {
   $('#flash').fadeOut(10).delay(1100).slideDown(900).delay(5000).fadeOut(3000);
 }
 
+function checkPetSecondaryColor() {
+  if ($('#pet_secondary_color').val() != DEACTIVE_COLOR_VAL) {
+    activatePetColor();
+  } else {
+    deactivatePetColor();
+  }
+}
+
+function activatePetColor() {
+  $('#pet_secondary_color').val('#000000');
+  $('.secondary-color-block').css('display', 'block');
+  $('.secondary-color-btn').addClass('active-color').removeClass('deactive-color').text('- Remove Secondary Color');
+  console.log('activated');
+}
+
+function deactivatePetColor() {
+  $('.secondary-color-block').css('display', 'none');
+  $('.secondary-color-btn').addClass('deactive-color').removeClass('active-color').text('+ Add Secondary Color');
+  $('#pet_secondary_color').val(DEACTIVE_COLOR_VAL);
+  console.log('deactivated');
+}
+
 $(document).ready(function() {
   characterCounter("#reservation_special_instructions", 250, "#instructions-count");
   characterCounter("#testimonial_body", 800, "#testimonials-count");
@@ -51,6 +75,7 @@ $(document).ready(function() {
   phoneNumberFormatter("#user_phone");
   phoneNumberFormatter("#lead_phone");
   flashDisplay();
+  checkPetSecondaryColor();
 
   $('#pet-list, #user-list').multiSelect({
     selectionHeader: 'Selected',
@@ -60,5 +85,15 @@ $(document).ready(function() {
   $('.faq-slide-click, .faq-open-close-icon').click(function() {
     $('.faq-slide').slideToggle('slow');
     $('.faq-open-close-icon').children('span').toggleClass('glyphicon glyphicon-plus').toggleClass('glyphicon glyphicon-minus');
+  });
+
+  $('.active-color').click(function(e) {
+    e.preventDefault();
+    deactivatePetColor();
+  });
+
+  $('.deactive-color').click(function(e) {
+    e.preventDefault();
+    activatePetColor();
   });
 });
