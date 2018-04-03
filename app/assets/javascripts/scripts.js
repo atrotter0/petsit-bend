@@ -1,4 +1,4 @@
-const DEACTIVE_COLOR_VAL = '#e240e4';
+var DEACTIVE_COLOR_VAL = '#e240e4';
 
 function characterCounter(inputFieldId, maxChars, charDisplayDivId) {
   $(inputFieldId).keyup(function() {

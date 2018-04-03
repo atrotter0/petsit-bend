@@ -14,7 +14,7 @@ function getDogBreeds() {
 }
 
 function dogBreedList() {
-  const customList = [
+  var customList = [
     "Affenpinscher",
     "Afghan Hound",
     "Airedale Terrier",
