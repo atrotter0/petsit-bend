@@ -1,4 +1,4 @@
-const DEACTIVE_COLOR_VAL = '#E240E4';
+const DEACTIVE_COLOR_VAL = '#e240e4';
 
 function characterCounter(inputFieldId, maxChars, charDisplayDivId) {
   $(inputFieldId).keyup(function() {
@@ -55,17 +55,16 @@ function checkPetSecondaryColor() {
 }
 
 function activatePetColor() {
-  $('#pet_secondary_color').val('#000000');
   $('.secondary-color-block').css('display', 'block');
-  $('.secondary-color-btn').addClass('active-color').removeClass('deactive-color').text('- Remove Secondary Color');
-  console.log('activated');
+  $('.secondary-color-btn').addClass('active-color').addClass('glyphicon glyphicon-minus')
+    .removeClass('glyphicon glyphicon-plus').text(' Remove Secondary Color');
 }
 
 function deactivatePetColor() {
   $('.secondary-color-block').css('display', 'none');
-  $('.secondary-color-btn').addClass('deactive-color').removeClass('active-color').text('+ Add Secondary Color');
+  $('.secondary-color-btn').removeClass('active-color').addClass('glyphicon glyphicon-plus')
+    .removeClass('glyphicon glyphicon-minus').text(' Add Secondary Color');
   $('#pet_secondary_color').val(DEACTIVE_COLOR_VAL);
-  console.log('deactivated');
 }
 
 $(document).ready(function() {
@@ -87,13 +86,13 @@ $(document).ready(function() {
     $('.faq-open-close-icon').children('span').toggleClass('glyphicon glyphicon-plus').toggleClass('glyphicon glyphicon-minus');
   });
 
-  $('.active-color').click(function(e) {
+  $('.secondary-color-btn').click(function(e) {
     e.preventDefault();
-    deactivatePetColor();
-  });
-
-  $('.deactive-color').click(function(e) {
-    e.preventDefault();
-    activatePetColor();
+    if ($(this).hasClass('active-color')){
+      deactivatePetColor();
+    } else {
+      activatePetColor();
+      $('#pet_secondary_color').val('#000000');
+    }
   });
 });

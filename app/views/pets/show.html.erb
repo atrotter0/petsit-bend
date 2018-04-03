@@ -12,7 +12,7 @@
             <strong>Breed:</strong> <%= @pet.breed %><br/>
           <% end %>
           <strong>Primary Color:</strong> <button class="pet-color" style="background-color: <%= @pet.color %>;"></button><br/>
-          <% if !@pet.secondary_color.nil? %>
+          <% if !@pet.secondary_color.nil? && !@pet.secondary_color != "#e240e4" %>
             <strong>Secondary Color:</strong> <button class="pet-color" style="background-color: <%= @pet.secondary_color %>;"></button>
           <% end %>
         </p>
