@@ -7,8 +7,8 @@ class Pet < ActiveRecord::Base
   validates :name, presence: true, length: { maximum: 30 }
   validates :pet_type, presence: true
   validates :age, presence: true
-  validates :color, presence: true, length: { maximum: 7 }
-  validates :secondary_color, length: { maximum: 7 }
+  validates :color, presence: true, length: { maximum: 6 }
+  validates :secondary_color, length: { maximum: 6 }
 
   validate :check_breed
   validate :breed_length
