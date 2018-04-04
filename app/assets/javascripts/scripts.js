@@ -92,8 +92,7 @@ $(document).ready(function() {
       deactivatePetColor();
     } else {
       activatePetColor();
-      $('#pet_secondary_color').css('background-color', 'rgb(0,0,0)');
-      $('#pet_secondary_color').val('000000');
+      $('#pet_secondary_color').css('background-color', 'rgb(0,0,0)').val('000000');
     }
   });
 });

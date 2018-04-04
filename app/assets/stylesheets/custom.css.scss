@@ -749,11 +749,12 @@ textarea {
 }
 
 .pet-color {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   cursor: default;
-  border-radius: 50px;
-  border: 1px solid #000;
+  border-radius: 2px;
+  box-shadow: 2px 2px 2px #4e4e4e;
+  margin-bottom: 5px;
 }
 
 .pet-color:focus {
