@@ -1,5 +1,3 @@
-var DEACTIVE_COLOR_VAL = 'E240E4';
-
 function characterCounter(inputFieldId, maxChars, charDisplayDivId) {
   $(inputFieldId).keyup(function() {
     var length = $(this).val().length;
@@ -46,27 +44,6 @@ function flashDisplay() {
   $('#flash').fadeOut(10).delay(1100).slideDown(900).delay(5000).fadeOut(3000);
 }
 
-function checkPetSecondaryColor() {
-  if ($('#pet_secondary_color').val() != DEACTIVE_COLOR_VAL) {
-    activatePetColor();
-  } else {
-    deactivatePetColor();
-  }
-}
-
-function activatePetColor() {
-  $('.secondary-color-block').css('display', 'block');
-  $('.secondary-color-btn').addClass('active-color').addClass('glyphicon glyphicon-minus')
-    .removeClass('glyphicon glyphicon-plus').text(' Remove Secondary Color');
-}
-
-function deactivatePetColor() {
-  $('.secondary-color-block').css('display', 'none');
-  $('.secondary-color-btn').removeClass('active-color').addClass('glyphicon glyphicon-plus')
-    .removeClass('glyphicon glyphicon-minus').text(' Add Secondary Color');
-  $('#pet_secondary_color').val(DEACTIVE_COLOR_VAL);
-}
-
 $(document).ready(function() {
   characterCounter("#reservation_special_instructions", 250, "#instructions-count");
   characterCounter("#testimonial_body", 800, "#testimonials-count");
@@ -74,7 +51,6 @@ $(document).ready(function() {
   phoneNumberFormatter("#user_phone");
   phoneNumberFormatter("#lead_phone");
   flashDisplay();
-  checkPetSecondaryColor();
 
   $('#pet-list, #user-list').multiSelect({
     selectionHeader: 'Selected',
@@ -84,15 +60,5 @@ $(document).ready(function() {
   $('.faq-slide-click, .faq-open-close-icon').click(function() {
     $('.faq-slide').slideToggle('slow');
     $('.faq-open-close-icon').children('span').toggleClass('glyphicon glyphicon-plus').toggleClass('glyphicon glyphicon-minus');
-  });
-
-  $('.secondary-color-btn').click(function(e) {
-    e.preventDefault();
-    if ($(this).hasClass('active-color')){
-      deactivatePetColor();
-    } else {
-      activatePetColor();
-      $('#pet_secondary_color').css('background-color', 'rgb(0,0,0)').val('000000');
-    }
   });
 });
