@@ -5,10 +5,16 @@
       <div class="page-item-box">
         <p class="page-content-header">Pet Details</p>
         <p class="page-content">
-          <strong>Name:</strong> <%= @pet.name %></br>
-          <strong>Type:</strong> <%= @pet.pet_type %></br>
-          <strong>Age:</strong> <%= @pet.age %></br>
-          <strong>Breed/Color:</strong> <%= @pet.color %>
+          <strong>Name:</strong> <%= @pet.name %><br/>
+          <strong>Type:</strong> <%= @pet.pet_type %><br/>
+          <strong>Age:</strong> <%= @pet.age %><br/>
+          <% if @pet.pet_type == "Dog" %>
+            <strong>Breed:</strong> <%= @pet.breed %><br/>
+          <% end %>
+          <strong>Primary Color:</strong> <button class="pet-color" style="background-color: #<%= @pet.color %>;"></button><br/>
+          <% if !@pet.secondary_color.nil? && @pet.secondary_color != "E240E4" %>
+            <strong>Secondary Color:</strong> <button class="pet-color" style="background-color: #<%= @pet.secondary_color %>;"></button>
+          <% end %>
         </p>
         <% if current_user.admin? %>
           <p class="page-content-header">Reservations</p>

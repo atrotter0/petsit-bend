@@ -13,7 +13,7 @@
                 <% end %>
               </select>
             </div>
-          <% end %>
+        <% end %>
           <div class="form-group">
             <%= f.label :name, class: 'label-style' %>
             <%= f.text_field :name, class: 'form-control', placeholder: "Name" %>
@@ -21,14 +21,31 @@
           <div class="form-group">
             <%= f.label :pet_type, 'Type', class: 'label-style' %>
             <%= f.select(:pet_type, ['Dog', 'Cat', 'Horse', 'Other'], { :include_blank => "Type" }, { :class => 'form-control'}) %>
+            <div id="pet-breed-group">
+              <%= f.label :breed, class: 'label-style' %>
+              <%= f.text_field :breed, id: 'breed-list', placeholder: 'Breed' %>
+            </div>
           </div>
           <div class="form-group">
             <%= f.label :age, class: 'label-style' %>
             <%= f.select(:age, number_select_generator(1, 30), { :include_blank => "Age"}, { :class => 'form-control'}) %>
           </div>
           <div class="form-group">
-            <%= f.label :color, 'Breed/Color', class: 'label-style' %>
-            <%= f.text_field :color, class: 'form-control', placeholder: "Breed/Color" %>
+            <%= f.label :color, 'Primary Color', class: 'label-style' %>
+            <%= f.text_field :color, class: 'form-control jscolor' %>
+            <div>
+              <button class="jscolor {valueElement: 'pet_color'} pet-color-btn"></button>
+            </div>
+          </div>
+          <div class="form-group secondary-color-btn-block">
+            <button class="btn btn-med btn-primary add-secondary-color-btn">Add Secondary Color</button>
+          </div>
+          <div class="form-group secondary-color-block">
+            <%= f.label :secondary_color, 'Secondary Color', class: 'label-style' %>
+            <%= f.text_field :secondary_color, class: 'form-control jscolor', placeholder: "Secondary Color" %>
+            <div>
+              <button class="jscolor {valueElement: 'pet_secondary_color'} pet-color-btn" id="pet-color-btn-two"></button>
+            </div>
           </div>
           <div class="form-group">
             <%= f.submit(@pet.new_record? ? "Add Pet" : "Update Pet", class: 'btn btn-primary btn-lg') %>
