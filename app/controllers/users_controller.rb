@@ -19,13 +19,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.last_login = Time.now
-    if !verify_recaptcha(model: @user) || !@user.save
-      render 'new'
+    if verify_recaptcha
+      set_up_user_account
     else
-      @user.send_sign_up_email
-      @user.send_account_activation
-      flash[:warning] = "Please check your email to activate your account."
-      redirect_to root_url
+      render 'new'
     end
   end
 
@@ -71,6 +68,17 @@ class UsersController < ApplicationController
     if logged_in? and !current_user.admin?
       flash[:danger] = "Only admin users can perform that action."
       redirect_to root_path
+    end
+  end
+
+  def set_up_user_account
+    if @user.save
+      @user.send_sign_up_email
+      @user.send_account_activation
+      flash[:warning] = "Please check your email to activate your account."
+      redirect_to root_url
+    else
+      render 'new'
     end
   end
 end
