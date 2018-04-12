@@ -5,31 +5,32 @@
       <div class="col-xs-12">
         <%= form_for(@user, :html => { class: 'form-horizontal', role: 'form' }) do |f| %>
           <div class="form-group">
-            <%= f.label :email, class: 'label-style' %> *
+            <%= f.label :email, 'Email *', class: 'label-style' %>
             <%= f.email_field :email, class: 'form-control', placeholder: 'Email', required: true %>
           </div>
           <div class="form-group">
-            <%= f.label :password, class: 'label-style' %> *
+            <%= f.label :password, 'Password *', class: 'label-style' %>
             <%= f.password_field :password, class: 'form-control', placeholder: 'Password' %>
           </div>
           <div class="form-group">
-              <%= f.label :first_name, class: 'label-style' %> *
+              <%= f.label :first_name, 'First Name *', class: 'label-style' %>
               <%= f.text_field :first_name, class: 'form-control', placeholder: 'First Name', required: true %>
           </div>
           <div class="form-group">
-            <%= f.label :last_name, class: 'label-style' %> *
+            <%= f.label :last_name, 'Last Name *', class: 'label-style' %>
             <%= f.text_field :last_name, class: 'form-control', placeholder: 'Last Name', required: true %>
           </div>
           <div class="form-group">
-            <%= f.label :phone, class: 'label-style' %> *
+            <%= f.label :phone, 'Phone *', class: 'label-style' %>
             <%= f.text_field :phone, class: 'form-control', placeholder: 'Phone Number', required: true %>
           </div>
           <div class="form-group">
-            <%= f.label :address, class: 'label-style' %> *
+            <%= f.label :address, 'Address *', class: 'label-style' %>
             <%= f.text_field :address, class: 'form-control', placeholder: 'Address', required: true %>
           </div>
           <div class="form-group">
             <% if @user.new_record? %>
+              <%= render 'shared/recaptcha' %>
               <%= f.submit "Sign up", class: 'btn btn-primary btn-lg'%>
             <% else %>
               <%= f.submit "Update Profile", class: 'btn btn-primary btn-lg' %>
