@@ -19,13 +19,13 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.last_login = Time.now
-    if @user.save
+    if !verify_recaptcha(model: @user) || !@user.save
+      render 'new'
+    else
       @user.send_sign_up_email
       @user.send_account_activation
       flash[:warning] = "Please check your email to activate your account."
       redirect_to root_url
-    else
-      render 'new'
     end
   end
 
