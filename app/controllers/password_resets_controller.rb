@@ -8,13 +8,9 @@ class PasswordResetsController < ApplicationController
 
   def create
     @user = User.find_by(email: params[:password_reset][:email].downcase)
-    if @user
-      @user.create_reset_digest
-      @user.send_password_reset_email
-      flash[:warning] = "An email has been sent with password reset instructions!"
-      redirect_to root_url
+    if verify_recaptcha
+      send_password_reset
     else
-      flash.now[:danger] = "Invalid Email address."
       render 'new'
     end
   end
@@ -55,5 +51,17 @@ class PasswordResetsController < ApplicationController
 
   def valid_user
     redirect_to root_url if @user.nil? || @user.reset_digest.nil? || @user.reset_sent_at.nil?
+  end
+
+  def send_password_reset
+    if @user
+      @user.create_reset_digest
+      @user.send_password_reset_email
+      flash[:warning] = "An email has been sent with password reset instructions!"
+      redirect_to root_url
+    else
+      flash.now[:danger] = "Invalid Email address."
+      render 'new'
+    end
   end
 end
