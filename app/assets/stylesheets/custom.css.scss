@@ -821,19 +821,14 @@ footer a:hover {
   text-decoration: none;
 }
 
-footer small {
-  float: left;
-}
-
 footer ul {
-  float: right;
+  float: left;
   list-style: none;
 }
 
 footer ul li {
   float: left;
   margin-left: 15px;
-  font-size: 0.8em;
 }
 
 .social-list {
@@ -841,15 +836,27 @@ footer ul li {
   margin-left: -40px;
 }
 
+.social-list li {
+  float: left;
+}
+
 .social-icon {
   width: 44px;
   background-color: #999999;
-  transition: box-shadow, background-color .5s;
+  transition: background-color .5s;
 }
 
 .social-icon:hover {
   background-color: #fff;
   cursor: pointer;
+}
+
+.footer-links {
+  float: right;
+}
+
+.footer-copyright {
+  float: right;
 }
 
 .copyright-li {
@@ -992,10 +999,6 @@ footer ul li {
   .error-messages {
     width: 85%;
   }
-
-  .footer-links {
-    display: none;
-  }
 }
 
 @media screen and (max-width: 750px) {
@@ -1021,6 +1024,12 @@ footer ul li {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
     color: #fff;
     background-color: #000;
+  }
+}
+
+@media screen and (max-width: 765px) {
+  .footer-links {
+    display: none;
   }
 }
 
