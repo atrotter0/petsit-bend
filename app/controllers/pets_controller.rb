@@ -9,7 +9,7 @@ class PetsController < ApplicationController
   before_action :require_user
   before_action :require_same_user
 
-  PETS_PAGINATE_LIMIT = 10
+  PETS_PAGINATE_LIMIT = 20
 
   def index
     if current_user.admin?
