@@ -8,8 +8,11 @@ A petsitting web app that allows users to sign up for services, add their pets, 
 
 **Note:** I have retired from petsitting and dog walking in Bend, and this web app is now for portfolio purposes only.
 
+![Image of Homepage view](s3://trotter-portfolio-images/thumbnails/petsit-bend.png)   
+
 ## Setup
 
+1. Download and install Ruby and Ruby on Rails
 1. Clone the repo
 1. Run `bundle install`
 1. Run `rake db:migrate`
@@ -36,8 +39,8 @@ A petsitting web app that allows users to sign up for services, add their pets, 
 
 ## Links
 
-* [Github Repo] (https://github.com/atrotter0/petsit-bend)
-* [Petsit Bend] (https://www.petsitbend.com)
+* Github Repo: https://github.com/atrotter0/petsit-bend
+* Petsit Bend: https://www.petsitbend.com
 
 ## License
 
