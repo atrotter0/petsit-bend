@@ -12,7 +12,7 @@ A petsitting web app that allows users to sign up for services, add their pets, 
 
 ## Setup
 
-1. Download and instal Ruby and Ruby on Rails
+1. Download and install Ruby and Ruby on Rails
 1. Clone the repo
 1. Run `bundle install`
 1. Run `rake db:migrate`
