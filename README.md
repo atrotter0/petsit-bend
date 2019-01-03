@@ -8,7 +8,7 @@ A petsitting web app that allows users to sign up for services, add their pets, 
 
 **Note:** I have retired from petsitting and dog walking in Bend, and this web app is now for portfolio purposes only.
 
-![Image of Homepage view](s3://trotter-portfolio-images/thumbnails/petsit-bend.png)   
+![Image of Homepage view](https://s3.amazonaws.com/trotter-portfolio-images/thumbnails/petsit-bend.png)   
 
 ## Setup
 
