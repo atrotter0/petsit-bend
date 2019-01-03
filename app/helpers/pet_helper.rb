@@ -15,6 +15,14 @@ module PetHelper
     list.flatten!
   end
 
+  def has_dog_as_pet?(user)
+    has_dog = false
+    user.pets.each do |pet|
+      has_dog = true if pet.pet_type == "Dog"
+    end
+    return has_dog
+  end
+
   def get_pet_users_and_sort
     @pet_user_list = User.all.order("last_name ASC")
   end
