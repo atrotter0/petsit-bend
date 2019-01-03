@@ -1,6 +1,6 @@
 <%= render 'shared/errors', obj: @schedule %>
 
-  <% if !current_user.pets.exists? && !current_user.admin %>
+  <% if (!current_user.pets.exists? && !current_user.admin) || (!has_dog_as_pet?(current_user) && !current_user.admin) %>
     <%= render 'shared/add_pet_warning' %>
   <% else %>
     <div class="form-container medium-form-width">
